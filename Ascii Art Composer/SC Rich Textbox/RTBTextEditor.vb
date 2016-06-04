@@ -41,9 +41,6 @@
         AddHandler Me.MAINFORM.tsbShowHiddenSpace.Click, AddressOf ChangeBackColor
     End Sub
 
-    Public Sub SetSymbol_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub Characters_TextChanged(sender As Object, e As EventArgs)
         Dim result As Int16
@@ -62,13 +59,13 @@
     Public Sub ResetAndFill()
         Dim row As Int16 = If(Not Me.MAINFORM.tstbLines.Text = "", Integer.Parse(Me.MAINFORM.tstbLines.Text), 60)
         Dim chars As Int16 = If(Not Me.MAINFORM.tstbCharacters.Text = "", Integer.Parse(Me.MAINFORM.tstbCharacters.Text), 350)
-        Dim symbol As Char = " " ' Me.MAINFORM.tstbSymbol.Text.FirstOrDefault
+        'Dim symbol As Char = " " ' Me.MAINFORM.tstbSymbol.Text.FirstOrDefault
         Dim symbolContainer As Char() = New Char(row * chars) {}
         RTB.Text = String.Empty
 
         For y As Int16 = 0 To row
             For x As Int16 = 0 To chars - 1
-                symbolContainer(x) = symbol
+                symbolContainer(x) = " " 'Symbol TODO: this is for the future maybe. So the user can change all the text to match the current symbol.
             Next
             RTB.Text += Chr(10)
             RTB.Text += New String(symbolContainer)

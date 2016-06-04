@@ -5,7 +5,9 @@ Public Class frmArt
 
     Private Sub frmArt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         rtbAggregate = New RTBAggregateSource(Me, Me.rtbArtBox)
+        tstbSymbol.Text = " "
         rtbAggregate.TextEditor.ResetAndFill()
+        tstbSymbol.Text = "@"
 
         'Dim setting As Settings = New Settings
         'setting.Show()

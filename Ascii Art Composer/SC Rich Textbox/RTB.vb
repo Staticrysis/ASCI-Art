@@ -1,9 +1,9 @@
 ﻿Public Class RTBSource
 #Region "Global Variables"
     Protected MAINFORM As Ascii_Art_Composer.frmArt
-    Protected RTB As Ascii_Art_Composer.RTBArtBox
+    Protected RTB As Ascii_Art_Composer.RTBARTBox_MouseMove
 
-    Private _symbol As String = " " 'TODO: don't know if i want this to be global to the derivede classes yet
+    Private _symbol As String ' = " " 'TODO: don't know if i want this to be global to the derivede classes yet
 
     Private _mouseCurrentPoint As Point
 
@@ -98,7 +98,7 @@
         End Set
     End Property
 #End Region
-    Sub New(ByRef mainForm As frmArt, ByRef rtb As RTBArtBox)
+    Sub New(ByRef mainForm As frmArt, ByRef rtb As RTBARTBox_MouseMove)
         Me.MAINFORM = mainForm
         Me.RTB = rtb
 
