@@ -8,7 +8,7 @@
 
         ' Add any initialization after the InitializeComponent() call.
         _artForm = artForm
-        _settingsAggregate = New SettingsAggregate(artForm, artForm.rtbArtBox)
+        _settingsAggregate = New SettingsAggregate(artForm, Me)
     End Sub
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
