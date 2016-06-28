@@ -51,13 +51,13 @@ Partial Class Settings
         Me.buttonSetSettingsFileLocation = New System.Windows.Forms.Button()
         Me.gbImageFile = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.buttonSetSaveLocalImageFile = New System.Windows.Forms.Button()
         Me.tbImageFileLocation = New System.Windows.Forms.TextBox()
-        Me.buttonSetImageFileLocation = New System.Windows.Forms.Button()
+        Me.buttonSetSaveWEBImageFile = New System.Windows.Forms.Button()
         Me.gbFileLocations = New System.Windows.Forms.GroupBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.tbSaveLoadArtFile = New System.Windows.Forms.TextBox()
+        Me.buttonSetSaveLoadFile = New System.Windows.Forms.Button()
         Me.gbArtFile = New System.Windows.Forms.GroupBox()
         Me.buttonSetSaveArtFileLocation = New System.Windows.Forms.Button()
         Me.tbSaveArtFileLocation = New System.Windows.Forms.TextBox()
@@ -401,9 +401,9 @@ Partial Class Settings
         '
         Me.gbImageFile.BackColor = System.Drawing.Color.Silver
         Me.gbImageFile.Controls.Add(Me.Label3)
-        Me.gbImageFile.Controls.Add(Me.Button2)
+        Me.gbImageFile.Controls.Add(Me.buttonSetSaveLocalImageFile)
         Me.gbImageFile.Controls.Add(Me.tbImageFileLocation)
-        Me.gbImageFile.Controls.Add(Me.buttonSetImageFileLocation)
+        Me.gbImageFile.Controls.Add(Me.buttonSetSaveWEBImageFile)
         Me.gbImageFile.Location = New System.Drawing.Point(6, 71)
         Me.gbImageFile.Name = "gbImageFile"
         Me.gbImageFile.Size = New System.Drawing.Size(526, 46)
@@ -420,17 +420,17 @@ Partial Class Settings
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "or"
         '
-        'Button2
+        'buttonSetSaveLocalImageFile
         '
-        Me.Button2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.buttonSetSaveLocalImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button2.Location = New System.Drawing.Point(69, 18)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(41, 21)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Local"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.buttonSetSaveLocalImageFile.Location = New System.Drawing.Point(69, 18)
+        Me.buttonSetSaveLocalImageFile.Name = "buttonSetSaveLocalImageFile"
+        Me.buttonSetSaveLocalImageFile.Size = New System.Drawing.Size(41, 21)
+        Me.buttonSetSaveLocalImageFile.TabIndex = 2
+        Me.buttonSetSaveLocalImageFile.Text = "Local"
+        Me.buttonSetSaveLocalImageFile.UseVisualStyleBackColor = True
         '
         'tbImageFileLocation
         '
@@ -442,17 +442,17 @@ Partial Class Settings
         Me.tbImageFileLocation.Size = New System.Drawing.Size(404, 20)
         Me.tbImageFileLocation.TabIndex = 1
         '
-        'buttonSetImageFileLocation
+        'buttonSetSaveWEBImageFile
         '
-        Me.buttonSetImageFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.buttonSetSaveWEBImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonSetImageFileLocation.Location = New System.Drawing.Point(7, 18)
-        Me.buttonSetImageFileLocation.Name = "buttonSetImageFileLocation"
-        Me.buttonSetImageFileLocation.Size = New System.Drawing.Size(41, 21)
-        Me.buttonSetImageFileLocation.TabIndex = 0
-        Me.buttonSetImageFileLocation.Text = "WEB"
-        Me.buttonSetImageFileLocation.UseVisualStyleBackColor = True
+        Me.buttonSetSaveWEBImageFile.Location = New System.Drawing.Point(7, 18)
+        Me.buttonSetSaveWEBImageFile.Name = "buttonSetSaveWEBImageFile"
+        Me.buttonSetSaveWEBImageFile.Size = New System.Drawing.Size(41, 21)
+        Me.buttonSetSaveWEBImageFile.TabIndex = 0
+        Me.buttonSetSaveWEBImageFile.Text = "WEB"
+        Me.buttonSetSaveWEBImageFile.UseVisualStyleBackColor = True
         '
         'gbFileLocations
         '
@@ -469,8 +469,8 @@ Partial Class Settings
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Silver
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.tbSaveLoadArtFile)
+        Me.GroupBox1.Controls.Add(Me.buttonSetSaveLoadFile)
         Me.GroupBox1.Location = New System.Drawing.Point(6, 71)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(526, 46)
@@ -478,27 +478,27 @@ Partial Class Settings
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Art Load File"
         '
-        'TextBox1
+        'tbSaveLoadArtFile
         '
-        Me.TextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.tbSaveLoadArtFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox1.Location = New System.Drawing.Point(116, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(404, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.tbSaveLoadArtFile.Location = New System.Drawing.Point(116, 19)
+        Me.tbSaveLoadArtFile.Name = "tbSaveLoadArtFile"
+        Me.tbSaveLoadArtFile.Size = New System.Drawing.Size(404, 20)
+        Me.tbSaveLoadArtFile.TabIndex = 1
         '
-        'Button1
+        'buttonSetSaveLoadFile
         '
-        Me.Button1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.buttonSetSaveLoadFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(7, 19)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 21)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Set"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.buttonSetSaveLoadFile.Location = New System.Drawing.Point(7, 19)
+        Me.buttonSetSaveLoadFile.Name = "buttonSetSaveLoadFile"
+        Me.buttonSetSaveLoadFile.Size = New System.Drawing.Size(103, 21)
+        Me.buttonSetSaveLoadFile.TabIndex = 0
+        Me.buttonSetSaveLoadFile.Text = "Set"
+        Me.buttonSetSaveLoadFile.UseVisualStyleBackColor = True
         '
         'gbArtFile
         '
@@ -812,15 +812,15 @@ Partial Class Settings
     Friend WithEvents gbFileLocations As GroupBox
     Friend WithEvents gbImageFile As GroupBox
     Friend WithEvents tbImageFileLocation As TextBox
-    Friend WithEvents buttonSetImageFileLocation As Button
+    Friend WithEvents buttonSetSaveWEBImageFile As Button
     Friend WithEvents buttonSetSaveArtFileLocation As Button
     Friend WithEvents tbSaveArtFileLocation As TextBox
     Friend WithEvents gbSettingsFile As GroupBox
     Friend WithEvents tbSettingsFileLocation As TextBox
     Friend WithEvents buttonSetSettingsFileLocation As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents tbSaveLoadArtFile As TextBox
+    Friend WithEvents buttonSetSaveLoadFile As Button
     Friend WithEvents gbSettingsFileLocation As GroupBox
     Friend WithEvents gbWebPresets As GroupBox
     Friend WithEvents pbCurrentBackImage As PictureBox
@@ -830,7 +830,7 @@ Partial Class Settings
     Friend WithEvents cbWebPresets As ComboBox
     Friend WithEvents pbLoadingImages As ProgressBar
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents buttonSetSaveLocalImageFile As Button
     Friend WithEvents lbLoadingImages As Label
     Friend WithEvents buttonImageUp As Button
     Friend WithEvents buttonImageDown As Button
