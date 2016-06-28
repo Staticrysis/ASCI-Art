@@ -25,15 +25,7 @@ Partial Class Settings
         Me.components = New System.ComponentModel.Container()
         Me.tcSettings = New System.Windows.Forms.TabControl()
         Me.tpColors = New System.Windows.Forms.TabPage()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.gbTextBoxColors = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.cbBackgroundColors = New System.Windows.Forms.ComboBox()
         Me.ColorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cbTextBoxColors = New System.Windows.Forms.ComboBox()
         Me.tpTextEditingSettings = New System.Windows.Forms.TabPage()
         Me.gbWebPresets = New System.Windows.Forms.GroupBox()
         Me.cbWebPresets = New System.Windows.Forms.ComboBox()
@@ -71,10 +63,28 @@ Partial Class Settings
         Me.tbSaveArtFileLocation = New System.Windows.Forms.TextBox()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.buttonImageDown = New System.Windows.Forms.Button()
+        Me.gbTextBox = New System.Windows.Forms.GroupBox()
+        Me.gbRTBTextForeColors = New System.Windows.Forms.GroupBox()
+        Me.buttonRTBTextForeColor = New System.Windows.Forms.Button()
+        Me.cbRTBTextForeColor = New System.Windows.Forms.ComboBox()
+        Me.gbRTBTextBackColors = New System.Windows.Forms.GroupBox()
+        Me.cbRTBTextBackColors = New System.Windows.Forms.ComboBox()
+        Me.buttonRTBTextBackColors = New System.Windows.Forms.Button()
+        Me.gbRTBTextHighlight = New System.Windows.Forms.GroupBox()
+        Me.cbRTBTextHighlight = New System.Windows.Forms.ComboBox()
+        Me.buttonRTBTextHighlight = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.gbGUITextColors = New System.Windows.Forms.GroupBox()
+        Me.cbGUITextColors = New System.Windows.Forms.ComboBox()
+        Me.buttonGUITextColors = New System.Windows.Forms.Button()
+        Me.gbGUIBackColors = New System.Windows.Forms.GroupBox()
+        Me.cbGUIBackTextColors = New System.Windows.Forms.ComboBox()
+        Me.buttonGUIBackTextColors = New System.Windows.Forms.Button()
+        Me.gbGUIForeColors = New System.Windows.Forms.GroupBox()
+        Me.cbGUIForeTextColors = New System.Windows.Forms.ComboBox()
+        Me.buttonGUIForeTextColors = New System.Windows.Forms.Button()
         Me.tcSettings.SuspendLayout()
         Me.tpColors.SuspendLayout()
-        Me.gbTextBoxColors.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpTextEditingSettings.SuspendLayout()
         Me.gbWebPresets.SuspendLayout()
@@ -94,13 +104,21 @@ Partial Class Settings
         Me.gbFileLocations.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gbArtFile.SuspendLayout()
+        Me.gbTextBox.SuspendLayout()
+        Me.gbRTBTextForeColors.SuspendLayout()
+        Me.gbRTBTextBackColors.SuspendLayout()
+        Me.gbRTBTextHighlight.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.gbGUITextColors.SuspendLayout()
+        Me.gbGUIBackColors.SuspendLayout()
+        Me.gbGUIForeColors.SuspendLayout()
         Me.SuspendLayout()
         '
         'tcSettings
         '
-        Me.tcSettings.Controls.Add(Me.tpColors)
-        Me.tcSettings.Controls.Add(Me.tpTextEditingSettings)
         Me.tcSettings.Controls.Add(Me.tbFiles)
+        Me.tcSettings.Controls.Add(Me.tpTextEditingSettings)
+        Me.tcSettings.Controls.Add(Me.tpColors)
         Me.tcSettings.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tcSettings.Location = New System.Drawing.Point(0, 0)
         Me.tcSettings.Name = "tcSettings"
@@ -110,10 +128,9 @@ Partial Class Settings
         '
         'tpColors
         '
-        Me.tpColors.BackColor = System.Drawing.Color.Silver
-        Me.tpColors.Controls.Add(Me.GroupBox2)
-        Me.tpColors.Controls.Add(Me.GroupBox3)
-        Me.tpColors.Controls.Add(Me.gbTextBoxColors)
+        Me.tpColors.BackColor = System.Drawing.Color.DarkRed
+        Me.tpColors.Controls.Add(Me.GroupBox4)
+        Me.tpColors.Controls.Add(Me.gbTextBox)
         Me.tpColors.Location = New System.Drawing.Point(4, 22)
         Me.tpColors.Name = "tpColors"
         Me.tpColors.Padding = New System.Windows.Forms.Padding(3)
@@ -121,97 +138,9 @@ Partial Class Settings
         Me.tpColors.TabIndex = 0
         Me.tpColors.Text = "Colors"
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Location = New System.Drawing.Point(8, 222)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(184, 100)
-        Me.GroupBox2.TabIndex = 4
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "GroupBox2"
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Location = New System.Drawing.Point(8, 116)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(184, 100)
-        Me.GroupBox3.TabIndex = 3
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "GroupBox3"
-        '
-        'gbTextBoxColors
-        '
-        Me.gbTextBoxColors.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.gbTextBoxColors.Controls.Add(Me.TableLayoutPanel2)
-        Me.gbTextBoxColors.Location = New System.Drawing.Point(8, 6)
-        Me.gbTextBoxColors.Name = "gbTextBoxColors"
-        Me.gbTextBoxColors.Size = New System.Drawing.Size(242, 104)
-        Me.gbTextBoxColors.TabIndex = 0
-        Me.gbTextBoxColors.TabStop = False
-        Me.gbTextBoxColors.Text = "Textbox Colors"
-        '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.18919!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.81081!))
-        Me.TableLayoutPanel2.Controls.Add(Me.cbBackgroundColors, 1, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.cbTextBoxColors, 1, 0)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(6, 19)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(222, 75)
-        Me.TableLayoutPanel2.TabIndex = 1
-        '
-        'cbBackgroundColors
-        '
-        Me.cbBackgroundColors.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbBackgroundColors.DataSource = Me.ColorBindingSource
-        Me.cbBackgroundColors.FormattingEnabled = True
-        Me.cbBackgroundColors.Location = New System.Drawing.Point(90, 45)
-        Me.cbBackgroundColors.Name = "cbBackgroundColors"
-        Me.cbBackgroundColors.Size = New System.Drawing.Size(129, 21)
-        Me.cbBackgroundColors.TabIndex = 3
-        '
         'ColorBindingSource
         '
         Me.ColorBindingSource.DataSource = GetType(System.Drawing.Color)
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 12)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(81, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Textbox Color"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 43)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(81, 26)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Background Color"
-        '
-        'cbTextBoxColors
-        '
-        Me.cbTextBoxColors.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbTextBoxColors.DataSource = Me.ColorBindingSource
-        Me.cbTextBoxColors.FormattingEnabled = True
-        Me.cbTextBoxColors.Location = New System.Drawing.Point(90, 8)
-        Me.cbTextBoxColors.Name = "cbTextBoxColors"
-        Me.cbTextBoxColors.Size = New System.Drawing.Size(129, 21)
-        Me.cbTextBoxColors.TabIndex = 2
         '
         'tpTextEditingSettings
         '
@@ -618,6 +547,206 @@ Partial Class Settings
         Me.buttonImageDown.TabIndex = 3
         Me.buttonImageDown.UseVisualStyleBackColor = True
         '
+        'gbTextBox
+        '
+        Me.gbTextBox.BackColor = System.Drawing.Color.DarkGray
+        Me.gbTextBox.Controls.Add(Me.gbRTBTextHighlight)
+        Me.gbTextBox.Controls.Add(Me.gbRTBTextBackColors)
+        Me.gbTextBox.Controls.Add(Me.gbRTBTextForeColors)
+        Me.gbTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.gbTextBox.Name = "gbTextBox"
+        Me.gbTextBox.Size = New System.Drawing.Size(263, 205)
+        Me.gbTextBox.TabIndex = 2
+        Me.gbTextBox.TabStop = False
+        Me.gbTextBox.Text = "Rich Text Box Colors"
+        '
+        'gbRTBTextForeColors
+        '
+        Me.gbRTBTextForeColors.BackColor = System.Drawing.Color.Silver
+        Me.gbRTBTextForeColors.Controls.Add(Me.cbRTBTextForeColor)
+        Me.gbRTBTextForeColors.Controls.Add(Me.buttonRTBTextForeColor)
+        Me.gbRTBTextForeColors.Location = New System.Drawing.Point(7, 21)
+        Me.gbRTBTextForeColors.Name = "gbRTBTextForeColors"
+        Me.gbRTBTextForeColors.Size = New System.Drawing.Size(245, 54)
+        Me.gbRTBTextForeColors.TabIndex = 0
+        Me.gbRTBTextForeColors.TabStop = False
+        Me.gbRTBTextForeColors.Text = "Fore Colors"
+        '
+        'buttonRTBTextForeColor
+        '
+        Me.buttonRTBTextForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonRTBTextForeColor.Location = New System.Drawing.Point(191, 20)
+        Me.buttonRTBTextForeColor.Name = "buttonRTBTextForeColor"
+        Me.buttonRTBTextForeColor.Size = New System.Drawing.Size(48, 23)
+        Me.buttonRTBTextForeColor.TabIndex = 1
+        Me.buttonRTBTextForeColor.UseVisualStyleBackColor = True
+        '
+        'cbRTBTextForeColor
+        '
+        Me.cbRTBTextForeColor.FormattingEnabled = True
+        Me.cbRTBTextForeColor.Location = New System.Drawing.Point(7, 20)
+        Me.cbRTBTextForeColor.Name = "cbRTBTextForeColor"
+        Me.cbRTBTextForeColor.Size = New System.Drawing.Size(178, 21)
+        Me.cbRTBTextForeColor.TabIndex = 2
+        '
+        'gbRTBTextBackColors
+        '
+        Me.gbRTBTextBackColors.BackColor = System.Drawing.Color.Silver
+        Me.gbRTBTextBackColors.Controls.Add(Me.cbRTBTextBackColors)
+        Me.gbRTBTextBackColors.Controls.Add(Me.buttonRTBTextBackColors)
+        Me.gbRTBTextBackColors.Location = New System.Drawing.Point(7, 81)
+        Me.gbRTBTextBackColors.Name = "gbRTBTextBackColors"
+        Me.gbRTBTextBackColors.Size = New System.Drawing.Size(245, 54)
+        Me.gbRTBTextBackColors.TabIndex = 1
+        Me.gbRTBTextBackColors.TabStop = False
+        Me.gbRTBTextBackColors.Text = "Back Colors"
+        '
+        'cbRTBTextBackColors
+        '
+        Me.cbRTBTextBackColors.FormattingEnabled = True
+        Me.cbRTBTextBackColors.Location = New System.Drawing.Point(7, 20)
+        Me.cbRTBTextBackColors.Name = "cbRTBTextBackColors"
+        Me.cbRTBTextBackColors.Size = New System.Drawing.Size(178, 21)
+        Me.cbRTBTextBackColors.TabIndex = 2
+        '
+        'buttonRTBTextBackColors
+        '
+        Me.buttonRTBTextBackColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonRTBTextBackColors.Location = New System.Drawing.Point(191, 20)
+        Me.buttonRTBTextBackColors.Name = "buttonRTBTextBackColors"
+        Me.buttonRTBTextBackColors.Size = New System.Drawing.Size(48, 23)
+        Me.buttonRTBTextBackColors.TabIndex = 1
+        Me.buttonRTBTextBackColors.UseVisualStyleBackColor = True
+        '
+        'gbRTBTextHighlight
+        '
+        Me.gbRTBTextHighlight.BackColor = System.Drawing.Color.Silver
+        Me.gbRTBTextHighlight.Controls.Add(Me.cbRTBTextHighlight)
+        Me.gbRTBTextHighlight.Controls.Add(Me.buttonRTBTextHighlight)
+        Me.gbRTBTextHighlight.Location = New System.Drawing.Point(7, 141)
+        Me.gbRTBTextHighlight.Name = "gbRTBTextHighlight"
+        Me.gbRTBTextHighlight.Size = New System.Drawing.Size(245, 54)
+        Me.gbRTBTextHighlight.TabIndex = 2
+        Me.gbRTBTextHighlight.TabStop = False
+        Me.gbRTBTextHighlight.Text = "Text Highlight Color"
+        '
+        'cbRTBTextHighlight
+        '
+        Me.cbRTBTextHighlight.FormattingEnabled = True
+        Me.cbRTBTextHighlight.Location = New System.Drawing.Point(7, 20)
+        Me.cbRTBTextHighlight.Name = "cbRTBTextHighlight"
+        Me.cbRTBTextHighlight.Size = New System.Drawing.Size(178, 21)
+        Me.cbRTBTextHighlight.TabIndex = 2
+        '
+        'buttonRTBTextHighlight
+        '
+        Me.buttonRTBTextHighlight.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonRTBTextHighlight.Location = New System.Drawing.Point(191, 20)
+        Me.buttonRTBTextHighlight.Name = "buttonRTBTextHighlight"
+        Me.buttonRTBTextHighlight.Size = New System.Drawing.Size(48, 23)
+        Me.buttonRTBTextHighlight.TabIndex = 1
+        Me.buttonRTBTextHighlight.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.BackColor = System.Drawing.Color.DarkGray
+        Me.GroupBox4.Controls.Add(Me.gbGUITextColors)
+        Me.GroupBox4.Controls.Add(Me.gbGUIBackColors)
+        Me.GroupBox4.Controls.Add(Me.gbGUIForeColors)
+        Me.GroupBox4.Location = New System.Drawing.Point(275, 3)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(263, 205)
+        Me.GroupBox4.TabIndex = 3
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "GUI Colors"
+        '
+        'gbGUITextColors
+        '
+        Me.gbGUITextColors.BackColor = System.Drawing.Color.Silver
+        Me.gbGUITextColors.Controls.Add(Me.cbGUITextColors)
+        Me.gbGUITextColors.Controls.Add(Me.buttonGUITextColors)
+        Me.gbGUITextColors.Location = New System.Drawing.Point(7, 141)
+        Me.gbGUITextColors.Name = "gbGUITextColors"
+        Me.gbGUITextColors.Size = New System.Drawing.Size(245, 54)
+        Me.gbGUITextColors.TabIndex = 2
+        Me.gbGUITextColors.TabStop = False
+        Me.gbGUITextColors.Text = "Text Colors"
+        '
+        'cbGUITextColors
+        '
+        Me.cbGUITextColors.FormattingEnabled = True
+        Me.cbGUITextColors.Location = New System.Drawing.Point(7, 20)
+        Me.cbGUITextColors.Name = "cbGUITextColors"
+        Me.cbGUITextColors.Size = New System.Drawing.Size(178, 21)
+        Me.cbGUITextColors.TabIndex = 2
+        '
+        'buttonGUITextColors
+        '
+        Me.buttonGUITextColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonGUITextColors.Location = New System.Drawing.Point(191, 20)
+        Me.buttonGUITextColors.Name = "buttonGUITextColors"
+        Me.buttonGUITextColors.Size = New System.Drawing.Size(48, 23)
+        Me.buttonGUITextColors.TabIndex = 1
+        Me.buttonGUITextColors.UseVisualStyleBackColor = True
+        '
+        'gbGUIBackColors
+        '
+        Me.gbGUIBackColors.BackColor = System.Drawing.Color.Silver
+        Me.gbGUIBackColors.Controls.Add(Me.cbGUIBackTextColors)
+        Me.gbGUIBackColors.Controls.Add(Me.buttonGUIBackTextColors)
+        Me.gbGUIBackColors.Location = New System.Drawing.Point(7, 81)
+        Me.gbGUIBackColors.Name = "gbGUIBackColors"
+        Me.gbGUIBackColors.Size = New System.Drawing.Size(245, 54)
+        Me.gbGUIBackColors.TabIndex = 1
+        Me.gbGUIBackColors.TabStop = False
+        Me.gbGUIBackColors.Text = "Back Colors"
+        '
+        'cbGUIBackTextColors
+        '
+        Me.cbGUIBackTextColors.FormattingEnabled = True
+        Me.cbGUIBackTextColors.Location = New System.Drawing.Point(7, 20)
+        Me.cbGUIBackTextColors.Name = "cbGUIBackTextColors"
+        Me.cbGUIBackTextColors.Size = New System.Drawing.Size(178, 21)
+        Me.cbGUIBackTextColors.TabIndex = 2
+        '
+        'buttonGUIBackTextColors
+        '
+        Me.buttonGUIBackTextColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonGUIBackTextColors.Location = New System.Drawing.Point(191, 20)
+        Me.buttonGUIBackTextColors.Name = "buttonGUIBackTextColors"
+        Me.buttonGUIBackTextColors.Size = New System.Drawing.Size(48, 23)
+        Me.buttonGUIBackTextColors.TabIndex = 1
+        Me.buttonGUIBackTextColors.UseVisualStyleBackColor = True
+        '
+        'gbGUIForeColors
+        '
+        Me.gbGUIForeColors.BackColor = System.Drawing.Color.Silver
+        Me.gbGUIForeColors.Controls.Add(Me.cbGUIForeTextColors)
+        Me.gbGUIForeColors.Controls.Add(Me.buttonGUIForeTextColors)
+        Me.gbGUIForeColors.Location = New System.Drawing.Point(7, 21)
+        Me.gbGUIForeColors.Name = "gbGUIForeColors"
+        Me.gbGUIForeColors.Size = New System.Drawing.Size(245, 54)
+        Me.gbGUIForeColors.TabIndex = 0
+        Me.gbGUIForeColors.TabStop = False
+        Me.gbGUIForeColors.Text = "Fore Colors"
+        '
+        'cbGUIForeTextColors
+        '
+        Me.cbGUIForeTextColors.FormattingEnabled = True
+        Me.cbGUIForeTextColors.Location = New System.Drawing.Point(7, 20)
+        Me.cbGUIForeTextColors.Name = "cbGUIForeTextColors"
+        Me.cbGUIForeTextColors.Size = New System.Drawing.Size(178, 21)
+        Me.cbGUIForeTextColors.TabIndex = 2
+        '
+        'buttonGUIForeTextColors
+        '
+        Me.buttonGUIForeTextColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonGUIForeTextColors.Location = New System.Drawing.Point(191, 20)
+        Me.buttonGUIForeTextColors.Name = "buttonGUIForeTextColors"
+        Me.buttonGUIForeTextColors.Size = New System.Drawing.Size(48, 23)
+        Me.buttonGUIForeTextColors.TabIndex = 1
+        Me.buttonGUIForeTextColors.UseVisualStyleBackColor = True
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -629,9 +758,6 @@ Partial Class Settings
         Me.Text = "Settings"
         Me.tcSettings.ResumeLayout(False)
         Me.tpColors.ResumeLayout(False)
-        Me.gbTextBoxColors.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
         CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpTextEditingSettings.ResumeLayout(False)
         Me.gbWebPresets.ResumeLayout(False)
@@ -657,24 +783,24 @@ Partial Class Settings
         Me.GroupBox1.PerformLayout()
         Me.gbArtFile.ResumeLayout(False)
         Me.gbArtFile.PerformLayout()
+        Me.gbTextBox.ResumeLayout(False)
+        Me.gbRTBTextForeColors.ResumeLayout(False)
+        Me.gbRTBTextBackColors.ResumeLayout(False)
+        Me.gbRTBTextHighlight.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.gbGUITextColors.ResumeLayout(False)
+        Me.gbGUIBackColors.ResumeLayout(False)
+        Me.gbGUIForeColors.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents tcSettings As TabControl
     Friend WithEvents tpColors As TabPage
     Friend WithEvents tpTextEditingSettings As TabPage
-    Friend WithEvents gbTextBoxColors As GroupBox
     Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents cbBackgroundColors As ComboBox
-    Friend WithEvents cbTextBoxColors As ComboBox
     Friend WithEvents ColorBindingSource As BindingSource
     Friend WithEvents tbFiles As TabPage
     Friend WithEvents gbArtFile As GroupBox
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents gbBackImage As GroupBox
     Friend WithEvents gbTextDimensions As GroupBox
     Friend WithEvents gbFillCharacter As GroupBox
@@ -708,4 +834,24 @@ Partial Class Settings
     Friend WithEvents lbLoadingImages As Label
     Friend WithEvents buttonImageUp As Button
     Friend WithEvents buttonImageDown As Button
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents gbGUITextColors As GroupBox
+    Friend WithEvents cbGUITextColors As ComboBox
+    Friend WithEvents buttonGUITextColors As Button
+    Friend WithEvents gbGUIBackColors As GroupBox
+    Friend WithEvents cbGUIBackTextColors As ComboBox
+    Friend WithEvents buttonGUIBackTextColors As Button
+    Friend WithEvents gbGUIForeColors As GroupBox
+    Friend WithEvents cbGUIForeTextColors As ComboBox
+    Friend WithEvents buttonGUIForeTextColors As Button
+    Friend WithEvents gbTextBox As GroupBox
+    Friend WithEvents gbRTBTextHighlight As GroupBox
+    Friend WithEvents cbRTBTextHighlight As ComboBox
+    Friend WithEvents buttonRTBTextHighlight As Button
+    Friend WithEvents gbRTBTextBackColors As GroupBox
+    Friend WithEvents cbRTBTextBackColors As ComboBox
+    Friend WithEvents buttonRTBTextBackColors As Button
+    Friend WithEvents gbRTBTextForeColors As GroupBox
+    Friend WithEvents cbRTBTextForeColor As ComboBox
+    Friend WithEvents buttonRTBTextForeColor As Button
 End Class
