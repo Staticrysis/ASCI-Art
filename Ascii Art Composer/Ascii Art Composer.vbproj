@@ -114,6 +114,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -141,8 +142,12 @@
       <DependentUpon>ArtForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SC Rich Textbox\RTB.vb" />
-    <Compile Include="SC Rich Textbox\RTBAggregateSource.vb" />
+    <Compile Include="General Settings\RTBSettings.vb" />
+    <Compile Include="General Settings\SettingsAggregate.vb" />
+    <Compile Include="General Settings\SettingsSource.vb" />
+    <Compile Include="General Settings\UISettings.vb" />
+    <Compile Include="SC Rich Textbox\RTBSource.vb" />
+    <Compile Include="SC Rich Textbox\RTBAggregate.vb" />
     <Compile Include="SC Rich Textbox\RTBArtBox.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -167,11 +172,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="General Settings\FileConnection.vb" />
-    <Compile Include="SC Rich Textbox\RTBBehaviors.vb" />
-    <Compile Include="SC Rich Textbox\RTBSettings.vb" />
+    <Compile Include="General Settings\FileSettings.vb" />
     <Compile Include="SC Rich Textbox\RTBDrawings.vb" />
-    <Compile Include="SC Rich Textbox\RTBTextEditor.vb" />
+    <Compile Include="SC Rich Textbox\RTBTextEditing.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ArtForm.resx">
@@ -192,6 +195,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\RTBSettings.datasource" />
+    <None Include="My Project\DataSources\System.Drawing.Color.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -201,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Custom Controls\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

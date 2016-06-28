@@ -1,24 +1,41 @@
 ﻿Public Class RTBSource
-#Region "Global Variables"
+    Sub New(ByRef mainForm As frmArt, ByRef rtb As RTBARTBox_MouseMove)
+        Me.MAINFORM = mainForm
+        Me.RTB = rtb
+
+        AddHandler Me.MAINFORM.tstbSymbol.TextChanged, AddressOf HandlesCurrentSymbol
+
+        AddHandler Me.RTB.MouseMove, AddressOf HandlesCurrentMouseLocation
+        AddHandler Me.RTB.MouseDown, AddressOf HandlesMiddleClickLocation
+        AddHandler Me.RTB.MouseUp, AddressOf HandlesMiddleReleaseLocation
+
+        AddHandler Me.RTB.MouseDown, AddressOf HandlesRightClickLocation
+        AddHandler Me.RTB.MouseUp, AddressOf HandlesRightReleaseLocation
+
+        AddHandler Me.RTB.MouseDown, AddressOf HandlesLeftClickLocation
+        AddHandler Me.RTB.MouseUp, AddressOf HandlesLeftReleaseLocation
+    End Sub
+#Region "Event Variables"
     Protected MAINFORM As Ascii_Art_Composer.frmArt
     Protected RTB As Ascii_Art_Composer.RTBARTBox_MouseMove
 
-    Private _symbol As String ' = " " 'TODO: don't know if i want this to be global to the derivede classes yet
+    Private Shared _symbol As String ' = " " 'TODO: don't know if i want this to be global to the derivede classes yet
 
-    Private _mouseCurrentPoint As Point
+    Private Shared _mouseCurrentPoint As Point
 
-    Private _middleClickPoint As Point
-    Private _middleReleasePoint As Point
-    Private _middleIsDown As Boolean = False
+    Private Shared _middleClickPoint As Point
+    Private Shared _middleReleasePoint As Point
+    Private Shared _middleIsDown As Boolean = False
 
-    Private _rightClickPoint As Point
-    Private _rightReleasePoint As Point
-    Private _rightIsDown As Boolean = False
+    Private Shared _rightClickPoint As Point
+    Private Shared _rightReleasePoint As Point
+    Private Shared _rightIsDown As Boolean = False
 
-    Private _leftClickPoint As Point
-    Private _leftReleasePoint As Point
-    Private _leftIsDown As Boolean = False
+    Private Shared _leftClickPoint As Point
+    Private Shared _leftReleasePoint As Point
+    Private Shared _leftIsDown As Boolean = False
 #End Region
+
 #Region "Properties"
     Public Property Symbol As String
         Get
@@ -98,22 +115,7 @@
         End Set
     End Property
 #End Region
-    Sub New(ByRef mainForm As frmArt, ByRef rtb As RTBARTBox_MouseMove)
-        Me.MAINFORM = mainForm
-        Me.RTB = rtb
 
-        AddHandler Me.MAINFORM.tstbSymbol.TextChanged, AddressOf HandlesCurrentSymbol
-
-        AddHandler Me.RTB.MouseMove, AddressOf HandlesCurrentMouseLocation
-        AddHandler Me.RTB.MouseDown, AddressOf HandlesMiddleClickLocation
-        AddHandler Me.RTB.MouseUp, AddressOf HandlesMiddleReleaseLocation
-
-        AddHandler Me.RTB.MouseDown, AddressOf HandlesRightClickLocation
-        AddHandler Me.RTB.MouseUp, AddressOf HandlesRightReleaseLocation
-
-        AddHandler Me.RTB.MouseDown, AddressOf HandlesLeftClickLocation
-        AddHandler Me.RTB.MouseUp, AddressOf HandlesLeftReleaseLocation
-    End Sub
 
 #Region "Editor Settings"
     Private Sub HandlesCurrentSymbol(sender As ToolStripTextBox, e As EventArgs)
@@ -122,8 +124,9 @@
 #End Region
 
 #Region "Mouse Handlers"
-    Private Sub HandlesCurrentMouseLocation(sender As Object, e As MouseEventArgs)
-        'Always handles the currrent location of the mouse withen the context of the RTB control
+     Private Sub HandlesCurrentMouseLocation(sender As Object, e As MouseEventArgs)
+        'todo: preformence could be improved if i make a seperate thread to handles all the 
+        'incomming mouse pointer locations 
         MouseCurrentPoint = e.Location
     End Sub
 

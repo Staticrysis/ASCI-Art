@@ -49,6 +49,7 @@ Partial Class frmArt
         Me.tsbShowHiddenSpace = New System.Windows.Forms.ToolStripButton()
         Me.tbZoom = New System.Windows.Forms.TrackBar()
         Me.TForShowBorders = New System.Windows.Forms.Timer(Me.components)
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.rtbArtBox = New Ascii_Art_Composer.RTBARTBox_MouseMove()
         Me.MenuStrip1.SuspendLayout()
         Me.tsSettings.SuspendLayout()
@@ -102,7 +103,7 @@ Partial Class frmArt
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuTextToolStripMenuItem, Me.ASCIIEditorTextToolStripMenuItem, Me.EditorBackgroundToolStripMenuItem, Me.MenuPanelsToolStripMenuItem})
         Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.Black
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(136, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem1.Text = "Colors"
         '
         'MenuTextToolStripMenuItem
@@ -146,13 +147,13 @@ Partial Class frmArt
         Me.EditorToolStripMenuItem.BackColor = System.Drawing.Color.White
         Me.EditorToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.EditorToolStripMenuItem.Name = "EditorToolStripMenuItem"
-        Me.EditorToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.EditorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EditorToolStripMenuItem.Text = "ASCII Editor"
         '
         'FilesToolStripMenuItem
         '
         Me.FilesToolStripMenuItem.Name = "FilesToolStripMenuItem"
-        Me.FilesToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.FilesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.FilesToolStripMenuItem.Text = "Files"
         '
         'tsSettings
@@ -258,6 +259,11 @@ Partial Class frmArt
         '
         Me.TForShowBorders.Interval = 500
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
         'rtbArtBox
         '
         Me.rtbArtBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -327,4 +333,5 @@ Partial Class frmArt
     Friend WithEvents tstbSymbol As ToolStripTextBox
     Friend WithEvents tsbShowHiddenSpace As ToolStripButton
     Friend WithEvents TForShowBorders As Timer
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
 End Class

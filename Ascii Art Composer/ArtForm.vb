@@ -1,12 +1,12 @@
 ﻿'Imports Ascii_Art_Composer.RTBSettings
 
 Public Class frmArt
-    Dim rtbAggregate As RTBAggregateSource
+    Dim rtbAggregate As RTBAggregate
 
     Private Sub frmArt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        rtbAggregate = New RTBAggregateSource(Me, Me.rtbArtBox)
+        rtbAggregate = New RTBAggregate(Me, Me.rtbArtBox)
         tstbSymbol.Text = " "
-        rtbAggregate.TextEditor.ResetAndFill()
+        'rtbAggregate.TextEditor.ResetAndFill()
         tstbSymbol.Text = "@"
 
         'Dim setting As Settings = New Settings
@@ -14,6 +14,12 @@ Public Class frmArt
     End Sub
 
     Private Sub SaveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem1.Click
-        FileConnection.Save(rtbArtBox)
+        FileSettings.Save(rtbArtBox)
     End Sub
+
+    Private Sub Settings() Handles tsmiSettings.Click
+        Dim setBox As New Settings
+        setBox.ShowDialog()
+    End Sub
+
 End Class

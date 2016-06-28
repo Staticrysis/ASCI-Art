@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public Class FileConnection
+Public Class FileSettings
     Public Shared Function Save(ByRef richTextBox As RichTextBox)
         ' Create a string array with the lines of text
         Dim text As String = richTextBox.Text
