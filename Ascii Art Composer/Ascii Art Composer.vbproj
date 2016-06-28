@@ -206,7 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Custom Controls\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -214,6 +213,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\downbutton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\facebook.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\upbutton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\youtube.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
