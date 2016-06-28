@@ -35,20 +35,20 @@ Partial Class Settings
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbTextBoxColors = New System.Windows.Forms.ComboBox()
         Me.tpTextEditingSettings = New System.Windows.Forms.TabPage()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.gbWebPresets = New System.Windows.Forms.GroupBox()
+        Me.cbWebPresets = New System.Windows.Forms.ComboBox()
+        Me.gbBackImage = New System.Windows.Forms.GroupBox()
         Me.buttonImageUp = New System.Windows.Forms.Button()
         Me.lbLoadingImages = New System.Windows.Forms.Label()
         Me.pbLoadingImages = New System.Windows.Forms.ProgressBar()
         Me.pbCurrentBackImage = New System.Windows.Forms.PictureBox()
         Me.gbTextDimensions = New System.Windows.Forms.GroupBox()
         Me.gbShowBackground = New System.Windows.Forms.GroupBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.cbBackgroundImage = New System.Windows.Forms.CheckBox()
+        Me.cbBackgroundTextColor = New System.Windows.Forms.CheckBox()
+        Me.gbFillCharacter = New System.Windows.Forms.GroupBox()
         Me.cbFillCharacter = New System.Windows.Forms.ComboBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.gbCharacters = New System.Windows.Forms.GroupBox()
         Me.nudCharacters = New System.Windows.Forms.NumericUpDown()
         Me.gbLines = New System.Windows.Forms.GroupBox()
         Me.nudLines = New System.Windows.Forms.NumericUpDown()
@@ -77,13 +77,13 @@ Partial Class Settings
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpTextEditingSettings.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
+        Me.gbWebPresets.SuspendLayout()
+        Me.gbBackImage.SuspendLayout()
         CType(Me.pbCurrentBackImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbTextDimensions.SuspendLayout()
         Me.gbShowBackground.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
+        Me.gbFillCharacter.SuspendLayout()
+        Me.gbCharacters.SuspendLayout()
         CType(Me.nudCharacters, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbLines.SuspendLayout()
         CType(Me.nudLines, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -216,8 +216,8 @@ Partial Class Settings
         'tpTextEditingSettings
         '
         Me.tpTextEditingSettings.BackColor = System.Drawing.Color.DarkRed
-        Me.tpTextEditingSettings.Controls.Add(Me.GroupBox8)
-        Me.tpTextEditingSettings.Controls.Add(Me.GroupBox4)
+        Me.tpTextEditingSettings.Controls.Add(Me.gbWebPresets)
+        Me.tpTextEditingSettings.Controls.Add(Me.gbBackImage)
         Me.tpTextEditingSettings.Controls.Add(Me.gbTextDimensions)
         Me.tpTextEditingSettings.Location = New System.Drawing.Point(4, 22)
         Me.tpTextEditingSettings.Name = "tpTextEditingSettings"
@@ -226,40 +226,40 @@ Partial Class Settings
         Me.tpTextEditingSettings.TabIndex = 1
         Me.tpTextEditingSettings.Text = "Text Editing"
         '
-        'GroupBox8
+        'gbWebPresets
         '
-        Me.GroupBox8.BackColor = System.Drawing.Color.DarkGray
-        Me.GroupBox8.Controls.Add(Me.ComboBox1)
-        Me.GroupBox8.Location = New System.Drawing.Point(184, 7)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(165, 44)
-        Me.GroupBox8.TabIndex = 2
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Web Presets"
+        Me.gbWebPresets.BackColor = System.Drawing.Color.DarkGray
+        Me.gbWebPresets.Controls.Add(Me.cbWebPresets)
+        Me.gbWebPresets.Location = New System.Drawing.Point(184, 7)
+        Me.gbWebPresets.Name = "gbWebPresets"
+        Me.gbWebPresets.Size = New System.Drawing.Size(165, 44)
+        Me.gbWebPresets.TabIndex = 2
+        Me.gbWebPresets.TabStop = False
+        Me.gbWebPresets.Text = "Web Presets"
         '
-        'ComboBox1
+        'cbWebPresets
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(6, 14)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(150, 21)
-        Me.ComboBox1.TabIndex = 0
+        Me.cbWebPresets.FormattingEnabled = True
+        Me.cbWebPresets.Location = New System.Drawing.Point(6, 14)
+        Me.cbWebPresets.Name = "cbWebPresets"
+        Me.cbWebPresets.Size = New System.Drawing.Size(150, 21)
+        Me.cbWebPresets.TabIndex = 0
         '
-        'GroupBox4
+        'gbBackImage
         '
-        Me.GroupBox4.BackColor = System.Drawing.Color.DarkGray
-        Me.GroupBox4.Controls.Add(Me.buttonImageUp)
-        Me.GroupBox4.Controls.Add(Me.buttonImageDown)
-        Me.GroupBox4.Controls.Add(Me.lbLoadingImages)
-        Me.GroupBox4.Controls.Add(Me.pbLoadingImages)
-        Me.GroupBox4.Controls.Add(Me.pbCurrentBackImage)
-        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.Location = New System.Drawing.Point(183, 57)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(355, 213)
-        Me.GroupBox4.TabIndex = 1
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Back Image: "
+        Me.gbBackImage.BackColor = System.Drawing.Color.DarkGray
+        Me.gbBackImage.Controls.Add(Me.buttonImageUp)
+        Me.gbBackImage.Controls.Add(Me.buttonImageDown)
+        Me.gbBackImage.Controls.Add(Me.lbLoadingImages)
+        Me.gbBackImage.Controls.Add(Me.pbLoadingImages)
+        Me.gbBackImage.Controls.Add(Me.pbCurrentBackImage)
+        Me.gbBackImage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbBackImage.Location = New System.Drawing.Point(183, 57)
+        Me.gbBackImage.Name = "gbBackImage"
+        Me.gbBackImage.Size = New System.Drawing.Size(355, 213)
+        Me.gbBackImage.TabIndex = 1
+        Me.gbBackImage.TabStop = False
+        Me.gbBackImage.Text = "Back Image: "
         '
         'buttonImageUp
         '
@@ -304,8 +304,8 @@ Partial Class Settings
         '
         Me.gbTextDimensions.BackColor = System.Drawing.Color.DarkGray
         Me.gbTextDimensions.Controls.Add(Me.gbShowBackground)
-        Me.gbTextDimensions.Controls.Add(Me.GroupBox6)
-        Me.gbTextDimensions.Controls.Add(Me.GroupBox5)
+        Me.gbTextDimensions.Controls.Add(Me.gbFillCharacter)
+        Me.gbTextDimensions.Controls.Add(Me.gbCharacters)
         Me.gbTextDimensions.Controls.Add(Me.gbLines)
         Me.gbTextDimensions.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTextDimensions.Location = New System.Drawing.Point(3, 4)
@@ -318,8 +318,8 @@ Partial Class Settings
         'gbShowBackground
         '
         Me.gbShowBackground.BackColor = System.Drawing.Color.Silver
-        Me.gbShowBackground.Controls.Add(Me.CheckBox2)
-        Me.gbShowBackground.Controls.Add(Me.CheckBox1)
+        Me.gbShowBackground.Controls.Add(Me.cbBackgroundImage)
+        Me.gbShowBackground.Controls.Add(Me.cbBackgroundTextColor)
         Me.gbShowBackground.Location = New System.Drawing.Point(6, 187)
         Me.gbShowBackground.Name = "gbShowBackground"
         Me.gbShowBackground.Size = New System.Drawing.Size(162, 76)
@@ -327,36 +327,36 @@ Partial Class Settings
         Me.gbShowBackground.TabStop = False
         Me.gbShowBackground.Text = "Show BackGround"
         '
-        'CheckBox2
+        'cbBackgroundImage
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(6, 42)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(55, 17)
-        Me.CheckBox2.TabIndex = 5
-        Me.CheckBox2.Text = "Image"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.cbBackgroundImage.AutoSize = True
+        Me.cbBackgroundImage.Location = New System.Drawing.Point(6, 42)
+        Me.cbBackgroundImage.Name = "cbBackgroundImage"
+        Me.cbBackgroundImage.Size = New System.Drawing.Size(55, 17)
+        Me.cbBackgroundImage.TabIndex = 5
+        Me.cbBackgroundImage.Text = "Image"
+        Me.cbBackgroundImage.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'cbBackgroundTextColor
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 19)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(74, 17)
-        Me.CheckBox1.TabIndex = 4
-        Me.CheckBox1.Text = "Text Color"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.cbBackgroundTextColor.AutoSize = True
+        Me.cbBackgroundTextColor.Location = New System.Drawing.Point(6, 19)
+        Me.cbBackgroundTextColor.Name = "cbBackgroundTextColor"
+        Me.cbBackgroundTextColor.Size = New System.Drawing.Size(74, 17)
+        Me.cbBackgroundTextColor.TabIndex = 4
+        Me.cbBackgroundTextColor.Text = "Text Color"
+        Me.cbBackgroundTextColor.UseVisualStyleBackColor = True
         '
-        'GroupBox6
+        'gbFillCharacter
         '
-        Me.GroupBox6.BackColor = System.Drawing.Color.Silver
-        Me.GroupBox6.Controls.Add(Me.cbFillCharacter)
-        Me.GroupBox6.Location = New System.Drawing.Point(6, 130)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(162, 43)
-        Me.GroupBox6.TabIndex = 3
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "Fill Character"
+        Me.gbFillCharacter.BackColor = System.Drawing.Color.Silver
+        Me.gbFillCharacter.Controls.Add(Me.cbFillCharacter)
+        Me.gbFillCharacter.Location = New System.Drawing.Point(6, 130)
+        Me.gbFillCharacter.Name = "gbFillCharacter"
+        Me.gbFillCharacter.Size = New System.Drawing.Size(162, 43)
+        Me.gbFillCharacter.TabIndex = 3
+        Me.gbFillCharacter.TabStop = False
+        Me.gbFillCharacter.Text = "Fill Character"
         '
         'cbFillCharacter
         '
@@ -366,16 +366,16 @@ Partial Class Settings
         Me.cbFillCharacter.Size = New System.Drawing.Size(144, 21)
         Me.cbFillCharacter.TabIndex = 2
         '
-        'GroupBox5
+        'gbCharacters
         '
-        Me.GroupBox5.BackColor = System.Drawing.Color.Silver
-        Me.GroupBox5.Controls.Add(Me.nudCharacters)
-        Me.GroupBox5.Location = New System.Drawing.Point(6, 76)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(162, 48)
-        Me.GroupBox5.TabIndex = 2
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Characters "
+        Me.gbCharacters.BackColor = System.Drawing.Color.Silver
+        Me.gbCharacters.Controls.Add(Me.nudCharacters)
+        Me.gbCharacters.Location = New System.Drawing.Point(6, 76)
+        Me.gbCharacters.Name = "gbCharacters"
+        Me.gbCharacters.Size = New System.Drawing.Size(162, 48)
+        Me.gbCharacters.TabIndex = 2
+        Me.gbCharacters.TabStop = False
+        Me.gbCharacters.Text = "Characters "
         '
         'nudCharacters
         '
@@ -634,15 +634,15 @@ Partial Class Settings
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpTextEditingSettings.ResumeLayout(False)
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
+        Me.gbWebPresets.ResumeLayout(False)
+        Me.gbBackImage.ResumeLayout(False)
+        Me.gbBackImage.PerformLayout()
         CType(Me.pbCurrentBackImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbTextDimensions.ResumeLayout(False)
         Me.gbShowBackground.ResumeLayout(False)
         Me.gbShowBackground.PerformLayout()
-        Me.GroupBox6.ResumeLayout(False)
-        Me.GroupBox5.ResumeLayout(False)
+        Me.gbFillCharacter.ResumeLayout(False)
+        Me.gbCharacters.ResumeLayout(False)
         CType(Me.nudCharacters, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbLines.ResumeLayout(False)
         CType(Me.nudLines, System.ComponentModel.ISupportInitialize).EndInit()
@@ -675,11 +675,11 @@ Partial Class Settings
     Friend WithEvents gbArtFile As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents gbBackImage As GroupBox
     Friend WithEvents gbTextDimensions As GroupBox
-    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents gbFillCharacter As GroupBox
     Friend WithEvents cbFillCharacter As ComboBox
-    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents gbCharacters As GroupBox
     Friend WithEvents nudCharacters As NumericUpDown
     Friend WithEvents gbLines As GroupBox
     Friend WithEvents nudLines As NumericUpDown
@@ -696,12 +696,12 @@ Partial Class Settings
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents gbSettingsFileLocation As GroupBox
-    Friend WithEvents GroupBox8 As GroupBox
+    Friend WithEvents gbWebPresets As GroupBox
     Friend WithEvents pbCurrentBackImage As PictureBox
     Friend WithEvents gbShowBackground As GroupBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbBackgroundImage As CheckBox
+    Friend WithEvents cbBackgroundTextColor As CheckBox
+    Friend WithEvents cbWebPresets As ComboBox
     Friend WithEvents pbLoadingImages As ProgressBar
     Friend WithEvents Label3 As Label
     Friend WithEvents Button2 As Button
