@@ -1,10 +1,10 @@
 ﻿Imports Ascii_Art_Composer
 
-Public Class RTBSettings
+Public Class TextEditingSettings
     Inherits SettingsSource
 
-    Public Sub New(ByRef RTB As RichTextBox)
-        MyBase.New(RTB)
+    Public Sub New(ByRef mainForm As frmArt, ByRef settingsForm As frmSettings)
+        MyBase.New(mainForm, settingsForm)
     End Sub
 
 #Region "Settings Variables"

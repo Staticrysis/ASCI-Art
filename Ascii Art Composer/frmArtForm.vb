@@ -18,7 +18,7 @@ Public Class frmArt
     End Sub
 
     Private Sub Settings() Handles tsmiSettings.Click
-        Dim setBox As New Settings
+        Dim setBox As New frmSettings(Me)
         setBox.ShowDialog()
     End Sub
 

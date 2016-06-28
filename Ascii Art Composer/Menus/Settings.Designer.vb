@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Settings
+Partial Class frmSettings
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,27 +24,7 @@ Partial Class Settings
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.tcSettings = New System.Windows.Forms.TabControl()
-        Me.tpColors = New System.Windows.Forms.TabPage()
-        Me.ColorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.tpTextEditingSettings = New System.Windows.Forms.TabPage()
-        Me.gbWebPresets = New System.Windows.Forms.GroupBox()
-        Me.cbWebPresets = New System.Windows.Forms.ComboBox()
-        Me.gbBackImage = New System.Windows.Forms.GroupBox()
-        Me.buttonImageUp = New System.Windows.Forms.Button()
-        Me.lbLoadingImages = New System.Windows.Forms.Label()
-        Me.pbLoadingImages = New System.Windows.Forms.ProgressBar()
-        Me.pbCurrentBackImage = New System.Windows.Forms.PictureBox()
-        Me.gbTextDimensions = New System.Windows.Forms.GroupBox()
-        Me.gbShowBackground = New System.Windows.Forms.GroupBox()
-        Me.cbBackgroundImage = New System.Windows.Forms.CheckBox()
-        Me.cbBackgroundTextColor = New System.Windows.Forms.CheckBox()
-        Me.gbFillCharacter = New System.Windows.Forms.GroupBox()
-        Me.cbFillCharacter = New System.Windows.Forms.ComboBox()
-        Me.gbCharacters = New System.Windows.Forms.GroupBox()
-        Me.nudCharacters = New System.Windows.Forms.NumericUpDown()
-        Me.gbLines = New System.Windows.Forms.GroupBox()
-        Me.nudLines = New System.Windows.Forms.NumericUpDown()
-        Me.tbFiles = New System.Windows.Forms.TabPage()
+        Me.tpFiles = New System.Windows.Forms.TabPage()
         Me.gbSettingsFileLocation = New System.Windows.Forms.GroupBox()
         Me.gbSettingsFile = New System.Windows.Forms.GroupBox()
         Me.tbSettingsFileLocation = New System.Windows.Forms.TextBox()
@@ -61,18 +41,26 @@ Partial Class Settings
         Me.gbArtFile = New System.Windows.Forms.GroupBox()
         Me.buttonSetSaveArtFileLocation = New System.Windows.Forms.Button()
         Me.tbSaveArtFileLocation = New System.Windows.Forms.TextBox()
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.tpTextEditingSettings = New System.Windows.Forms.TabPage()
+        Me.gbWebPresets = New System.Windows.Forms.GroupBox()
+        Me.cbWebPresets = New System.Windows.Forms.ComboBox()
+        Me.gbBackImage = New System.Windows.Forms.GroupBox()
+        Me.buttonImageUp = New System.Windows.Forms.Button()
         Me.buttonImageDown = New System.Windows.Forms.Button()
-        Me.gbTextBox = New System.Windows.Forms.GroupBox()
-        Me.gbRTBTextForeColors = New System.Windows.Forms.GroupBox()
-        Me.buttonRTBTextForeColor = New System.Windows.Forms.Button()
-        Me.cbRTBTextForeColor = New System.Windows.Forms.ComboBox()
-        Me.gbRTBTextBackColors = New System.Windows.Forms.GroupBox()
-        Me.cbRTBTextBackColors = New System.Windows.Forms.ComboBox()
-        Me.buttonRTBTextBackColors = New System.Windows.Forms.Button()
-        Me.gbRTBTextHighlight = New System.Windows.Forms.GroupBox()
-        Me.cbRTBTextHighlight = New System.Windows.Forms.ComboBox()
-        Me.buttonRTBTextHighlight = New System.Windows.Forms.Button()
+        Me.lbLoadingImages = New System.Windows.Forms.Label()
+        Me.pbLoadingImages = New System.Windows.Forms.ProgressBar()
+        Me.pbCurrentBackImage = New System.Windows.Forms.PictureBox()
+        Me.gbTextDimensions = New System.Windows.Forms.GroupBox()
+        Me.gbShowBackground = New System.Windows.Forms.GroupBox()
+        Me.cbBackgroundImage = New System.Windows.Forms.CheckBox()
+        Me.cbBackgroundTextColor = New System.Windows.Forms.CheckBox()
+        Me.gbFillCharacter = New System.Windows.Forms.GroupBox()
+        Me.cbFillCharacter = New System.Windows.Forms.ComboBox()
+        Me.gbCharacters = New System.Windows.Forms.GroupBox()
+        Me.nudCharacters = New System.Windows.Forms.NumericUpDown()
+        Me.gbLines = New System.Windows.Forms.GroupBox()
+        Me.nudLines = New System.Windows.Forms.NumericUpDown()
+        Me.tpColors = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.gbGUITextColors = New System.Windows.Forms.GroupBox()
         Me.cbGUITextColors = New System.Windows.Forms.ComboBox()
@@ -83,9 +71,26 @@ Partial Class Settings
         Me.gbGUIForeColors = New System.Windows.Forms.GroupBox()
         Me.cbGUIForeTextColors = New System.Windows.Forms.ComboBox()
         Me.buttonGUIForeTextColors = New System.Windows.Forms.Button()
+        Me.gbTextBox = New System.Windows.Forms.GroupBox()
+        Me.gbRTBTextHighlight = New System.Windows.Forms.GroupBox()
+        Me.cbRTBTextHighlight = New System.Windows.Forms.ComboBox()
+        Me.buttonRTBTextHighlight = New System.Windows.Forms.Button()
+        Me.gbRTBTextBackColors = New System.Windows.Forms.GroupBox()
+        Me.cbRTBTextBackColors = New System.Windows.Forms.ComboBox()
+        Me.buttonRTBTextBackColors = New System.Windows.Forms.Button()
+        Me.gbRTBTextForeColors = New System.Windows.Forms.GroupBox()
+        Me.cbRTBTextForeColor = New System.Windows.Forms.ComboBox()
+        Me.buttonRTBTextForeColor = New System.Windows.Forms.Button()
+        Me.ColorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.tcSettings.SuspendLayout()
-        Me.tpColors.SuspendLayout()
-        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tpFiles.SuspendLayout()
+        Me.gbSettingsFileLocation.SuspendLayout()
+        Me.gbSettingsFile.SuspendLayout()
+        Me.gbImageFile.SuspendLayout()
+        Me.gbFileLocations.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.gbArtFile.SuspendLayout()
         Me.tpTextEditingSettings.SuspendLayout()
         Me.gbWebPresets.SuspendLayout()
         Me.gbBackImage.SuspendLayout()
@@ -97,26 +102,21 @@ Partial Class Settings
         CType(Me.nudCharacters, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbLines.SuspendLayout()
         CType(Me.nudLines, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tbFiles.SuspendLayout()
-        Me.gbSettingsFileLocation.SuspendLayout()
-        Me.gbSettingsFile.SuspendLayout()
-        Me.gbImageFile.SuspendLayout()
-        Me.gbFileLocations.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.gbArtFile.SuspendLayout()
-        Me.gbTextBox.SuspendLayout()
-        Me.gbRTBTextForeColors.SuspendLayout()
-        Me.gbRTBTextBackColors.SuspendLayout()
-        Me.gbRTBTextHighlight.SuspendLayout()
+        Me.tpColors.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.gbGUITextColors.SuspendLayout()
         Me.gbGUIBackColors.SuspendLayout()
         Me.gbGUIForeColors.SuspendLayout()
+        Me.gbTextBox.SuspendLayout()
+        Me.gbRTBTextHighlight.SuspendLayout()
+        Me.gbRTBTextBackColors.SuspendLayout()
+        Me.gbRTBTextForeColors.SuspendLayout()
+        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tcSettings
         '
-        Me.tcSettings.Controls.Add(Me.tbFiles)
+        Me.tcSettings.Controls.Add(Me.tpFiles)
         Me.tcSettings.Controls.Add(Me.tpTextEditingSettings)
         Me.tcSettings.Controls.Add(Me.tpColors)
         Me.tcSettings.Dock = System.Windows.Forms.DockStyle.Fill
@@ -126,228 +126,17 @@ Partial Class Settings
         Me.tcSettings.Size = New System.Drawing.Size(549, 299)
         Me.tcSettings.TabIndex = 0
         '
-        'tpColors
+        'tpFiles
         '
-        Me.tpColors.BackColor = System.Drawing.Color.DarkRed
-        Me.tpColors.Controls.Add(Me.GroupBox4)
-        Me.tpColors.Controls.Add(Me.gbTextBox)
-        Me.tpColors.Location = New System.Drawing.Point(4, 22)
-        Me.tpColors.Name = "tpColors"
-        Me.tpColors.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpColors.Size = New System.Drawing.Size(541, 273)
-        Me.tpColors.TabIndex = 0
-        Me.tpColors.Text = "Colors"
-        '
-        'ColorBindingSource
-        '
-        Me.ColorBindingSource.DataSource = GetType(System.Drawing.Color)
-        '
-        'tpTextEditingSettings
-        '
-        Me.tpTextEditingSettings.BackColor = System.Drawing.Color.DarkRed
-        Me.tpTextEditingSettings.Controls.Add(Me.gbWebPresets)
-        Me.tpTextEditingSettings.Controls.Add(Me.gbBackImage)
-        Me.tpTextEditingSettings.Controls.Add(Me.gbTextDimensions)
-        Me.tpTextEditingSettings.Location = New System.Drawing.Point(4, 22)
-        Me.tpTextEditingSettings.Name = "tpTextEditingSettings"
-        Me.tpTextEditingSettings.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpTextEditingSettings.Size = New System.Drawing.Size(541, 273)
-        Me.tpTextEditingSettings.TabIndex = 1
-        Me.tpTextEditingSettings.Text = "Text Editing"
-        '
-        'gbWebPresets
-        '
-        Me.gbWebPresets.BackColor = System.Drawing.Color.DarkGray
-        Me.gbWebPresets.Controls.Add(Me.cbWebPresets)
-        Me.gbWebPresets.Location = New System.Drawing.Point(184, 7)
-        Me.gbWebPresets.Name = "gbWebPresets"
-        Me.gbWebPresets.Size = New System.Drawing.Size(165, 44)
-        Me.gbWebPresets.TabIndex = 2
-        Me.gbWebPresets.TabStop = False
-        Me.gbWebPresets.Text = "Web Presets"
-        '
-        'cbWebPresets
-        '
-        Me.cbWebPresets.FormattingEnabled = True
-        Me.cbWebPresets.Location = New System.Drawing.Point(6, 14)
-        Me.cbWebPresets.Name = "cbWebPresets"
-        Me.cbWebPresets.Size = New System.Drawing.Size(150, 21)
-        Me.cbWebPresets.TabIndex = 0
-        '
-        'gbBackImage
-        '
-        Me.gbBackImage.BackColor = System.Drawing.Color.DarkGray
-        Me.gbBackImage.Controls.Add(Me.buttonImageUp)
-        Me.gbBackImage.Controls.Add(Me.buttonImageDown)
-        Me.gbBackImage.Controls.Add(Me.lbLoadingImages)
-        Me.gbBackImage.Controls.Add(Me.pbLoadingImages)
-        Me.gbBackImage.Controls.Add(Me.pbCurrentBackImage)
-        Me.gbBackImage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbBackImage.Location = New System.Drawing.Point(183, 57)
-        Me.gbBackImage.Name = "gbBackImage"
-        Me.gbBackImage.Size = New System.Drawing.Size(355, 213)
-        Me.gbBackImage.TabIndex = 1
-        Me.gbBackImage.TabStop = False
-        Me.gbBackImage.Text = "Back Image: "
-        '
-        'buttonImageUp
-        '
-        Me.buttonImageUp.Image = Global.Ascii_Art_Composer.My.Resources.Resources.upbutton
-        Me.buttonImageUp.Location = New System.Drawing.Point(277, 33)
-        Me.buttonImageUp.Name = "buttonImageUp"
-        Me.buttonImageUp.Size = New System.Drawing.Size(72, 86)
-        Me.buttonImageUp.TabIndex = 4
-        Me.buttonImageUp.UseVisualStyleBackColor = True
-        '
-        'lbLoadingImages
-        '
-        Me.lbLoadingImages.AutoSize = True
-        Me.lbLoadingImages.BackColor = System.Drawing.Color.White
-        Me.lbLoadingImages.Location = New System.Drawing.Point(91, 133)
-        Me.lbLoadingImages.Name = "lbLoadingImages"
-        Me.lbLoadingImages.Size = New System.Drawing.Size(91, 13)
-        Me.lbLoadingImages.TabIndex = 2
-        Me.lbLoadingImages.Text = "Loading Images..."
-        '
-        'pbLoadingImages
-        '
-        Me.pbLoadingImages.ForeColor = System.Drawing.Color.Lime
-        Me.pbLoadingImages.Location = New System.Drawing.Point(58, 96)
-        Me.pbLoadingImages.Name = "pbLoadingImages"
-        Me.pbLoadingImages.Size = New System.Drawing.Size(156, 23)
-        Me.pbLoadingImages.TabIndex = 1
-        '
-        'pbCurrentBackImage
-        '
-        Me.pbCurrentBackImage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pbCurrentBackImage.BackColor = System.Drawing.Color.White
-        Me.pbCurrentBackImage.Location = New System.Drawing.Point(6, 33)
-        Me.pbCurrentBackImage.Name = "pbCurrentBackImage"
-        Me.pbCurrentBackImage.Size = New System.Drawing.Size(265, 174)
-        Me.pbCurrentBackImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbCurrentBackImage.TabIndex = 0
-        Me.pbCurrentBackImage.TabStop = False
-        '
-        'gbTextDimensions
-        '
-        Me.gbTextDimensions.BackColor = System.Drawing.Color.DarkGray
-        Me.gbTextDimensions.Controls.Add(Me.gbShowBackground)
-        Me.gbTextDimensions.Controls.Add(Me.gbFillCharacter)
-        Me.gbTextDimensions.Controls.Add(Me.gbCharacters)
-        Me.gbTextDimensions.Controls.Add(Me.gbLines)
-        Me.gbTextDimensions.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTextDimensions.Location = New System.Drawing.Point(3, 4)
-        Me.gbTextDimensions.Name = "gbTextDimensions"
-        Me.gbTextDimensions.Size = New System.Drawing.Size(174, 266)
-        Me.gbTextDimensions.TabIndex = 0
-        Me.gbTextDimensions.TabStop = False
-        Me.gbTextDimensions.Text = "Text Dimensions"
-        '
-        'gbShowBackground
-        '
-        Me.gbShowBackground.BackColor = System.Drawing.Color.Silver
-        Me.gbShowBackground.Controls.Add(Me.cbBackgroundImage)
-        Me.gbShowBackground.Controls.Add(Me.cbBackgroundTextColor)
-        Me.gbShowBackground.Location = New System.Drawing.Point(6, 187)
-        Me.gbShowBackground.Name = "gbShowBackground"
-        Me.gbShowBackground.Size = New System.Drawing.Size(162, 76)
-        Me.gbShowBackground.TabIndex = 4
-        Me.gbShowBackground.TabStop = False
-        Me.gbShowBackground.Text = "Show BackGround"
-        '
-        'cbBackgroundImage
-        '
-        Me.cbBackgroundImage.AutoSize = True
-        Me.cbBackgroundImage.Location = New System.Drawing.Point(6, 42)
-        Me.cbBackgroundImage.Name = "cbBackgroundImage"
-        Me.cbBackgroundImage.Size = New System.Drawing.Size(55, 17)
-        Me.cbBackgroundImage.TabIndex = 5
-        Me.cbBackgroundImage.Text = "Image"
-        Me.cbBackgroundImage.UseVisualStyleBackColor = True
-        '
-        'cbBackgroundTextColor
-        '
-        Me.cbBackgroundTextColor.AutoSize = True
-        Me.cbBackgroundTextColor.Location = New System.Drawing.Point(6, 19)
-        Me.cbBackgroundTextColor.Name = "cbBackgroundTextColor"
-        Me.cbBackgroundTextColor.Size = New System.Drawing.Size(74, 17)
-        Me.cbBackgroundTextColor.TabIndex = 4
-        Me.cbBackgroundTextColor.Text = "Text Color"
-        Me.cbBackgroundTextColor.UseVisualStyleBackColor = True
-        '
-        'gbFillCharacter
-        '
-        Me.gbFillCharacter.BackColor = System.Drawing.Color.Silver
-        Me.gbFillCharacter.Controls.Add(Me.cbFillCharacter)
-        Me.gbFillCharacter.Location = New System.Drawing.Point(6, 130)
-        Me.gbFillCharacter.Name = "gbFillCharacter"
-        Me.gbFillCharacter.Size = New System.Drawing.Size(162, 43)
-        Me.gbFillCharacter.TabIndex = 3
-        Me.gbFillCharacter.TabStop = False
-        Me.gbFillCharacter.Text = "Fill Character"
-        '
-        'cbFillCharacter
-        '
-        Me.cbFillCharacter.FormattingEnabled = True
-        Me.cbFillCharacter.Location = New System.Drawing.Point(6, 16)
-        Me.cbFillCharacter.Name = "cbFillCharacter"
-        Me.cbFillCharacter.Size = New System.Drawing.Size(144, 21)
-        Me.cbFillCharacter.TabIndex = 2
-        '
-        'gbCharacters
-        '
-        Me.gbCharacters.BackColor = System.Drawing.Color.Silver
-        Me.gbCharacters.Controls.Add(Me.nudCharacters)
-        Me.gbCharacters.Location = New System.Drawing.Point(6, 76)
-        Me.gbCharacters.Name = "gbCharacters"
-        Me.gbCharacters.Size = New System.Drawing.Size(162, 48)
-        Me.gbCharacters.TabIndex = 2
-        Me.gbCharacters.TabStop = False
-        Me.gbCharacters.Text = "Characters "
-        '
-        'nudCharacters
-        '
-        Me.nudCharacters.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.nudCharacters.Location = New System.Drawing.Point(6, 19)
-        Me.nudCharacters.Name = "nudCharacters"
-        Me.nudCharacters.Size = New System.Drawing.Size(150, 20)
-        Me.nudCharacters.TabIndex = 1
-        '
-        'gbLines
-        '
-        Me.gbLines.BackColor = System.Drawing.Color.Silver
-        Me.gbLines.Controls.Add(Me.nudLines)
-        Me.gbLines.Location = New System.Drawing.Point(6, 17)
-        Me.gbLines.Name = "gbLines"
-        Me.gbLines.Size = New System.Drawing.Size(162, 53)
-        Me.gbLines.TabIndex = 1
-        Me.gbLines.TabStop = False
-        Me.gbLines.Text = "Lines"
-        '
-        'nudLines
-        '
-        Me.nudLines.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.nudLines.Location = New System.Drawing.Point(6, 19)
-        Me.nudLines.Name = "nudLines"
-        Me.nudLines.Size = New System.Drawing.Size(150, 20)
-        Me.nudLines.TabIndex = 0
-        '
-        'tbFiles
-        '
-        Me.tbFiles.BackColor = System.Drawing.Color.DarkRed
-        Me.tbFiles.Controls.Add(Me.gbSettingsFileLocation)
-        Me.tbFiles.Controls.Add(Me.gbFileLocations)
-        Me.tbFiles.Location = New System.Drawing.Point(4, 22)
-        Me.tbFiles.Name = "tbFiles"
-        Me.tbFiles.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbFiles.Size = New System.Drawing.Size(541, 273)
-        Me.tbFiles.TabIndex = 2
-        Me.tbFiles.Text = "Files"
+        Me.tpFiles.BackColor = System.Drawing.Color.DarkRed
+        Me.tpFiles.Controls.Add(Me.gbSettingsFileLocation)
+        Me.tpFiles.Controls.Add(Me.gbFileLocations)
+        Me.tpFiles.Location = New System.Drawing.Point(4, 22)
+        Me.tpFiles.Name = "tpFiles"
+        Me.tpFiles.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpFiles.Size = New System.Drawing.Size(541, 273)
+        Me.tpFiles.TabIndex = 2
+        Me.tpFiles.Text = "Files"
         '
         'gbSettingsFileLocation
         '
@@ -534,9 +323,62 @@ Partial Class Settings
         Me.tbSaveArtFileLocation.Size = New System.Drawing.Size(404, 20)
         Me.tbSaveArtFileLocation.TabIndex = 0
         '
-        'ColorDialog1
+        'tpTextEditingSettings
         '
-        Me.ColorDialog1.FullOpen = True
+        Me.tpTextEditingSettings.BackColor = System.Drawing.Color.DarkRed
+        Me.tpTextEditingSettings.Controls.Add(Me.gbWebPresets)
+        Me.tpTextEditingSettings.Controls.Add(Me.gbBackImage)
+        Me.tpTextEditingSettings.Controls.Add(Me.gbTextDimensions)
+        Me.tpTextEditingSettings.Location = New System.Drawing.Point(4, 22)
+        Me.tpTextEditingSettings.Name = "tpTextEditingSettings"
+        Me.tpTextEditingSettings.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpTextEditingSettings.Size = New System.Drawing.Size(541, 273)
+        Me.tpTextEditingSettings.TabIndex = 1
+        Me.tpTextEditingSettings.Text = "Text Editing"
+        '
+        'gbWebPresets
+        '
+        Me.gbWebPresets.BackColor = System.Drawing.Color.DarkGray
+        Me.gbWebPresets.Controls.Add(Me.cbWebPresets)
+        Me.gbWebPresets.Location = New System.Drawing.Point(184, 7)
+        Me.gbWebPresets.Name = "gbWebPresets"
+        Me.gbWebPresets.Size = New System.Drawing.Size(165, 44)
+        Me.gbWebPresets.TabIndex = 2
+        Me.gbWebPresets.TabStop = False
+        Me.gbWebPresets.Text = "Web Presets"
+        '
+        'cbWebPresets
+        '
+        Me.cbWebPresets.FormattingEnabled = True
+        Me.cbWebPresets.Location = New System.Drawing.Point(6, 14)
+        Me.cbWebPresets.Name = "cbWebPresets"
+        Me.cbWebPresets.Size = New System.Drawing.Size(150, 21)
+        Me.cbWebPresets.TabIndex = 0
+        '
+        'gbBackImage
+        '
+        Me.gbBackImage.BackColor = System.Drawing.Color.DarkGray
+        Me.gbBackImage.Controls.Add(Me.buttonImageUp)
+        Me.gbBackImage.Controls.Add(Me.buttonImageDown)
+        Me.gbBackImage.Controls.Add(Me.lbLoadingImages)
+        Me.gbBackImage.Controls.Add(Me.pbLoadingImages)
+        Me.gbBackImage.Controls.Add(Me.pbCurrentBackImage)
+        Me.gbBackImage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbBackImage.Location = New System.Drawing.Point(183, 57)
+        Me.gbBackImage.Name = "gbBackImage"
+        Me.gbBackImage.Size = New System.Drawing.Size(355, 213)
+        Me.gbBackImage.TabIndex = 1
+        Me.gbBackImage.TabStop = False
+        Me.gbBackImage.Text = "Back Image: "
+        '
+        'buttonImageUp
+        '
+        Me.buttonImageUp.Image = Global.Ascii_Art_Composer.My.Resources.Resources.upbutton
+        Me.buttonImageUp.Location = New System.Drawing.Point(277, 33)
+        Me.buttonImageUp.Name = "buttonImageUp"
+        Me.buttonImageUp.Size = New System.Drawing.Size(72, 86)
+        Me.buttonImageUp.TabIndex = 4
+        Me.buttonImageUp.UseVisualStyleBackColor = True
         '
         'buttonImageDown
         '
@@ -547,105 +389,155 @@ Partial Class Settings
         Me.buttonImageDown.TabIndex = 3
         Me.buttonImageDown.UseVisualStyleBackColor = True
         '
-        'gbTextBox
+        'lbLoadingImages
         '
-        Me.gbTextBox.BackColor = System.Drawing.Color.DarkGray
-        Me.gbTextBox.Controls.Add(Me.gbRTBTextHighlight)
-        Me.gbTextBox.Controls.Add(Me.gbRTBTextBackColors)
-        Me.gbTextBox.Controls.Add(Me.gbRTBTextForeColors)
-        Me.gbTextBox.Location = New System.Drawing.Point(3, 3)
-        Me.gbTextBox.Name = "gbTextBox"
-        Me.gbTextBox.Size = New System.Drawing.Size(263, 205)
-        Me.gbTextBox.TabIndex = 2
-        Me.gbTextBox.TabStop = False
-        Me.gbTextBox.Text = "Rich Text Box Colors"
+        Me.lbLoadingImages.AutoSize = True
+        Me.lbLoadingImages.BackColor = System.Drawing.Color.White
+        Me.lbLoadingImages.Location = New System.Drawing.Point(91, 133)
+        Me.lbLoadingImages.Name = "lbLoadingImages"
+        Me.lbLoadingImages.Size = New System.Drawing.Size(91, 13)
+        Me.lbLoadingImages.TabIndex = 2
+        Me.lbLoadingImages.Text = "Loading Images..."
         '
-        'gbRTBTextForeColors
+        'pbLoadingImages
         '
-        Me.gbRTBTextForeColors.BackColor = System.Drawing.Color.Silver
-        Me.gbRTBTextForeColors.Controls.Add(Me.cbRTBTextForeColor)
-        Me.gbRTBTextForeColors.Controls.Add(Me.buttonRTBTextForeColor)
-        Me.gbRTBTextForeColors.Location = New System.Drawing.Point(7, 21)
-        Me.gbRTBTextForeColors.Name = "gbRTBTextForeColors"
-        Me.gbRTBTextForeColors.Size = New System.Drawing.Size(245, 54)
-        Me.gbRTBTextForeColors.TabIndex = 0
-        Me.gbRTBTextForeColors.TabStop = False
-        Me.gbRTBTextForeColors.Text = "Fore Colors"
+        Me.pbLoadingImages.ForeColor = System.Drawing.Color.Lime
+        Me.pbLoadingImages.Location = New System.Drawing.Point(58, 96)
+        Me.pbLoadingImages.Name = "pbLoadingImages"
+        Me.pbLoadingImages.Size = New System.Drawing.Size(156, 23)
+        Me.pbLoadingImages.TabIndex = 1
         '
-        'buttonRTBTextForeColor
+        'pbCurrentBackImage
         '
-        Me.buttonRTBTextForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.buttonRTBTextForeColor.Location = New System.Drawing.Point(191, 20)
-        Me.buttonRTBTextForeColor.Name = "buttonRTBTextForeColor"
-        Me.buttonRTBTextForeColor.Size = New System.Drawing.Size(48, 23)
-        Me.buttonRTBTextForeColor.TabIndex = 1
-        Me.buttonRTBTextForeColor.UseVisualStyleBackColor = True
+        Me.pbCurrentBackImage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.pbCurrentBackImage.BackColor = System.Drawing.Color.White
+        Me.pbCurrentBackImage.Location = New System.Drawing.Point(6, 33)
+        Me.pbCurrentBackImage.Name = "pbCurrentBackImage"
+        Me.pbCurrentBackImage.Size = New System.Drawing.Size(265, 174)
+        Me.pbCurrentBackImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbCurrentBackImage.TabIndex = 0
+        Me.pbCurrentBackImage.TabStop = False
         '
-        'cbRTBTextForeColor
+        'gbTextDimensions
         '
-        Me.cbRTBTextForeColor.FormattingEnabled = True
-        Me.cbRTBTextForeColor.Location = New System.Drawing.Point(7, 20)
-        Me.cbRTBTextForeColor.Name = "cbRTBTextForeColor"
-        Me.cbRTBTextForeColor.Size = New System.Drawing.Size(178, 21)
-        Me.cbRTBTextForeColor.TabIndex = 2
+        Me.gbTextDimensions.BackColor = System.Drawing.Color.DarkGray
+        Me.gbTextDimensions.Controls.Add(Me.gbShowBackground)
+        Me.gbTextDimensions.Controls.Add(Me.gbFillCharacter)
+        Me.gbTextDimensions.Controls.Add(Me.gbCharacters)
+        Me.gbTextDimensions.Controls.Add(Me.gbLines)
+        Me.gbTextDimensions.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTextDimensions.Location = New System.Drawing.Point(3, 4)
+        Me.gbTextDimensions.Name = "gbTextDimensions"
+        Me.gbTextDimensions.Size = New System.Drawing.Size(174, 266)
+        Me.gbTextDimensions.TabIndex = 0
+        Me.gbTextDimensions.TabStop = False
+        Me.gbTextDimensions.Text = "Text Dimensions"
         '
-        'gbRTBTextBackColors
+        'gbShowBackground
         '
-        Me.gbRTBTextBackColors.BackColor = System.Drawing.Color.Silver
-        Me.gbRTBTextBackColors.Controls.Add(Me.cbRTBTextBackColors)
-        Me.gbRTBTextBackColors.Controls.Add(Me.buttonRTBTextBackColors)
-        Me.gbRTBTextBackColors.Location = New System.Drawing.Point(7, 81)
-        Me.gbRTBTextBackColors.Name = "gbRTBTextBackColors"
-        Me.gbRTBTextBackColors.Size = New System.Drawing.Size(245, 54)
-        Me.gbRTBTextBackColors.TabIndex = 1
-        Me.gbRTBTextBackColors.TabStop = False
-        Me.gbRTBTextBackColors.Text = "Back Colors"
+        Me.gbShowBackground.BackColor = System.Drawing.Color.Silver
+        Me.gbShowBackground.Controls.Add(Me.cbBackgroundImage)
+        Me.gbShowBackground.Controls.Add(Me.cbBackgroundTextColor)
+        Me.gbShowBackground.Location = New System.Drawing.Point(6, 187)
+        Me.gbShowBackground.Name = "gbShowBackground"
+        Me.gbShowBackground.Size = New System.Drawing.Size(162, 76)
+        Me.gbShowBackground.TabIndex = 4
+        Me.gbShowBackground.TabStop = False
+        Me.gbShowBackground.Text = "Show BackGround"
         '
-        'cbRTBTextBackColors
+        'cbBackgroundImage
         '
-        Me.cbRTBTextBackColors.FormattingEnabled = True
-        Me.cbRTBTextBackColors.Location = New System.Drawing.Point(7, 20)
-        Me.cbRTBTextBackColors.Name = "cbRTBTextBackColors"
-        Me.cbRTBTextBackColors.Size = New System.Drawing.Size(178, 21)
-        Me.cbRTBTextBackColors.TabIndex = 2
+        Me.cbBackgroundImage.AutoSize = True
+        Me.cbBackgroundImage.Location = New System.Drawing.Point(6, 42)
+        Me.cbBackgroundImage.Name = "cbBackgroundImage"
+        Me.cbBackgroundImage.Size = New System.Drawing.Size(55, 17)
+        Me.cbBackgroundImage.TabIndex = 5
+        Me.cbBackgroundImage.Text = "Image"
+        Me.cbBackgroundImage.UseVisualStyleBackColor = True
         '
-        'buttonRTBTextBackColors
+        'cbBackgroundTextColor
         '
-        Me.buttonRTBTextBackColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.buttonRTBTextBackColors.Location = New System.Drawing.Point(191, 20)
-        Me.buttonRTBTextBackColors.Name = "buttonRTBTextBackColors"
-        Me.buttonRTBTextBackColors.Size = New System.Drawing.Size(48, 23)
-        Me.buttonRTBTextBackColors.TabIndex = 1
-        Me.buttonRTBTextBackColors.UseVisualStyleBackColor = True
+        Me.cbBackgroundTextColor.AutoSize = True
+        Me.cbBackgroundTextColor.Location = New System.Drawing.Point(6, 19)
+        Me.cbBackgroundTextColor.Name = "cbBackgroundTextColor"
+        Me.cbBackgroundTextColor.Size = New System.Drawing.Size(74, 17)
+        Me.cbBackgroundTextColor.TabIndex = 4
+        Me.cbBackgroundTextColor.Text = "Text Color"
+        Me.cbBackgroundTextColor.UseVisualStyleBackColor = True
         '
-        'gbRTBTextHighlight
+        'gbFillCharacter
         '
-        Me.gbRTBTextHighlight.BackColor = System.Drawing.Color.Silver
-        Me.gbRTBTextHighlight.Controls.Add(Me.cbRTBTextHighlight)
-        Me.gbRTBTextHighlight.Controls.Add(Me.buttonRTBTextHighlight)
-        Me.gbRTBTextHighlight.Location = New System.Drawing.Point(7, 141)
-        Me.gbRTBTextHighlight.Name = "gbRTBTextHighlight"
-        Me.gbRTBTextHighlight.Size = New System.Drawing.Size(245, 54)
-        Me.gbRTBTextHighlight.TabIndex = 2
-        Me.gbRTBTextHighlight.TabStop = False
-        Me.gbRTBTextHighlight.Text = "Text Highlight Color"
+        Me.gbFillCharacter.BackColor = System.Drawing.Color.Silver
+        Me.gbFillCharacter.Controls.Add(Me.cbFillCharacter)
+        Me.gbFillCharacter.Location = New System.Drawing.Point(6, 130)
+        Me.gbFillCharacter.Name = "gbFillCharacter"
+        Me.gbFillCharacter.Size = New System.Drawing.Size(162, 43)
+        Me.gbFillCharacter.TabIndex = 3
+        Me.gbFillCharacter.TabStop = False
+        Me.gbFillCharacter.Text = "Fill Character"
         '
-        'cbRTBTextHighlight
+        'cbFillCharacter
         '
-        Me.cbRTBTextHighlight.FormattingEnabled = True
-        Me.cbRTBTextHighlight.Location = New System.Drawing.Point(7, 20)
-        Me.cbRTBTextHighlight.Name = "cbRTBTextHighlight"
-        Me.cbRTBTextHighlight.Size = New System.Drawing.Size(178, 21)
-        Me.cbRTBTextHighlight.TabIndex = 2
+        Me.cbFillCharacter.FormattingEnabled = True
+        Me.cbFillCharacter.Location = New System.Drawing.Point(6, 16)
+        Me.cbFillCharacter.Name = "cbFillCharacter"
+        Me.cbFillCharacter.Size = New System.Drawing.Size(144, 21)
+        Me.cbFillCharacter.TabIndex = 2
         '
-        'buttonRTBTextHighlight
+        'gbCharacters
         '
-        Me.buttonRTBTextHighlight.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.buttonRTBTextHighlight.Location = New System.Drawing.Point(191, 20)
-        Me.buttonRTBTextHighlight.Name = "buttonRTBTextHighlight"
-        Me.buttonRTBTextHighlight.Size = New System.Drawing.Size(48, 23)
-        Me.buttonRTBTextHighlight.TabIndex = 1
-        Me.buttonRTBTextHighlight.UseVisualStyleBackColor = True
+        Me.gbCharacters.BackColor = System.Drawing.Color.Silver
+        Me.gbCharacters.Controls.Add(Me.nudCharacters)
+        Me.gbCharacters.Location = New System.Drawing.Point(6, 76)
+        Me.gbCharacters.Name = "gbCharacters"
+        Me.gbCharacters.Size = New System.Drawing.Size(162, 48)
+        Me.gbCharacters.TabIndex = 2
+        Me.gbCharacters.TabStop = False
+        Me.gbCharacters.Text = "Characters "
+        '
+        'nudCharacters
+        '
+        Me.nudCharacters.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nudCharacters.Location = New System.Drawing.Point(6, 19)
+        Me.nudCharacters.Name = "nudCharacters"
+        Me.nudCharacters.Size = New System.Drawing.Size(150, 20)
+        Me.nudCharacters.TabIndex = 1
+        '
+        'gbLines
+        '
+        Me.gbLines.BackColor = System.Drawing.Color.Silver
+        Me.gbLines.Controls.Add(Me.nudLines)
+        Me.gbLines.Location = New System.Drawing.Point(6, 17)
+        Me.gbLines.Name = "gbLines"
+        Me.gbLines.Size = New System.Drawing.Size(162, 53)
+        Me.gbLines.TabIndex = 1
+        Me.gbLines.TabStop = False
+        Me.gbLines.Text = "Lines"
+        '
+        'nudLines
+        '
+        Me.nudLines.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nudLines.Location = New System.Drawing.Point(6, 19)
+        Me.nudLines.Name = "nudLines"
+        Me.nudLines.Size = New System.Drawing.Size(150, 20)
+        Me.nudLines.TabIndex = 0
+        '
+        'tpColors
+        '
+        Me.tpColors.BackColor = System.Drawing.Color.DarkRed
+        Me.tpColors.Controls.Add(Me.GroupBox4)
+        Me.tpColors.Controls.Add(Me.gbTextBox)
+        Me.tpColors.Location = New System.Drawing.Point(4, 22)
+        Me.tpColors.Name = "tpColors"
+        Me.tpColors.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpColors.Size = New System.Drawing.Size(541, 273)
+        Me.tpColors.TabIndex = 0
+        Me.tpColors.Text = "Colors"
         '
         'GroupBox4
         '
@@ -747,18 +639,135 @@ Partial Class Settings
         Me.buttonGUIForeTextColors.TabIndex = 1
         Me.buttonGUIForeTextColors.UseVisualStyleBackColor = True
         '
-        'Settings
+        'gbTextBox
+        '
+        Me.gbTextBox.BackColor = System.Drawing.Color.DarkGray
+        Me.gbTextBox.Controls.Add(Me.gbRTBTextHighlight)
+        Me.gbTextBox.Controls.Add(Me.gbRTBTextBackColors)
+        Me.gbTextBox.Controls.Add(Me.gbRTBTextForeColors)
+        Me.gbTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.gbTextBox.Name = "gbTextBox"
+        Me.gbTextBox.Size = New System.Drawing.Size(263, 205)
+        Me.gbTextBox.TabIndex = 2
+        Me.gbTextBox.TabStop = False
+        Me.gbTextBox.Text = "Rich Text Box Colors"
+        '
+        'gbRTBTextHighlight
+        '
+        Me.gbRTBTextHighlight.BackColor = System.Drawing.Color.Silver
+        Me.gbRTBTextHighlight.Controls.Add(Me.cbRTBTextHighlight)
+        Me.gbRTBTextHighlight.Controls.Add(Me.buttonRTBTextHighlight)
+        Me.gbRTBTextHighlight.Location = New System.Drawing.Point(7, 141)
+        Me.gbRTBTextHighlight.Name = "gbRTBTextHighlight"
+        Me.gbRTBTextHighlight.Size = New System.Drawing.Size(245, 54)
+        Me.gbRTBTextHighlight.TabIndex = 2
+        Me.gbRTBTextHighlight.TabStop = False
+        Me.gbRTBTextHighlight.Text = "Text Highlight Color"
+        '
+        'cbRTBTextHighlight
+        '
+        Me.cbRTBTextHighlight.FormattingEnabled = True
+        Me.cbRTBTextHighlight.Location = New System.Drawing.Point(7, 20)
+        Me.cbRTBTextHighlight.Name = "cbRTBTextHighlight"
+        Me.cbRTBTextHighlight.Size = New System.Drawing.Size(178, 21)
+        Me.cbRTBTextHighlight.TabIndex = 2
+        '
+        'buttonRTBTextHighlight
+        '
+        Me.buttonRTBTextHighlight.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonRTBTextHighlight.Location = New System.Drawing.Point(191, 20)
+        Me.buttonRTBTextHighlight.Name = "buttonRTBTextHighlight"
+        Me.buttonRTBTextHighlight.Size = New System.Drawing.Size(48, 23)
+        Me.buttonRTBTextHighlight.TabIndex = 1
+        Me.buttonRTBTextHighlight.UseVisualStyleBackColor = True
+        '
+        'gbRTBTextBackColors
+        '
+        Me.gbRTBTextBackColors.BackColor = System.Drawing.Color.Silver
+        Me.gbRTBTextBackColors.Controls.Add(Me.cbRTBTextBackColors)
+        Me.gbRTBTextBackColors.Controls.Add(Me.buttonRTBTextBackColors)
+        Me.gbRTBTextBackColors.Location = New System.Drawing.Point(7, 81)
+        Me.gbRTBTextBackColors.Name = "gbRTBTextBackColors"
+        Me.gbRTBTextBackColors.Size = New System.Drawing.Size(245, 54)
+        Me.gbRTBTextBackColors.TabIndex = 1
+        Me.gbRTBTextBackColors.TabStop = False
+        Me.gbRTBTextBackColors.Text = "Back Colors"
+        '
+        'cbRTBTextBackColors
+        '
+        Me.cbRTBTextBackColors.FormattingEnabled = True
+        Me.cbRTBTextBackColors.Location = New System.Drawing.Point(7, 20)
+        Me.cbRTBTextBackColors.Name = "cbRTBTextBackColors"
+        Me.cbRTBTextBackColors.Size = New System.Drawing.Size(178, 21)
+        Me.cbRTBTextBackColors.TabIndex = 2
+        '
+        'buttonRTBTextBackColors
+        '
+        Me.buttonRTBTextBackColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonRTBTextBackColors.Location = New System.Drawing.Point(191, 20)
+        Me.buttonRTBTextBackColors.Name = "buttonRTBTextBackColors"
+        Me.buttonRTBTextBackColors.Size = New System.Drawing.Size(48, 23)
+        Me.buttonRTBTextBackColors.TabIndex = 1
+        Me.buttonRTBTextBackColors.UseVisualStyleBackColor = True
+        '
+        'gbRTBTextForeColors
+        '
+        Me.gbRTBTextForeColors.BackColor = System.Drawing.Color.Silver
+        Me.gbRTBTextForeColors.Controls.Add(Me.cbRTBTextForeColor)
+        Me.gbRTBTextForeColors.Controls.Add(Me.buttonRTBTextForeColor)
+        Me.gbRTBTextForeColors.Location = New System.Drawing.Point(7, 21)
+        Me.gbRTBTextForeColors.Name = "gbRTBTextForeColors"
+        Me.gbRTBTextForeColors.Size = New System.Drawing.Size(245, 54)
+        Me.gbRTBTextForeColors.TabIndex = 0
+        Me.gbRTBTextForeColors.TabStop = False
+        Me.gbRTBTextForeColors.Text = "Fore Colors"
+        '
+        'cbRTBTextForeColor
+        '
+        Me.cbRTBTextForeColor.FormattingEnabled = True
+        Me.cbRTBTextForeColor.Location = New System.Drawing.Point(7, 20)
+        Me.cbRTBTextForeColor.Name = "cbRTBTextForeColor"
+        Me.cbRTBTextForeColor.Size = New System.Drawing.Size(178, 21)
+        Me.cbRTBTextForeColor.TabIndex = 2
+        '
+        'buttonRTBTextForeColor
+        '
+        Me.buttonRTBTextForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonRTBTextForeColor.Location = New System.Drawing.Point(191, 20)
+        Me.buttonRTBTextForeColor.Name = "buttonRTBTextForeColor"
+        Me.buttonRTBTextForeColor.Size = New System.Drawing.Size(48, 23)
+        Me.buttonRTBTextForeColor.TabIndex = 1
+        Me.buttonRTBTextForeColor.UseVisualStyleBackColor = True
+        '
+        'ColorBindingSource
+        '
+        Me.ColorBindingSource.DataSource = GetType(System.Drawing.Color)
+        '
+        'ColorDialog1
+        '
+        Me.ColorDialog1.FullOpen = True
+        '
+        'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(549, 299)
         Me.Controls.Add(Me.tcSettings)
-        Me.Name = "Settings"
+        Me.Name = "frmSettings"
         Me.Text = "Settings"
         Me.tcSettings.ResumeLayout(False)
-        Me.tpColors.ResumeLayout(False)
-        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tpFiles.ResumeLayout(False)
+        Me.gbSettingsFileLocation.ResumeLayout(False)
+        Me.gbSettingsFile.ResumeLayout(False)
+        Me.gbSettingsFile.PerformLayout()
+        Me.gbImageFile.ResumeLayout(False)
+        Me.gbImageFile.PerformLayout()
+        Me.gbFileLocations.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.gbArtFile.ResumeLayout(False)
+        Me.gbArtFile.PerformLayout()
         Me.tpTextEditingSettings.ResumeLayout(False)
         Me.gbWebPresets.ResumeLayout(False)
         Me.gbBackImage.ResumeLayout(False)
@@ -772,25 +781,16 @@ Partial Class Settings
         CType(Me.nudCharacters, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbLines.ResumeLayout(False)
         CType(Me.nudLines, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tbFiles.ResumeLayout(False)
-        Me.gbSettingsFileLocation.ResumeLayout(False)
-        Me.gbSettingsFile.ResumeLayout(False)
-        Me.gbSettingsFile.PerformLayout()
-        Me.gbImageFile.ResumeLayout(False)
-        Me.gbImageFile.PerformLayout()
-        Me.gbFileLocations.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.gbArtFile.ResumeLayout(False)
-        Me.gbArtFile.PerformLayout()
-        Me.gbTextBox.ResumeLayout(False)
-        Me.gbRTBTextForeColors.ResumeLayout(False)
-        Me.gbRTBTextBackColors.ResumeLayout(False)
-        Me.gbRTBTextHighlight.ResumeLayout(False)
+        Me.tpColors.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.gbGUITextColors.ResumeLayout(False)
         Me.gbGUIBackColors.ResumeLayout(False)
         Me.gbGUIForeColors.ResumeLayout(False)
+        Me.gbTextBox.ResumeLayout(False)
+        Me.gbRTBTextHighlight.ResumeLayout(False)
+        Me.gbRTBTextBackColors.ResumeLayout(False)
+        Me.gbRTBTextForeColors.ResumeLayout(False)
+        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -799,7 +799,7 @@ Partial Class Settings
     Friend WithEvents tpTextEditingSettings As TabPage
     Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents ColorBindingSource As BindingSource
-    Friend WithEvents tbFiles As TabPage
+    Friend WithEvents tpFiles As TabPage
     Friend WithEvents gbArtFile As GroupBox
     Friend WithEvents gbBackImage As GroupBox
     Friend WithEvents gbTextDimensions As GroupBox

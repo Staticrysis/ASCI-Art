@@ -135,26 +135,26 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArtForm.vb">
+    <Compile Include="frmArtForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ArtForm.Designer.vb">
-      <DependentUpon>ArtForm.vb</DependentUpon>
+    <Compile Include="frmArtForm.Designer.vb">
+      <DependentUpon>frmArtForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="General Settings\RTBSettings.vb" />
+    <Compile Include="General Settings\ColorSettings.vb" />
+    <Compile Include="General Settings\TextEditingSettings.vb" />
     <Compile Include="General Settings\SettingsAggregate.vb" />
     <Compile Include="General Settings\SettingsSource.vb" />
-    <Compile Include="General Settings\UISettings.vb" />
     <Compile Include="SC Rich Textbox\RTBSource.vb" />
     <Compile Include="SC Rich Textbox\RTBAggregate.vb" />
     <Compile Include="SC Rich Textbox\RTBArtBox.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Menus\Settings.Designer.vb">
-      <DependentUpon>Settings.vb</DependentUpon>
+      <DependentUpon>frmSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="Menus\Settings.vb">
+    <Compile Include="Menus\frmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -177,11 +177,11 @@
     <Compile Include="SC Rich Textbox\RTBTextEditing.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ArtForm.resx">
-      <DependentUpon>ArtForm.vb</DependentUpon>
+    <EmbeddedResource Include="frmArtForm.resx">
+      <DependentUpon>frmArtForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\Settings.resx">
-      <DependentUpon>Settings.vb</DependentUpon>
+      <DependentUpon>frmSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
