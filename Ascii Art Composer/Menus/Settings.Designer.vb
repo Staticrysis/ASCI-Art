@@ -81,8 +81,9 @@ Partial Class frmSettings
         Me.gbRTBTextForeColors = New System.Windows.Forms.GroupBox()
         Me.cbRTBTextForeColor = New System.Windows.Forms.ComboBox()
         Me.buttonRTBTextForeColor = New System.Windows.Forms.Button()
-        Me.ColorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.BindingSourceColorSettings = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSourceTextEditSettings = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSourceFileSettings = New System.Windows.Forms.BindingSource(Me.components)
         Me.tcSettings.SuspendLayout()
         Me.tpFiles.SuspendLayout()
         Me.gbSettingsFileLocation.SuspendLayout()
@@ -111,7 +112,9 @@ Partial Class frmSettings
         Me.gbRTBTextHighlight.SuspendLayout()
         Me.gbRTBTextBackColors.SuspendLayout()
         Me.gbRTBTextForeColors.SuspendLayout()
-        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSourceColorSettings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSourceTextEditSettings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSourceFileSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tcSettings
@@ -739,14 +742,6 @@ Partial Class frmSettings
         Me.buttonRTBTextForeColor.TabIndex = 1
         Me.buttonRTBTextForeColor.UseVisualStyleBackColor = True
         '
-        'ColorBindingSource
-        '
-        Me.ColorBindingSource.DataSource = GetType(System.Drawing.Color)
-        '
-        'ColorDialog1
-        '
-        Me.ColorDialog1.FullOpen = True
-        '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -790,15 +785,15 @@ Partial Class frmSettings
         Me.gbRTBTextHighlight.ResumeLayout(False)
         Me.gbRTBTextBackColors.ResumeLayout(False)
         Me.gbRTBTextForeColors.ResumeLayout(False)
-        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSourceColorSettings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSourceTextEditSettings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSourceFileSettings, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents tcSettings As TabControl
     Friend WithEvents tpColors As TabPage
     Friend WithEvents tpTextEditingSettings As TabPage
-    Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents ColorBindingSource As BindingSource
     Friend WithEvents tpFiles As TabPage
     Friend WithEvents gbArtFile As GroupBox
     Friend WithEvents gbBackImage As GroupBox
@@ -854,4 +849,7 @@ Partial Class frmSettings
     Friend WithEvents gbRTBTextForeColors As GroupBox
     Friend WithEvents cbRTBTextForeColor As ComboBox
     Friend WithEvents buttonRTBTextForeColor As Button
+    Friend WithEvents BindingSourceColorSettings As BindingSource
+    Friend WithEvents BindingSourceTextEditSettings As BindingSource
+    Friend WithEvents BindingSourceFileSettings As BindingSource
 End Class

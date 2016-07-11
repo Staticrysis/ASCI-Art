@@ -1,5 +1,5 @@
 ﻿Public Class RTBSource
-    Sub New(ByRef mainForm As frmArt, ByRef rtb As RTBARTBox_MouseMove)
+    Sub New(ByRef mainForm As frmArt, ByRef rtb As RTBArtBox)
         Me.MAINFORM = mainForm
         Me.RTB = rtb
 
@@ -17,7 +17,7 @@
     End Sub
 #Region "Event Variables"
     Protected MAINFORM As Ascii_Art_Composer.frmArt
-    Protected RTB As Ascii_Art_Composer.RTBARTBox_MouseMove
+    Protected RTB As Ascii_Art_Composer.RTBArtBox
 
     Private Shared _symbol As String ' = " " 'TODO: don't know if i want this to be global to the derivede classes yet
 

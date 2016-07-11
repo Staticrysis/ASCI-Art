@@ -1,4 +1,4 @@
-﻿Public Class RTBARTBox_MouseMove
+﻿Public Class RTBArtBox
     Inherits RichTextBox
     Private WM_SETFOCUS As Integer = &H7
 

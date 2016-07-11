@@ -50,7 +50,7 @@ Partial Class frmArt
         Me.tbZoom = New System.Windows.Forms.TrackBar()
         Me.TForShowBorders = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.rtbArtBox = New Ascii_Art_Composer.RTBARTBox_MouseMove()
+        Me.rtbArtBox = New Ascii_Art_Composer.RTBArtBox()
         Me.MenuStrip1.SuspendLayout()
         Me.tsSettings.SuspendLayout()
         CType(Me.tbZoom, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -328,7 +328,7 @@ Partial Class frmArt
     Friend WithEvents tbZoom As TrackBar
     Friend WithEvents FilesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents rtbArtBox As RTBARTBox_MouseMove
+    Friend WithEvents rtbArtBox As RTBArtBox
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents tstbSymbol As ToolStripTextBox
     Friend WithEvents tsbShowHiddenSpace As ToolStripButton
