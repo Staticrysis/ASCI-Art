@@ -84,6 +84,7 @@ Partial Class frmSettings
         Me.BindingSourceColorSettings = New System.Windows.Forms.BindingSource(Me.components)
         Me.BindingSourceTextEditSettings = New System.Windows.Forms.BindingSource(Me.components)
         Me.BindingSourceFileSettings = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.tcSettings.SuspendLayout()
         Me.tpFiles.SuspendLayout()
         Me.gbSettingsFileLocation.SuspendLayout()
@@ -115,6 +116,7 @@ Partial Class frmSettings
         CType(Me.BindingSourceColorSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceTextEditSettings, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceFileSettings, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tcSettings
@@ -742,6 +744,10 @@ Partial Class frmSettings
         Me.buttonRTBTextForeColor.TabIndex = 1
         Me.buttonRTBTextForeColor.UseVisualStyleBackColor = True
         '
+        'BindingSourceFileSettings
+        '
+        Me.BindingSourceFileSettings.DataSource = Me.BindingSource1
+        '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -788,6 +794,7 @@ Partial Class frmSettings
         CType(Me.BindingSourceColorSettings, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceTextEditSettings, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceFileSettings, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -850,6 +857,7 @@ Partial Class frmSettings
     Friend WithEvents cbRTBTextForeColor As ComboBox
     Friend WithEvents buttonRTBTextForeColor As Button
     Friend WithEvents BindingSourceColorSettings As BindingSource
-    Friend WithEvents BindingSourceTextEditSettings As BindingSource
     Friend WithEvents BindingSourceFileSettings As BindingSource
+    Public WithEvents BindingSourceTextEditSettings As BindingSource
+    Friend WithEvents BindingSource1 As BindingSource
 End Class

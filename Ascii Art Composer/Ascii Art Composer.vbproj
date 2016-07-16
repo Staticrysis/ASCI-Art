@@ -14,6 +14,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -120,6 +120,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -140,13 +141,13 @@
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.Web.UI.WebControls" />
     <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.vb" />
     <Compile Include="frmArtForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -154,11 +155,6 @@
       <DependentUpon>frmArtForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="General Settings\ColorSettings.vb" />
-    <Compile Include="General Settings\SettingsJSON.vb" />
-    <Compile Include="General Settings\TextEditingSettings.vb" />
-    <Compile Include="General Settings\SettingsAggregate.vb" />
-    <Compile Include="General Settings\SettingsSource.vb" />
     <Compile Include="SC Rich Textbox\RTBSource.vb" />
     <Compile Include="SC Rich Textbox\RTBAggregate.vb" />
     <Compile Include="SC Rich Textbox\RTBArtBox.vb">
@@ -185,9 +181,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="General Settings\FileSettings.vb" />
     <Compile Include="SC Rich Textbox\RTBDrawings.vb" />
     <Compile Include="SC Rich Textbox\RTBTextEditing.vb" />
+    <Compile Include="Settings\ColorSettings.vb" />
+    <Compile Include="Settings\FileSettings.vb" />
+    <Compile Include="Settings\SettingsAggregate.vb" />
+    <Compile Include="Settings\SettingsJSON.vb" />
+    <Compile Include="Settings\SettingsSource.vb" />
+    <Compile Include="Settings\TextEditingSettings.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmArtForm.resx">
@@ -204,16 +205,51 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="General Settings\Ascii_Art_ComposerSettings.json" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Images\Images.vsspell" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\DataSources\Ascii_Art_Composer.My.MyApplication.datasource" />
-    <None Include="My Project\DataSources\Ascii_Art_Composer.My.MySettings.datasource" />
-    <None Include="My Project\DataSources\RTBSettings.datasource" />
+    <None Include="My Project\DataSources\ColorSettings.datasource" />
+    <None Include="My Project\DataSources\FileSettings.datasource" />
+    <None Include="My Project\DataSources\frmArt.datasource" />
+    <None Include="My Project\DataSources\frmSettings.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.IJsonLineInfo.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonArrayAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonConstructorAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonContainerAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonConvert.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonConverter.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonConverterAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonConverterCollection.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonDictionaryAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonException.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonExtensionDataAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonIgnoreAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonObjectAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonPropertyAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonReader.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonReaderException.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonRequiredAttribute.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonSerializationException.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonSerializer.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonSerializerSettings.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonTextReader.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonTextWriter.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonValidatingReader.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriter.datasource" />
+    <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriterException.datasource" />
+    <None Include="My Project\DataSources\RTBAggregate.datasource" />
+    <None Include="My Project\DataSources\RTBArtBox.datasource" />
+    <None Include="My Project\DataSources\RTBDrawings.datasource" />
+    <None Include="My Project\DataSources\RTBSource.datasource" />
+    <None Include="My Project\DataSources\RTBTextEditing.datasource" />
+    <None Include="My Project\DataSources\SettingsAggregate.datasource" />
+    <None Include="My Project\DataSources\SettingsSource.datasource" />
     <None Include="My Project\DataSources\System.Drawing.Color.datasource" />
+    <None Include="My Project\DataSources\TextEditingSettings.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -243,6 +279,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\youtube.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

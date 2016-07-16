@@ -116,7 +116,6 @@
     End Property
 #End Region
 
-
 #Region "Editor Settings"
     Private Sub HandlesCurrentSymbol(sender As ToolStripTextBox, e As EventArgs)
         Symbol = sender.Text

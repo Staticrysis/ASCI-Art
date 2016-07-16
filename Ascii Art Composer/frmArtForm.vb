@@ -9,6 +9,7 @@ Public Class frmArt
         _rtbAggregate = New RTBAggregate(Me, Me.rtbArtBox)
         _SettingsForm = New frmSettings(_SettingsAggerate)
         _SettingsAggerate = New SettingsAggregate(Me)
+
     End Sub
 
     Private Sub SaveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem1.Click
