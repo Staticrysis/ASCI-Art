@@ -42,7 +42,7 @@ Partial Class frmSettings
         Me.gbArtFile = New System.Windows.Forms.GroupBox()
         Me.buttonSetSaveArtFileLocation = New System.Windows.Forms.Button()
         Me.tbSaveArtFileLocation = New System.Windows.Forms.TextBox()
-        Me.tpTextEditingSettings = New System.Windows.Forms.TabPage()
+        Me.tpTextEditing = New System.Windows.Forms.TabPage()
         Me.gbWebPresets = New System.Windows.Forms.GroupBox()
         Me.cbWebPresets = New System.Windows.Forms.ComboBox()
         Me.WebPresetsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -94,7 +94,7 @@ Partial Class frmSettings
         Me.gbFileLocations.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.gbArtFile.SuspendLayout()
-        Me.tpTextEditingSettings.SuspendLayout()
+        Me.tpTextEditing.SuspendLayout()
         Me.gbWebPresets.SuspendLayout()
         CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditingSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,9 +121,9 @@ Partial Class frmSettings
         '
         'tcSettings
         '
-        Me.tcSettings.Controls.Add(Me.tpFiles)
-        Me.tcSettings.Controls.Add(Me.tpTextEditingSettings)
+        Me.tcSettings.Controls.Add(Me.tpTextEditing)
         Me.tcSettings.Controls.Add(Me.tpColors)
+        Me.tcSettings.Controls.Add(Me.tpFiles)
         Me.tcSettings.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tcSettings.Location = New System.Drawing.Point(0, 0)
         Me.tcSettings.Name = "tcSettings"
@@ -336,18 +336,18 @@ Partial Class frmSettings
         Me.tbSaveArtFileLocation.Size = New System.Drawing.Size(404, 20)
         Me.tbSaveArtFileLocation.TabIndex = 0
         '
-        'tpTextEditingSettings
+        'tpTextEditing
         '
-        Me.tpTextEditingSettings.BackColor = System.Drawing.Color.DarkRed
-        Me.tpTextEditingSettings.Controls.Add(Me.gbWebPresets)
-        Me.tpTextEditingSettings.Controls.Add(Me.gbBackImage)
-        Me.tpTextEditingSettings.Controls.Add(Me.gbTextDimensions)
-        Me.tpTextEditingSettings.Location = New System.Drawing.Point(4, 22)
-        Me.tpTextEditingSettings.Name = "tpTextEditingSettings"
-        Me.tpTextEditingSettings.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpTextEditingSettings.Size = New System.Drawing.Size(541, 273)
-        Me.tpTextEditingSettings.TabIndex = 1
-        Me.tpTextEditingSettings.Text = "Text Editing"
+        Me.tpTextEditing.BackColor = System.Drawing.Color.DarkRed
+        Me.tpTextEditing.Controls.Add(Me.gbWebPresets)
+        Me.tpTextEditing.Controls.Add(Me.gbBackImage)
+        Me.tpTextEditing.Controls.Add(Me.gbTextDimensions)
+        Me.tpTextEditing.Location = New System.Drawing.Point(4, 22)
+        Me.tpTextEditing.Name = "tpTextEditing"
+        Me.tpTextEditing.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpTextEditing.Size = New System.Drawing.Size(541, 273)
+        Me.tpTextEditing.TabIndex = 1
+        Me.tpTextEditing.Text = "Text Editing"
         '
         'gbWebPresets
         '
@@ -801,7 +801,7 @@ Partial Class frmSettings
         Me.GroupBox1.PerformLayout()
         Me.gbArtFile.ResumeLayout(False)
         Me.gbArtFile.PerformLayout()
-        Me.tpTextEditingSettings.ResumeLayout(False)
+        Me.tpTextEditing.ResumeLayout(False)
         Me.gbWebPresets.ResumeLayout(False)
         CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditingSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -831,7 +831,7 @@ Partial Class frmSettings
     End Sub
     Friend WithEvents tcSettings As TabControl
     Friend WithEvents tpColors As TabPage
-    Friend WithEvents tpTextEditingSettings As TabPage
+    Friend WithEvents tpTextEditing As TabPage
     Friend WithEvents tpFiles As TabPage
     Friend WithEvents gbArtFile As GroupBox
     Friend WithEvents gbBackImage As GroupBox

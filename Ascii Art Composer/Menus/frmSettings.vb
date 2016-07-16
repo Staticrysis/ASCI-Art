@@ -15,13 +15,6 @@
         Me.WebPresetsBindingSource.DataSource = New Color
     End Sub
 
-    Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    End Sub
-
-    Private Sub HideForm() Handles Me.Closing
-        Me.Hide()
-    End Sub
-
 #Region "Event Handlers For Color settings"
     Private Sub RTBForeColorClick() Handles buttonRTBTextForeColor.Click
         If _colorDialog.ShowDialog() = DialogResult.OK Then

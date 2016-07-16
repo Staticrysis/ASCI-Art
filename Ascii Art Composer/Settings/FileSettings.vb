@@ -50,10 +50,15 @@ Public Class FileSettings
     End Property
 #End Region
 
-    Public Shared Function Save(ByRef richTextBox As RichTextBox) As Boolean
+    Public Function Open() As Boolean
+
+        Return True
+    End Function
+
+    Public Function Save() As Boolean
 
         ' Create a string array with the lines of text
-        Dim text As String = richTextBox.Text
+        Dim text As String = _rtbArtbox.Text
 
         ' Set a variable to the My Documents path.
         Dim mydocpath As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)

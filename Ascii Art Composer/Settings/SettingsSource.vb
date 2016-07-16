@@ -7,6 +7,7 @@ Public Class SettingsSource
     Implements INotifyPropertyChanged
 #Region "Class Variables"
     Protected _mainForm As frmArt
+    Protected _rtbArtbox As RTBArtBox
     Protected _frmSettings As frmSettings
     Protected _tabControlSettings As TabControl
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
@@ -17,6 +18,7 @@ Public Class SettingsSource
     'General Settings constructor
     Public Sub New(ByRef mainForm As frmArt)
         _mainForm = mainForm
+        _rtbArtbox = mainForm.rtbArtBox
     End Sub
 
 #Region "Form Component as Properties"
@@ -35,10 +37,10 @@ Public Class SettingsSource
 
     Public Property TextEditingSettings As TabPage
         Get
-            Return _mainForm._SettingsForm.tpTextEditingSettings
+            Return _mainForm._SettingsForm.tpTextEditing
         End Get
         Set(value As TabPage)
-            _mainForm._SettingsForm.tpTextEditingSettings = value
+            _mainForm._SettingsForm.tpTextEditing = value
         End Set
     End Property
 

@@ -26,16 +26,12 @@ Partial Class frmArt
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmArt))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.tsmiMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmiOpen = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmiSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuTextToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ASCIIEditorTextToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditorBackgroundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuPanelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmiColors = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmiText = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmiFiles = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsSettings = New System.Windows.Forms.ToolStrip()
         Me.tsbReset = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -70,91 +66,54 @@ Partial Class frmArt
         'tsmiMenu
         '
         Me.tsmiMenu.BackColor = System.Drawing.Color.Black
-        Me.tsmiMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.SaveToolStripMenuItem1})
+        Me.tsmiMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiOpen, Me.tsmiSave})
         Me.tsmiMenu.ForeColor = System.Drawing.Color.Lime
         Me.tsmiMenu.Name = "tsmiMenu"
         Me.tsmiMenu.Size = New System.Drawing.Size(50, 20)
         Me.tsmiMenu.Text = "Menu"
         '
-        'SaveToolStripMenuItem
+        'tsmiOpen
         '
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
-        Me.SaveToolStripMenuItem.Text = "Open"
+        Me.tsmiOpen.Name = "tsmiOpen"
+        Me.tsmiOpen.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiOpen.Text = "Open"
         '
-        'SaveToolStripMenuItem1
+        'tsmiSave
         '
-        Me.SaveToolStripMenuItem1.Name = "SaveToolStripMenuItem1"
-        Me.SaveToolStripMenuItem1.Size = New System.Drawing.Size(103, 22)
-        Me.SaveToolStripMenuItem1.Text = "Save"
+        Me.tsmiSave.Name = "tsmiSave"
+        Me.tsmiSave.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiSave.Text = "Save"
         '
         'tsmiSettings
         '
         Me.tsmiSettings.BackColor = System.Drawing.Color.Black
-        Me.tsmiSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.EditorToolStripMenuItem, Me.FilesToolStripMenuItem})
+        Me.tsmiSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiText, Me.tsmiColors, Me.tsmiFiles})
         Me.tsmiSettings.ForeColor = System.Drawing.Color.Lime
         Me.tsmiSettings.Name = "tsmiSettings"
         Me.tsmiSettings.Size = New System.Drawing.Size(61, 20)
         Me.tsmiSettings.Text = "Settings"
         '
-        'ToolStripMenuItem1
+        'tsmiColors
         '
-        Me.ToolStripMenuItem1.BackColor = System.Drawing.Color.White
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuTextToolStripMenuItem, Me.ASCIIEditorTextToolStripMenuItem, Me.EditorBackgroundToolStripMenuItem, Me.MenuPanelsToolStripMenuItem})
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.Black
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ToolStripMenuItem1.Text = "Colors"
+        Me.tsmiColors.BackColor = System.Drawing.Color.White
+        Me.tsmiColors.ForeColor = System.Drawing.Color.Black
+        Me.tsmiColors.Name = "tsmiColors"
+        Me.tsmiColors.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiColors.Text = "Colors"
         '
-        'MenuTextToolStripMenuItem
+        'tsmiText
         '
-        Me.MenuTextToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.MenuTextToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.MenuTextToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White
-        Me.MenuTextToolStripMenuItem.Name = "MenuTextToolStripMenuItem"
-        Me.MenuTextToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
-        Me.MenuTextToolStripMenuItem.Text = "Menu Text"
+        Me.tsmiText.BackColor = System.Drawing.Color.White
+        Me.tsmiText.ForeColor = System.Drawing.Color.Black
+        Me.tsmiText.Name = "tsmiText"
+        Me.tsmiText.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiText.Text = "Text"
         '
-        'ASCIIEditorTextToolStripMenuItem
+        'tsmiFiles
         '
-        Me.ASCIIEditorTextToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.ASCIIEditorTextToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.ASCIIEditorTextToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White
-        Me.ASCIIEditorTextToolStripMenuItem.Name = "ASCIIEditorTextToolStripMenuItem"
-        Me.ASCIIEditorTextToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
-        Me.ASCIIEditorTextToolStripMenuItem.Text = "Editor Text"
-        '
-        'EditorBackgroundToolStripMenuItem
-        '
-        Me.EditorBackgroundToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.EditorBackgroundToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.EditorBackgroundToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White
-        Me.EditorBackgroundToolStripMenuItem.Name = "EditorBackgroundToolStripMenuItem"
-        Me.EditorBackgroundToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
-        Me.EditorBackgroundToolStripMenuItem.Text = "Editor Background"
-        '
-        'MenuPanelsToolStripMenuItem
-        '
-        Me.MenuPanelsToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.MenuPanelsToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.MenuPanelsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White
-        Me.MenuPanelsToolStripMenuItem.Name = "MenuPanelsToolStripMenuItem"
-        Me.MenuPanelsToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
-        Me.MenuPanelsToolStripMenuItem.Text = "Menu Panels"
-        '
-        'EditorToolStripMenuItem
-        '
-        Me.EditorToolStripMenuItem.BackColor = System.Drawing.Color.White
-        Me.EditorToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.EditorToolStripMenuItem.Name = "EditorToolStripMenuItem"
-        Me.EditorToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EditorToolStripMenuItem.Text = "ASCII Editor"
-        '
-        'FilesToolStripMenuItem
-        '
-        Me.FilesToolStripMenuItem.Name = "FilesToolStripMenuItem"
-        Me.FilesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.FilesToolStripMenuItem.Text = "Files"
+        Me.tsmiFiles.Name = "tsmiFiles"
+        Me.tsmiFiles.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiFiles.Text = "Files"
         '
         'tsSettings
         '
@@ -313,20 +272,16 @@ Partial Class frmArt
     Friend WithEvents tslSymbol As ToolStripLabel
     Friend WithEvents tslLines As ToolStripLabel
     Friend WithEvents tsbReset As ToolStripButton
-    Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SaveToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents tsmiOpen As ToolStripMenuItem
+    Friend WithEvents tsmiSave As ToolStripMenuItem
     Friend WithEvents tsmiSettings As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents EditorToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MenuTextToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ASCIIEditorTextToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EditorBackgroundToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MenuPanelsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmiColors As ToolStripMenuItem
+    Friend WithEvents tsmiText As ToolStripMenuItem
     Friend WithEvents tstbLines As ToolStripTextBox
     Friend WithEvents tslChars As ToolStripLabel
     Friend WithEvents tstbCharacters As ToolStripTextBox
     Friend WithEvents tbZoom As TrackBar
-    Friend WithEvents FilesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmiFiles As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents rtbArtBox As RTBArtBox
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
