@@ -10,6 +10,7 @@ Public Class FileSettings
 #Region "File Settings: Variables and Properties"
     Protected _ArtSaveFilePath As String
     Protected _ArtLoadFilePath As String
+    Protected _ArtSettingsFilePath As String
     Protected _ImageFilePath As String
 
     Public Property ArtSavePath As String
@@ -27,6 +28,15 @@ Public Class FileSettings
         End Get
         Set(value As String)
             _ArtLoadFilePath = value
+        End Set
+    End Property
+
+    Public Property SettingsPath As String
+        Get
+            Return _ArtSettingsFilePath
+        End Get
+        Set(value As String)
+            _ArtSettingsFilePath = value
         End Set
     End Property
 

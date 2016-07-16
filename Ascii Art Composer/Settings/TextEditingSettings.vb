@@ -9,12 +9,7 @@ Public Class TextEditingSettings
     End Sub
 
 #Region "Text Editing Settings: Variables and Properties"
-    Protected Enum WebPresets
-        None
-        Facebook
-        Youtube
-    End Enum
-
+    Protected _WebPresets() As String = {"None", "Facebook", "Youtube"}
     Protected _rtb As RTBArtBox
     Protected _LineNumber As Integer
     Protected _CharacterNumber As Integer
@@ -26,14 +21,21 @@ Public Class TextEditingSettings
     Private _ShowHiddenText As Boolean
     Private _HiddenTextBackColor As Color
 
+    Public Property WebPresets As String()
+        Get
+            Return _WebPresets
+        End Get
+        Set(value As String())
+            _WebPresets = value
+        End Set
+    End Property
+
     Public Property LineNumber As Integer
         Get
             Return _LineNumber
         End Get
         Set(value As Integer)
-            If value >= 0 AndAlso value <= 300 Then
-                _CharacterNumber = value
-            End If
+            _CharacterNumber = value
         End Set
     End Property
 
@@ -42,9 +44,7 @@ Public Class TextEditingSettings
             Return _CharacterNumber
         End Get
         Set(value As Integer)
-            If value >= 0 AndAlso value <= 100 Then
-                _CharacterNumber = value
-            End If
+            _CharacterNumber = value
         End Set
     End Property
 

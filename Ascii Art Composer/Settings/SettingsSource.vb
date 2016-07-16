@@ -17,11 +17,6 @@ Public Class SettingsSource
     'General Settings constructor
     Public Sub New(ByRef mainForm As frmArt)
         _mainForm = mainForm
-        _frmSettings = mainForm._SettingsForm
-        _tabControlSettings = _frmSettings.tcSettings
-
-        _tabFileSettings = _frmSettings.tpFiles
-        _tabColorSettings = _frmSettings.tpColors
     End Sub
 
 #Region "Form Component as Properties"
@@ -31,28 +26,28 @@ Public Class SettingsSource
 
     Public Property FileSettings As TabPage
         Get
-            Return _tabFileSettings
+            Return _mainForm._SettingsForm.tpFiles
         End Get
         Set(value As TabPage)
-            _tabFileSettings = value
+            _mainForm._SettingsForm.tpFiles = value
         End Set
     End Property
 
     Public Property TextEditingSettings As TabPage
         Get
-            Return _tabTextEditingSettings
+            Return _mainForm._SettingsForm.tpTextEditingSettings
         End Get
         Set(value As TabPage)
-            value = _tabTextEditingSettings
+            _mainForm._SettingsForm.tpTextEditingSettings = value
         End Set
     End Property
 
     Public Property ColorSettings As TabPage
         Get
-            Return _tabColorSettings
+            Return _mainForm._SettingsForm.tpColors
         End Get
         Set(value As TabPage)
-            _tabColorSettings = value
+            _mainForm._SettingsForm.tpColors = value
         End Set
     End Property
 #End Region

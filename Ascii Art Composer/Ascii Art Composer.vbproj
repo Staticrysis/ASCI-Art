@@ -214,8 +214,6 @@
     </None>
     <None Include="My Project\DataSources\ColorSettings.datasource" />
     <None Include="My Project\DataSources\FileSettings.datasource" />
-    <None Include="My Project\DataSources\frmArt.datasource" />
-    <None Include="My Project\DataSources\frmSettings.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.IJsonLineInfo.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonArrayAttribute.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonConstructorAttribute.datasource" />
@@ -242,11 +240,9 @@
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriter.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriterException.datasource" />
     <None Include="My Project\DataSources\RTBAggregate.datasource" />
-    <None Include="My Project\DataSources\RTBArtBox.datasource" />
     <None Include="My Project\DataSources\RTBDrawings.datasource" />
     <None Include="My Project\DataSources\RTBSource.datasource" />
     <None Include="My Project\DataSources\RTBTextEditing.datasource" />
-    <None Include="My Project\DataSources\SettingsAggregate.datasource" />
     <None Include="My Project\DataSources\SettingsSource.datasource" />
     <None Include="My Project\DataSources\System.Drawing.Color.datasource" />
     <None Include="My Project\DataSources\TextEditingSettings.datasource" />
