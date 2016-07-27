@@ -186,7 +186,7 @@
     <Compile Include="Settings\ColorSettings.vb" />
     <Compile Include="Settings\FileSettings.vb" />
     <Compile Include="Settings\SettingsAggregate.vb" />
-    <Compile Include="Settings\SettingsJSON.vb" />
+    <Compile Include="Settings\JsonIO.vb" />
     <Compile Include="Settings\SettingsSource.vb" />
     <Compile Include="Settings\TextEditingSettings.vb" />
   </ItemGroup>

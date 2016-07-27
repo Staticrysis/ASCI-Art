@@ -1,4 +1,6 @@
-﻿Public Class frmSettings
+﻿Imports System.IO
+Imports Newtonsoft.Json
+Public Class frmSettings
     Public _settingsAggregate As SettingsAggregate
     Public _artForm As frmArt
     Public _colorDialog As ColorDialog = New ColorDialog
@@ -9,6 +11,7 @@
 
         ' Add any initialization after the InitializeComponent() call.
         Me._settingsAggregate = settingsAggregate
+        If IsNothing(settingsAggregate) Then LoadSettings()
         Me.ColorBindingSource.DataSource = settingsAggregate.ColorSettings
         Me.FileSettingsBindingSource.DataSource = settingsAggregate.FileSettings
         Me.TextEditingSettingsBindingSource.DataSource = settingsAggregate.TextEditingSettings
@@ -58,4 +61,58 @@
         End If
     End Sub
 #End Region
+
+    Public Sub SaveSettings()
+        JsonIO.SerialSave(Me._settingsAggregate, "Settings", _settingsAggregate.FileSettings.SettingsPath)
+    End Sub
+
+    Public Sub LoadSettings()
+        If Not JsonIO.SerialOpen(Me._settingsAggregate, "Settings", _settingsAggregate.FileSettings.SettingsPath) Then
+            Me._settingsAggregate = New SettingsAggregate()
+        End If
+    End Sub
+
+    Private Sub SaveOnClose() Handles Me.Closing
+        SaveSettings()
+    End Sub
+
+    Private Sub LoadOnOpen() Handles Me.Load
+        LoadSettings()
+    End Sub
+
+    Private Sub buttonSetSaveArtFileLocation_Click(sender As Object, e As EventArgs) Handles buttonSetSaveArtFileLocation.Click
+        Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
+            If folderBrowser.ShowDialog = DialogResult.OK Then
+                _settingsAggregate.FileSettings.ArtSavePath = folderBrowser.SelectedPath
+            End If
+        End Using
+    End Sub
+
+    Private Sub buttonSetSaveLoadFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveLoadFile.Click
+        Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
+            If folderBrowser.ShowDialog = DialogResult.OK Then
+                _settingsAggregate.FileSettings.ArtLoadPath = folderBrowser.SelectedPath
+            End If
+        End Using
+    End Sub
+
+    Private Sub buttonSetSettingsFileLocation_Click(sender As Object, e As EventArgs) Handles buttonSetSettingsFileLocation.Click
+        Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
+            If folderBrowser.ShowDialog = DialogResult.OK Then
+                _settingsAggregate.FileSettings.SettingsPath = folderBrowser.SelectedPath
+            End If
+        End Using
+    End Sub
+
+    Private Sub buttonSetSaveWEBImageFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveWEBImageFile.Click
+        'Needs some implementation in the future
+    End Sub
+
+    Private Sub buttonSetSaveLocalImageFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveLocalImageFile.Click
+        Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
+            If folderBrowser.ShowDialog = DialogResult.OK Then
+                _settingsAggregate.FileSettings.ImagePath = folderBrowser.SelectedPath
+            End If
+        End Using
+    End Sub
 End Class

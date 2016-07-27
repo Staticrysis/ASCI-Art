@@ -1,8 +1,7 @@
 ﻿Public Class ColorSettings
-    Inherits SettingsSource 
+    Inherits SettingsSource
 
-    Public Sub New(ByRef mainForm As frmArt)
-        MyBase.New(mainForm)
+    Public Sub New()
     End Sub
 
 #Region "Color Settings: Variables and Properties"

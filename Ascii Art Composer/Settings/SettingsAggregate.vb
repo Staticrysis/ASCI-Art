@@ -1,10 +1,10 @@
-﻿'Note: This aggregate class contains all the helper classes for settings
+﻿'Note: This aggregate is a wrapper for all the frmSettings data classes 
+
 Public Class SettingsAggregate
 #Region "Class Variables"
     Dim _fileSettings As FileSettings
     Dim _textEditingSettings As TextEditingSettings
     Dim _colorSettings As ColorSettings
-
 #End Region
 
 #Region "Class Properties"
@@ -36,12 +36,9 @@ Public Class SettingsAggregate
     End Property
 #End Region
 
-    Public Sub New(ByRef frmArt As frmArt)
-        _fileSettings = New FileSettings(frmArt)
-        _textEditingSettings = New TextEditingSettings(frmArt)
-        _colorSettings = New ColorSettings(frmArt)
-
-        'frmSettings.BindingSourceFileSettings = _fileSettings
-
+    Public Sub New()
+        _fileSettings = New FileSettings()
+        _textEditingSettings = New TextEditingSettings()
+        _colorSettings = New ColorSettings()
     End Sub
 End Class

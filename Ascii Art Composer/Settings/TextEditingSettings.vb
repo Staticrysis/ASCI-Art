@@ -3,9 +3,7 @@
 Public Class TextEditingSettings
     Inherits SettingsSource
 
-    Public Sub New(ByRef mainForm As frmArt)
-        MyBase.New(mainForm)
-        _rtb = mainForm.rtbArtBox
+    Public Sub New()
     End Sub
 
 #Region "Text Editing Settings: Variables and Properties"

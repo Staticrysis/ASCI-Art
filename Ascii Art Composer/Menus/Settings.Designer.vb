@@ -24,24 +24,6 @@ Partial Class frmSettings
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.tcSettings = New System.Windows.Forms.TabControl()
-        Me.tpFiles = New System.Windows.Forms.TabPage()
-        Me.gbSettingsFileLocation = New System.Windows.Forms.GroupBox()
-        Me.gbSettingsFile = New System.Windows.Forms.GroupBox()
-        Me.tbSettingsFileLocation = New System.Windows.Forms.TextBox()
-        Me.FileSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.buttonSetSettingsFileLocation = New System.Windows.Forms.Button()
-        Me.gbImageFile = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.buttonSetSaveLocalImageFile = New System.Windows.Forms.Button()
-        Me.tbImageFileLocation = New System.Windows.Forms.TextBox()
-        Me.buttonSetSaveWEBImageFile = New System.Windows.Forms.Button()
-        Me.gbFileLocations = New System.Windows.Forms.GroupBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.tbSaveLoadArtFile = New System.Windows.Forms.TextBox()
-        Me.buttonSetSaveLoadFile = New System.Windows.Forms.Button()
-        Me.gbArtFile = New System.Windows.Forms.GroupBox()
-        Me.buttonSetSaveArtFileLocation = New System.Windows.Forms.Button()
-        Me.tbSaveArtFileLocation = New System.Windows.Forms.TextBox()
         Me.tpTextEditing = New System.Windows.Forms.TabPage()
         Me.gbWebPresets = New System.Windows.Forms.GroupBox()
         Me.cbWebPresets = New System.Windows.Forms.ComboBox()
@@ -85,15 +67,25 @@ Partial Class frmSettings
         Me.gbRTBTextForeColors = New System.Windows.Forms.GroupBox()
         Me.cbRTBTextForeColor = New System.Windows.Forms.ComboBox()
         Me.buttonRTBTextForeColor = New System.Windows.Forms.Button()
+        Me.tpFiles = New System.Windows.Forms.TabPage()
+        Me.gbSettingsFileLocation = New System.Windows.Forms.GroupBox()
+        Me.gbSettingsFile = New System.Windows.Forms.GroupBox()
+        Me.tbSettingsFileLocation = New System.Windows.Forms.TextBox()
+        Me.FileSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.buttonSetSettingsFileLocation = New System.Windows.Forms.Button()
+        Me.gbImageFile = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.buttonSetSaveLocalImageFile = New System.Windows.Forms.Button()
+        Me.tbImageFileLocation = New System.Windows.Forms.TextBox()
+        Me.buttonSetSaveWEBImageFile = New System.Windows.Forms.Button()
+        Me.gbFileLocations = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbSaveLoadArtFile = New System.Windows.Forms.TextBox()
+        Me.buttonSetSaveLoadFile = New System.Windows.Forms.Button()
+        Me.gbArtFile = New System.Windows.Forms.GroupBox()
+        Me.buttonSetSaveArtFileLocation = New System.Windows.Forms.Button()
+        Me.tbSaveArtFileLocation = New System.Windows.Forms.TextBox()
         Me.tcSettings.SuspendLayout()
-        Me.tpFiles.SuspendLayout()
-        Me.gbSettingsFileLocation.SuspendLayout()
-        Me.gbSettingsFile.SuspendLayout()
-        CType(Me.FileSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbImageFile.SuspendLayout()
-        Me.gbFileLocations.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.gbArtFile.SuspendLayout()
         Me.tpTextEditing.SuspendLayout()
         Me.gbWebPresets.SuspendLayout()
         CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -117,6 +109,14 @@ Partial Class frmSettings
         Me.gbRTBTextHighlight.SuspendLayout()
         Me.gbRTBTextBackColors.SuspendLayout()
         Me.gbRTBTextForeColors.SuspendLayout()
+        Me.tpFiles.SuspendLayout()
+        Me.gbSettingsFileLocation.SuspendLayout()
+        Me.gbSettingsFile.SuspendLayout()
+        CType(Me.FileSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbImageFile.SuspendLayout()
+        Me.gbFileLocations.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.gbArtFile.SuspendLayout()
         Me.SuspendLayout()
         '
         'tcSettings
@@ -131,214 +131,9 @@ Partial Class frmSettings
         Me.tcSettings.Size = New System.Drawing.Size(549, 299)
         Me.tcSettings.TabIndex = 0
         '
-        'tpFiles
-        '
-        Me.tpFiles.BackColor = System.Drawing.Color.DarkRed
-        Me.tpFiles.Controls.Add(Me.gbSettingsFileLocation)
-        Me.tpFiles.Controls.Add(Me.gbFileLocations)
-        Me.tpFiles.Location = New System.Drawing.Point(4, 22)
-        Me.tpFiles.Name = "tpFiles"
-        Me.tpFiles.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpFiles.Size = New System.Drawing.Size(541, 273)
-        Me.tpFiles.TabIndex = 2
-        Me.tpFiles.Text = "Files"
-        '
-        'gbSettingsFileLocation
-        '
-        Me.gbSettingsFileLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.gbSettingsFileLocation.BackColor = System.Drawing.Color.DarkGray
-        Me.gbSettingsFileLocation.Controls.Add(Me.gbSettingsFile)
-        Me.gbSettingsFileLocation.Controls.Add(Me.gbImageFile)
-        Me.gbSettingsFileLocation.Location = New System.Drawing.Point(3, 139)
-        Me.gbSettingsFileLocation.Name = "gbSettingsFileLocation"
-        Me.gbSettingsFileLocation.Size = New System.Drawing.Size(535, 131)
-        Me.gbSettingsFileLocation.TabIndex = 5
-        Me.gbSettingsFileLocation.TabStop = False
-        Me.gbSettingsFileLocation.Text = "Settings File Location"
-        '
-        'gbSettingsFile
-        '
-        Me.gbSettingsFile.BackColor = System.Drawing.Color.Silver
-        Me.gbSettingsFile.Controls.Add(Me.tbSettingsFileLocation)
-        Me.gbSettingsFile.Controls.Add(Me.buttonSetSettingsFileLocation)
-        Me.gbSettingsFile.Location = New System.Drawing.Point(6, 19)
-        Me.gbSettingsFile.Name = "gbSettingsFile"
-        Me.gbSettingsFile.Size = New System.Drawing.Size(526, 46)
-        Me.gbSettingsFile.TabIndex = 3
-        Me.gbSettingsFile.TabStop = False
-        Me.gbSettingsFile.Text = "Settings File"
-        '
-        'tbSettingsFileLocation
-        '
-        Me.tbSettingsFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSettingsFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "SettingsPath", True))
-        Me.tbSettingsFileLocation.Location = New System.Drawing.Point(116, 19)
-        Me.tbSettingsFileLocation.Name = "tbSettingsFileLocation"
-        Me.tbSettingsFileLocation.Size = New System.Drawing.Size(404, 20)
-        Me.tbSettingsFileLocation.TabIndex = 1
-        '
-        'FileSettingsBindingSource
-        '
-        Me.FileSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.FileSettings)
-        '
-        'buttonSetSettingsFileLocation
-        '
-        Me.buttonSetSettingsFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonSetSettingsFileLocation.Location = New System.Drawing.Point(7, 19)
-        Me.buttonSetSettingsFileLocation.Name = "buttonSetSettingsFileLocation"
-        Me.buttonSetSettingsFileLocation.Size = New System.Drawing.Size(103, 21)
-        Me.buttonSetSettingsFileLocation.TabIndex = 0
-        Me.buttonSetSettingsFileLocation.Text = "Set"
-        Me.buttonSetSettingsFileLocation.UseVisualStyleBackColor = True
-        '
-        'gbImageFile
-        '
-        Me.gbImageFile.BackColor = System.Drawing.Color.Silver
-        Me.gbImageFile.Controls.Add(Me.Label3)
-        Me.gbImageFile.Controls.Add(Me.buttonSetSaveLocalImageFile)
-        Me.gbImageFile.Controls.Add(Me.tbImageFileLocation)
-        Me.gbImageFile.Controls.Add(Me.buttonSetSaveWEBImageFile)
-        Me.gbImageFile.Location = New System.Drawing.Point(6, 71)
-        Me.gbImageFile.Name = "gbImageFile"
-        Me.gbImageFile.Size = New System.Drawing.Size(526, 46)
-        Me.gbImageFile.TabIndex = 4
-        Me.gbImageFile.TabStop = False
-        Me.gbImageFile.Text = "Image File"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(51, 22)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(16, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "or"
-        '
-        'buttonSetSaveLocalImageFile
-        '
-        Me.buttonSetSaveLocalImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonSetSaveLocalImageFile.Location = New System.Drawing.Point(69, 18)
-        Me.buttonSetSaveLocalImageFile.Name = "buttonSetSaveLocalImageFile"
-        Me.buttonSetSaveLocalImageFile.Size = New System.Drawing.Size(41, 21)
-        Me.buttonSetSaveLocalImageFile.TabIndex = 2
-        Me.buttonSetSaveLocalImageFile.Text = "Local"
-        Me.buttonSetSaveLocalImageFile.UseVisualStyleBackColor = True
-        '
-        'tbImageFileLocation
-        '
-        Me.tbImageFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbImageFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ImagePath", True))
-        Me.tbImageFileLocation.Location = New System.Drawing.Point(116, 19)
-        Me.tbImageFileLocation.Name = "tbImageFileLocation"
-        Me.tbImageFileLocation.Size = New System.Drawing.Size(404, 20)
-        Me.tbImageFileLocation.TabIndex = 1
-        '
-        'buttonSetSaveWEBImageFile
-        '
-        Me.buttonSetSaveWEBImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonSetSaveWEBImageFile.Location = New System.Drawing.Point(7, 18)
-        Me.buttonSetSaveWEBImageFile.Name = "buttonSetSaveWEBImageFile"
-        Me.buttonSetSaveWEBImageFile.Size = New System.Drawing.Size(41, 21)
-        Me.buttonSetSaveWEBImageFile.TabIndex = 0
-        Me.buttonSetSaveWEBImageFile.Text = "WEB"
-        Me.buttonSetSaveWEBImageFile.UseVisualStyleBackColor = True
-        '
-        'gbFileLocations
-        '
-        Me.gbFileLocations.BackColor = System.Drawing.Color.DarkGray
-        Me.gbFileLocations.Controls.Add(Me.GroupBox1)
-        Me.gbFileLocations.Controls.Add(Me.gbArtFile)
-        Me.gbFileLocations.Location = New System.Drawing.Point(3, 3)
-        Me.gbFileLocations.Name = "gbFileLocations"
-        Me.gbFileLocations.Size = New System.Drawing.Size(535, 130)
-        Me.gbFileLocations.TabIndex = 4
-        Me.gbFileLocations.TabStop = False
-        Me.gbFileLocations.Text = "Art File Locations"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Silver
-        Me.GroupBox1.Controls.Add(Me.tbSaveLoadArtFile)
-        Me.GroupBox1.Controls.Add(Me.buttonSetSaveLoadFile)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 71)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(526, 46)
-        Me.GroupBox1.TabIndex = 5
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Art Load File"
-        '
-        'tbSaveLoadArtFile
-        '
-        Me.tbSaveLoadArtFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSaveLoadArtFile.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtLoadPath", True))
-        Me.tbSaveLoadArtFile.Location = New System.Drawing.Point(116, 19)
-        Me.tbSaveLoadArtFile.Name = "tbSaveLoadArtFile"
-        Me.tbSaveLoadArtFile.Size = New System.Drawing.Size(404, 20)
-        Me.tbSaveLoadArtFile.TabIndex = 1
-        '
-        'buttonSetSaveLoadFile
-        '
-        Me.buttonSetSaveLoadFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonSetSaveLoadFile.Location = New System.Drawing.Point(7, 19)
-        Me.buttonSetSaveLoadFile.Name = "buttonSetSaveLoadFile"
-        Me.buttonSetSaveLoadFile.Size = New System.Drawing.Size(103, 21)
-        Me.buttonSetSaveLoadFile.TabIndex = 0
-        Me.buttonSetSaveLoadFile.Text = "Set"
-        Me.buttonSetSaveLoadFile.UseVisualStyleBackColor = True
-        '
-        'gbArtFile
-        '
-        Me.gbArtFile.BackColor = System.Drawing.Color.Silver
-        Me.gbArtFile.Controls.Add(Me.buttonSetSaveArtFileLocation)
-        Me.gbArtFile.Controls.Add(Me.tbSaveArtFileLocation)
-        Me.gbArtFile.Location = New System.Drawing.Point(6, 19)
-        Me.gbArtFile.Name = "gbArtFile"
-        Me.gbArtFile.Size = New System.Drawing.Size(526, 46)
-        Me.gbArtFile.TabIndex = 2
-        Me.gbArtFile.TabStop = False
-        Me.gbArtFile.Text = "Art Save File"
-        '
-        'buttonSetSaveArtFileLocation
-        '
-        Me.buttonSetSaveArtFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonSetSaveArtFileLocation.Location = New System.Drawing.Point(6, 20)
-        Me.buttonSetSaveArtFileLocation.Name = "buttonSetSaveArtFileLocation"
-        Me.buttonSetSaveArtFileLocation.Size = New System.Drawing.Size(104, 20)
-        Me.buttonSetSaveArtFileLocation.TabIndex = 4
-        Me.buttonSetSaveArtFileLocation.Text = "Set"
-        Me.buttonSetSaveArtFileLocation.UseVisualStyleBackColor = True
-        '
-        'tbSaveArtFileLocation
-        '
-        Me.tbSaveArtFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSaveArtFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtSavePath", True))
-        Me.tbSaveArtFileLocation.Location = New System.Drawing.Point(116, 20)
-        Me.tbSaveArtFileLocation.Name = "tbSaveArtFileLocation"
-        Me.tbSaveArtFileLocation.Size = New System.Drawing.Size(404, 20)
-        Me.tbSaveArtFileLocation.TabIndex = 0
-        '
         'tpTextEditing
         '
-        Me.tpTextEditing.BackColor = System.Drawing.Color.DarkRed
+        Me.tpTextEditing.BackColor = System.Drawing.Color.DarkGray
         Me.tpTextEditing.Controls.Add(Me.gbWebPresets)
         Me.tpTextEditing.Controls.Add(Me.gbBackImage)
         Me.tpTextEditing.Controls.Add(Me.gbTextDimensions)
@@ -559,7 +354,7 @@ Partial Class frmSettings
         '
         'tpColors
         '
-        Me.tpColors.BackColor = System.Drawing.Color.DarkRed
+        Me.tpColors.BackColor = System.Drawing.Color.DarkGray
         Me.tpColors.Controls.Add(Me.GroupBox4)
         Me.tpColors.Controls.Add(Me.gbTextBox)
         Me.tpColors.Location = New System.Drawing.Point(4, 22)
@@ -779,6 +574,211 @@ Partial Class frmSettings
         Me.buttonRTBTextForeColor.TabIndex = 1
         Me.buttonRTBTextForeColor.UseVisualStyleBackColor = True
         '
+        'tpFiles
+        '
+        Me.tpFiles.BackColor = System.Drawing.Color.DarkGray
+        Me.tpFiles.Controls.Add(Me.gbSettingsFileLocation)
+        Me.tpFiles.Controls.Add(Me.gbFileLocations)
+        Me.tpFiles.Location = New System.Drawing.Point(4, 22)
+        Me.tpFiles.Name = "tpFiles"
+        Me.tpFiles.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpFiles.Size = New System.Drawing.Size(541, 273)
+        Me.tpFiles.TabIndex = 2
+        Me.tpFiles.Text = "Files"
+        '
+        'gbSettingsFileLocation
+        '
+        Me.gbSettingsFileLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbSettingsFileLocation.BackColor = System.Drawing.Color.DarkGray
+        Me.gbSettingsFileLocation.Controls.Add(Me.gbSettingsFile)
+        Me.gbSettingsFileLocation.Controls.Add(Me.gbImageFile)
+        Me.gbSettingsFileLocation.Location = New System.Drawing.Point(3, 139)
+        Me.gbSettingsFileLocation.Name = "gbSettingsFileLocation"
+        Me.gbSettingsFileLocation.Size = New System.Drawing.Size(535, 131)
+        Me.gbSettingsFileLocation.TabIndex = 5
+        Me.gbSettingsFileLocation.TabStop = False
+        Me.gbSettingsFileLocation.Text = "Settings File Location"
+        '
+        'gbSettingsFile
+        '
+        Me.gbSettingsFile.BackColor = System.Drawing.Color.Silver
+        Me.gbSettingsFile.Controls.Add(Me.tbSettingsFileLocation)
+        Me.gbSettingsFile.Controls.Add(Me.buttonSetSettingsFileLocation)
+        Me.gbSettingsFile.Location = New System.Drawing.Point(6, 19)
+        Me.gbSettingsFile.Name = "gbSettingsFile"
+        Me.gbSettingsFile.Size = New System.Drawing.Size(526, 46)
+        Me.gbSettingsFile.TabIndex = 3
+        Me.gbSettingsFile.TabStop = False
+        Me.gbSettingsFile.Text = "Settings File"
+        '
+        'tbSettingsFileLocation
+        '
+        Me.tbSettingsFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbSettingsFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "SettingsPath", True))
+        Me.tbSettingsFileLocation.Location = New System.Drawing.Point(116, 19)
+        Me.tbSettingsFileLocation.Name = "tbSettingsFileLocation"
+        Me.tbSettingsFileLocation.Size = New System.Drawing.Size(404, 20)
+        Me.tbSettingsFileLocation.TabIndex = 1
+        '
+        'FileSettingsBindingSource
+        '
+        Me.FileSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.FileSettings)
+        '
+        'buttonSetSettingsFileLocation
+        '
+        Me.buttonSetSettingsFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSettingsFileLocation.Location = New System.Drawing.Point(7, 19)
+        Me.buttonSetSettingsFileLocation.Name = "buttonSetSettingsFileLocation"
+        Me.buttonSetSettingsFileLocation.Size = New System.Drawing.Size(103, 21)
+        Me.buttonSetSettingsFileLocation.TabIndex = 0
+        Me.buttonSetSettingsFileLocation.Text = "Set"
+        Me.buttonSetSettingsFileLocation.UseVisualStyleBackColor = True
+        '
+        'gbImageFile
+        '
+        Me.gbImageFile.BackColor = System.Drawing.Color.Silver
+        Me.gbImageFile.Controls.Add(Me.Label3)
+        Me.gbImageFile.Controls.Add(Me.buttonSetSaveLocalImageFile)
+        Me.gbImageFile.Controls.Add(Me.tbImageFileLocation)
+        Me.gbImageFile.Controls.Add(Me.buttonSetSaveWEBImageFile)
+        Me.gbImageFile.Location = New System.Drawing.Point(6, 71)
+        Me.gbImageFile.Name = "gbImageFile"
+        Me.gbImageFile.Size = New System.Drawing.Size(526, 46)
+        Me.gbImageFile.TabIndex = 4
+        Me.gbImageFile.TabStop = False
+        Me.gbImageFile.Text = "Image File"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(51, 22)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(16, 13)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "or"
+        '
+        'buttonSetSaveLocalImageFile
+        '
+        Me.buttonSetSaveLocalImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveLocalImageFile.Location = New System.Drawing.Point(69, 18)
+        Me.buttonSetSaveLocalImageFile.Name = "buttonSetSaveLocalImageFile"
+        Me.buttonSetSaveLocalImageFile.Size = New System.Drawing.Size(41, 21)
+        Me.buttonSetSaveLocalImageFile.TabIndex = 2
+        Me.buttonSetSaveLocalImageFile.Text = "Local"
+        Me.buttonSetSaveLocalImageFile.UseVisualStyleBackColor = True
+        '
+        'tbImageFileLocation
+        '
+        Me.tbImageFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbImageFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ImagePath", True))
+        Me.tbImageFileLocation.Location = New System.Drawing.Point(116, 19)
+        Me.tbImageFileLocation.Name = "tbImageFileLocation"
+        Me.tbImageFileLocation.Size = New System.Drawing.Size(404, 20)
+        Me.tbImageFileLocation.TabIndex = 1
+        '
+        'buttonSetSaveWEBImageFile
+        '
+        Me.buttonSetSaveWEBImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveWEBImageFile.Location = New System.Drawing.Point(7, 18)
+        Me.buttonSetSaveWEBImageFile.Name = "buttonSetSaveWEBImageFile"
+        Me.buttonSetSaveWEBImageFile.Size = New System.Drawing.Size(41, 21)
+        Me.buttonSetSaveWEBImageFile.TabIndex = 0
+        Me.buttonSetSaveWEBImageFile.Text = "WEB"
+        Me.buttonSetSaveWEBImageFile.UseVisualStyleBackColor = True
+        '
+        'gbFileLocations
+        '
+        Me.gbFileLocations.BackColor = System.Drawing.Color.DarkGray
+        Me.gbFileLocations.Controls.Add(Me.GroupBox1)
+        Me.gbFileLocations.Controls.Add(Me.gbArtFile)
+        Me.gbFileLocations.Location = New System.Drawing.Point(3, 3)
+        Me.gbFileLocations.Name = "gbFileLocations"
+        Me.gbFileLocations.Size = New System.Drawing.Size(535, 130)
+        Me.gbFileLocations.TabIndex = 4
+        Me.gbFileLocations.TabStop = False
+        Me.gbFileLocations.Text = "Art File Locations"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Silver
+        Me.GroupBox1.Controls.Add(Me.tbSaveLoadArtFile)
+        Me.GroupBox1.Controls.Add(Me.buttonSetSaveLoadFile)
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 71)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(526, 46)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Art Load File"
+        '
+        'tbSaveLoadArtFile
+        '
+        Me.tbSaveLoadArtFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbSaveLoadArtFile.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtLoadPath", True))
+        Me.tbSaveLoadArtFile.Location = New System.Drawing.Point(116, 19)
+        Me.tbSaveLoadArtFile.Name = "tbSaveLoadArtFile"
+        Me.tbSaveLoadArtFile.Size = New System.Drawing.Size(404, 20)
+        Me.tbSaveLoadArtFile.TabIndex = 1
+        '
+        'buttonSetSaveLoadFile
+        '
+        Me.buttonSetSaveLoadFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveLoadFile.Location = New System.Drawing.Point(7, 19)
+        Me.buttonSetSaveLoadFile.Name = "buttonSetSaveLoadFile"
+        Me.buttonSetSaveLoadFile.Size = New System.Drawing.Size(103, 21)
+        Me.buttonSetSaveLoadFile.TabIndex = 0
+        Me.buttonSetSaveLoadFile.Text = "Set"
+        Me.buttonSetSaveLoadFile.UseVisualStyleBackColor = True
+        '
+        'gbArtFile
+        '
+        Me.gbArtFile.BackColor = System.Drawing.Color.Silver
+        Me.gbArtFile.Controls.Add(Me.buttonSetSaveArtFileLocation)
+        Me.gbArtFile.Controls.Add(Me.tbSaveArtFileLocation)
+        Me.gbArtFile.Location = New System.Drawing.Point(6, 19)
+        Me.gbArtFile.Name = "gbArtFile"
+        Me.gbArtFile.Size = New System.Drawing.Size(526, 46)
+        Me.gbArtFile.TabIndex = 2
+        Me.gbArtFile.TabStop = False
+        Me.gbArtFile.Text = "Art Save File"
+        '
+        'buttonSetSaveArtFileLocation
+        '
+        Me.buttonSetSaveArtFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveArtFileLocation.Location = New System.Drawing.Point(6, 20)
+        Me.buttonSetSaveArtFileLocation.Name = "buttonSetSaveArtFileLocation"
+        Me.buttonSetSaveArtFileLocation.Size = New System.Drawing.Size(104, 20)
+        Me.buttonSetSaveArtFileLocation.TabIndex = 4
+        Me.buttonSetSaveArtFileLocation.Text = "Set"
+        Me.buttonSetSaveArtFileLocation.UseVisualStyleBackColor = True
+        '
+        'tbSaveArtFileLocation
+        '
+        Me.tbSaveArtFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbSaveArtFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtSavePath", True))
+        Me.tbSaveArtFileLocation.Location = New System.Drawing.Point(116, 20)
+        Me.tbSaveArtFileLocation.Name = "tbSaveArtFileLocation"
+        Me.tbSaveArtFileLocation.Size = New System.Drawing.Size(404, 20)
+        Me.tbSaveArtFileLocation.TabIndex = 0
+        '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -789,18 +789,6 @@ Partial Class frmSettings
         Me.Name = "frmSettings"
         Me.Text = "Settings"
         Me.tcSettings.ResumeLayout(False)
-        Me.tpFiles.ResumeLayout(False)
-        Me.gbSettingsFileLocation.ResumeLayout(False)
-        Me.gbSettingsFile.ResumeLayout(False)
-        Me.gbSettingsFile.PerformLayout()
-        CType(Me.FileSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbImageFile.ResumeLayout(False)
-        Me.gbImageFile.PerformLayout()
-        Me.gbFileLocations.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.gbArtFile.ResumeLayout(False)
-        Me.gbArtFile.PerformLayout()
         Me.tpTextEditing.ResumeLayout(False)
         Me.gbWebPresets.ResumeLayout(False)
         CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -826,6 +814,18 @@ Partial Class frmSettings
         Me.gbRTBTextHighlight.ResumeLayout(False)
         Me.gbRTBTextBackColors.ResumeLayout(False)
         Me.gbRTBTextForeColors.ResumeLayout(False)
+        Me.tpFiles.ResumeLayout(False)
+        Me.gbSettingsFileLocation.ResumeLayout(False)
+        Me.gbSettingsFile.ResumeLayout(False)
+        Me.gbSettingsFile.PerformLayout()
+        CType(Me.FileSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbImageFile.ResumeLayout(False)
+        Me.gbImageFile.PerformLayout()
+        Me.gbFileLocations.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.gbArtFile.ResumeLayout(False)
+        Me.gbArtFile.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

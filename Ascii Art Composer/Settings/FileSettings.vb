@@ -3,8 +3,7 @@
 Public Class FileSettings
     Inherits SettingsSource
 
-    Public Sub New(ByRef mainForm As frmArt)
-        MyBase.New(mainForm)
+    Public Sub New()
     End Sub
 
 #Region "File Settings: Variables and Properties"
