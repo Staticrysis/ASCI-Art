@@ -5,6 +5,8 @@ Public Class frmArt
     'Containing these aggregates in the main form class insures that it will persist 
     Public _rtbAggregate As RTBAggregate 'this one is different
     Public _SettingsAggregate As New SettingsAggregate
+
+    Private FrmSettings As New frmSettings(_SettingsAggregate)
 #End Region
 
     Sub New()
@@ -34,20 +36,17 @@ Public Class frmArt
     End Sub
 
     Private Sub ShowTextSettings() Handles tsmiText.Click
-        Using _SettingsForm = New frmSettings(_SettingsAggregate)
-            _SettingsForm.ShowDialog()
-        End Using
+        FrmSettings.tcSettings.SelectTab(0)
+        FrmSettings.ShowDialog()
     End Sub
 
     Private Sub ShowColorSettings() Handles tsmiColors.Click
-        Using _SettingsForm = New frmSettings(_SettingsAggregate)
-            _SettingsForm.Show()
-        End Using
+        FrmSettings.tcSettings.SelectTab(1)
+        FrmSettings.ShowDialog()
     End Sub
 
     Private Sub ShowFileSettings() Handles tsmiFiles.Click
-        Using _SettingsForm = New frmSettings(_SettingsAggregate)
-            _SettingsForm.Show()
-        End Using
+        FrmSettings.tcSettings.SelectTab(2)
+        FrmSettings.ShowDialog()
     End Sub
 End Class

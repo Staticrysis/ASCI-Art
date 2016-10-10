@@ -11,6 +11,7 @@ Public Class frmSettings
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
+        _settingsAggregate = settingsAggregate 'By-ref so local settings uses the mainForm's settings
         LoadSettings()
         BindUI()
         LoadUI()
@@ -32,7 +33,6 @@ Public Class frmSettings
     End Function
 
     Private Sub SaveOnClose() Handles Me.Closing
-        Me.Validate()
         _settingsAggregate.TextEditingSettings = DirectCast(TextEditingSettingsBindingSource.Item(0), TextEditingSettings)
         _settingsAggregate.FileSettings = DirectCast(FileSettingsBindingSource.Item(0), FileSettings)
         _settingsAggregate.ColorSettings = DirectCast(ColorSettingsBindingSource.Item(0), ColorSettings)
@@ -102,25 +102,19 @@ Public Class frmSettings
 #Region "File Settings"
     Private Sub buttonSetSaveArtFileLocation_Click(sender As Object, e As EventArgs) Handles buttonSetSaveArtFileLocation.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
-            If folderBrowser.ShowDialog = DialogResult.OK Then
-                tbSaveArtFileLocation.Text = folderBrowser.SelectedPath
-            End If
+            If folderBrowser.ShowDialog = DialogResult.OK Then tbSaveArtFileLocation.Text = folderBrowser.SelectedPath
         End Using
     End Sub
 
     Private Sub buttonSetSaveLoadFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveLoadFile.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
-            If folderBrowser.ShowDialog = DialogResult.OK Then
-                tbSaveLoadArtFile.Text = folderBrowser.SelectedPath
-            End If
+            If folderBrowser.ShowDialog = DialogResult.OK Then tbSaveLoadArtFile.Text = folderBrowser.SelectedPath
         End Using
     End Sub
 
     Private Sub buttonSetSettingsFileLocation_Click(sender As Object, e As EventArgs) Handles buttonSetSettingsFileLocation.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
-            If folderBrowser.ShowDialog = DialogResult.OK Then
-                tbSettingsFileLocation.Text = folderBrowser.SelectedPath
-            End If
+            If folderBrowser.ShowDialog = DialogResult.OK Then tbSettingsFileLocation.Text = folderBrowser.SelectedPath
         End Using
     End Sub
 
@@ -130,9 +124,7 @@ Public Class frmSettings
 
     Private Sub buttonSetSaveLocalImageFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveLocalImageFile.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
-            If folderBrowser.ShowDialog = DialogResult.OK Then
-                tbImageFileLocation.Text = folderBrowser.SelectedPath
-            End If
+            If folderBrowser.ShowDialog = DialogResult.OK Then tbImageFileLocation.Text = folderBrowser.SelectedPath
         End Using
     End Sub
 

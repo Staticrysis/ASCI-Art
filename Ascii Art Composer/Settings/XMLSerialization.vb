@@ -13,10 +13,8 @@ Module Serialization
             Dim serializer As New SoapFormatter()
             serializer.TypeFormat = FormatterTypeStyle.TypesAlways
             Using fileStream As New FileStream(If(path Is Nothing, DEFAULTPATH, path) & name & ".dat", FileMode.Create, FileAccess.Write)
-                ' Dim writer As New StreamWriter(fileStream, New UTF8Encoding)
                 serializer.Serialize(fileStream, aggregate)
             End Using
-
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try

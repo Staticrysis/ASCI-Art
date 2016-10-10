@@ -648,7 +648,7 @@ Partial Class frmSettings
         Me.tbSettingsFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSettingsFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "SettingsPath", True))
+        Me.tbSettingsFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "SettingsPath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.tbSettingsFileLocation.Location = New System.Drawing.Point(116, 19)
         Me.tbSettingsFileLocation.Name = "tbSettingsFileLocation"
         Me.tbSettingsFileLocation.Size = New System.Drawing.Size(404, 20)
@@ -711,7 +711,7 @@ Partial Class frmSettings
         Me.tbImageFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbImageFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ImagePath", True))
+        Me.tbImageFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ImagePath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.tbImageFileLocation.Location = New System.Drawing.Point(116, 19)
         Me.tbImageFileLocation.Name = "tbImageFileLocation"
         Me.tbImageFileLocation.Size = New System.Drawing.Size(404, 20)
@@ -721,6 +721,7 @@ Partial Class frmSettings
         '
         Me.buttonSetSaveWEBImageFile.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveWEBImageFile.Enabled = False
         Me.buttonSetSaveWEBImageFile.Location = New System.Drawing.Point(7, 18)
         Me.buttonSetSaveWEBImageFile.Name = "buttonSetSaveWEBImageFile"
         Me.buttonSetSaveWEBImageFile.Size = New System.Drawing.Size(41, 21)
