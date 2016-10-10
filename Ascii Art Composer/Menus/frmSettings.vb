@@ -1,89 +1,109 @@
 ﻿Imports System.IO
 Imports Newtonsoft.Json
+
+<Serializable>
 Public Class frmSettings
     Public _settingsAggregate As SettingsAggregate
-    Public _artForm As frmArt
-    Public _colorDialog As ColorDialog = New ColorDialog
+    Public _colorDialog As New ColorDialog
 
     Public Sub New(ByRef settingsAggregate As SettingsAggregate)
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        Me._settingsAggregate = settingsAggregate
-        If IsNothing(settingsAggregate) Then LoadSettings()
-        Me.ColorBindingSource.DataSource = settingsAggregate.ColorSettings
-        Me.FileSettingsBindingSource.DataSource = settingsAggregate.FileSettings
-        Me.TextEditingSettingsBindingSource.DataSource = settingsAggregate.TextEditingSettings
-        Me.WebPresetsBindingSource.DataSource = New Color
+        LoadSettings()
+        BindUI()
+        LoadUI()
     End Sub
 
-#Region "Event Handlers For Color settings"
-    Private Sub RTBForeColorClick() Handles buttonRTBTextForeColor.Click
-        If _colorDialog.ShowDialog() = DialogResult.OK Then
-            _settingsAggregate.ColorSettings.RTBForeColors = _colorDialog.Color
-            buttonRTBTextForeColor.BackColor = _colorDialog.Color
-        End If
-    End Sub
-
-    Private Sub RTBBackColorClick() Handles buttonRTBTextBackColors.Click
-        If _colorDialog.ShowDialog() = DialogResult.OK Then
-            _settingsAggregate.ColorSettings.RTBBackColors = _colorDialog.Color
-            buttonRTBTextBackColors.BackColor = _colorDialog.Color
-        End If
-    End Sub
-
-    Private Sub RTBTextHighlightColor() Handles buttonRTBTextHighlight.Click
-        If _colorDialog.ShowDialog() = DialogResult.OK Then
-            _settingsAggregate.ColorSettings.RTBTextHighlightColors = _colorDialog.Color
-            buttonRTBTextHighlight.BackColor = _colorDialog.Color
-        End If
-    End Sub
-
-    Private Sub GUIForeColorClick() Handles buttonGUIForeTextColors.Click
-        If _colorDialog.ShowDialog() = DialogResult.OK Then
-            _settingsAggregate.ColorSettings.GUIForeColors = _colorDialog.Color
-            buttonGUIForeTextColors.BackColor = _colorDialog.Color
-        End If
-    End Sub
-
-    Private Sub GUIBackColorClick() Handles buttonGUIBackTextColors.Click
-        If _colorDialog.ShowDialog() = DialogResult.OK Then
-            _settingsAggregate.ColorSettings.RTBBackColors = _colorDialog.Color
-            buttonGUIBackTextColors.BackColor = _colorDialog.Color
-        End If
-    End Sub
-
-    Private Sub GUITextColorClick() Handles buttonGUITextColors.Click
-        If _colorDialog.ShowDialog() = DialogResult.OK Then
-            _settingsAggregate.ColorSettings.GUITextColors = _colorDialog.Color
-            buttonGUITextColors.BackColor = _colorDialog.Color
-        End If
-    End Sub
-#End Region
-
+#Region "IO"
     Public Sub SaveSettings()
-        JsonIO.SerialSave(Me._settingsAggregate, "Settings", _settingsAggregate.FileSettings.SettingsPath)
+        Serialization.Save(Me._settingsAggregate, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
     End Sub
 
-    Public Sub LoadSettings()
-        If Not JsonIO.SerialOpen(Me._settingsAggregate, "Settings", _settingsAggregate.FileSettings.SettingsPath) Then
-            Me._settingsAggregate = New SettingsAggregate()
-        End If
-    End Sub
+    Public Function LoadSettings() As Boolean
+        Try
+            Me._settingsAggregate = Serialization.Open(Me._settingsAggregate, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
+            Return True
+        Catch ex As Exception
+            MsgBox("File could not be found.")
+            Return False
+        End Try
+    End Function
 
     Private Sub SaveOnClose() Handles Me.Closing
+        Me.Validate()
+        _settingsAggregate.TextEditingSettings = DirectCast(TextEditingSettingsBindingSource.Item(0), TextEditingSettings)
+        _settingsAggregate.FileSettings = DirectCast(FileSettingsBindingSource.Item(0), FileSettings)
+        _settingsAggregate.ColorSettings = DirectCast(ColorSettingsBindingSource.Item(0), ColorSettings)
         SaveSettings()
     End Sub
 
     Private Sub LoadOnOpen() Handles Me.Load
         LoadSettings()
     End Sub
+#End Region
 
+#Region "Bind & Load"
+    Private Sub BindUI()
+        Me.ColorSettingsBindingSource.DataSource = _settingsAggregate.ColorSettings
+        Me.FileSettingsBindingSource.DataSource = _settingsAggregate.FileSettings
+        Me.TextEditingSettingsBindingSource.DataSource = _settingsAggregate.TextEditingSettings
+    End Sub
+
+    Private Sub LoadUI()
+        buttonRTBTextForeColor.BackColor = _settingsAggregate.ColorSettings.RTBForeColors
+        buttonRTBTextBackColors.BackColor = _settingsAggregate.ColorSettings.RTBBackColors
+        buttonRTBTextHighlight.BackColor = _settingsAggregate.ColorSettings.RTBTextHighlightColors
+        buttonGUIForeTextColors.BackColor = _settingsAggregate.ColorSettings.GUIForeColors
+        buttonGUIBackTextColors.BackColor = _settingsAggregate.ColorSettings.GUIBackColors
+        buttonGUITextColors.BackColor = _settingsAggregate.ColorSettings.GUITextColors
+    End Sub
+#End Region
+
+#Region "Event For Color settings"
+    Private Sub RTBForeColorClick() Handles buttonRTBTextForeColor.Click
+        If _colorDialog.ShowDialog() = DialogResult.OK Then
+            buttonRTBTextForeColor.BackColor = _colorDialog.Color
+        End If
+    End Sub
+
+    Private Sub RTBBackColorClick() Handles buttonRTBTextBackColors.Click
+        If _colorDialog.ShowDialog() = DialogResult.OK Then
+            buttonRTBTextBackColors.BackColor = _colorDialog.Color
+        End If
+    End Sub
+
+    Private Sub RTBTextHighlightColor() Handles buttonRTBTextHighlight.Click
+        If _colorDialog.ShowDialog() = DialogResult.OK Then
+            buttonRTBTextHighlight.BackColor = _colorDialog.Color
+        End If
+    End Sub
+
+    Private Sub GUIForeColorClick() Handles buttonGUIForeTextColors.Click
+        If _colorDialog.ShowDialog() = DialogResult.OK Then
+            buttonGUIForeTextColors.BackColor = _colorDialog.Color
+        End If
+    End Sub
+
+    Private Sub GUIBackColorClick() Handles buttonGUIBackTextColors.Click
+        If _colorDialog.ShowDialog() = DialogResult.OK Then
+            buttonGUIBackTextColors.BackColor = _colorDialog.Color
+        End If
+    End Sub
+
+    Private Sub GUITextColorClick() Handles buttonGUITextColors.Click
+        If _colorDialog.ShowDialog() = DialogResult.OK Then
+            buttonGUITextColors.BackColor = _colorDialog.Color
+        End If
+    End Sub
+#End Region
+
+#Region "File Settings"
     Private Sub buttonSetSaveArtFileLocation_Click(sender As Object, e As EventArgs) Handles buttonSetSaveArtFileLocation.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
             If folderBrowser.ShowDialog = DialogResult.OK Then
-                _settingsAggregate.FileSettings.ArtSavePath = folderBrowser.SelectedPath
+                tbSaveArtFileLocation.Text = folderBrowser.SelectedPath
             End If
         End Using
     End Sub
@@ -91,7 +111,7 @@ Public Class frmSettings
     Private Sub buttonSetSaveLoadFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveLoadFile.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
             If folderBrowser.ShowDialog = DialogResult.OK Then
-                _settingsAggregate.FileSettings.ArtLoadPath = folderBrowser.SelectedPath
+                tbSaveLoadArtFile.Text = folderBrowser.SelectedPath
             End If
         End Using
     End Sub
@@ -99,20 +119,71 @@ Public Class frmSettings
     Private Sub buttonSetSettingsFileLocation_Click(sender As Object, e As EventArgs) Handles buttonSetSettingsFileLocation.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
             If folderBrowser.ShowDialog = DialogResult.OK Then
-                _settingsAggregate.FileSettings.SettingsPath = folderBrowser.SelectedPath
+                tbSettingsFileLocation.Text = folderBrowser.SelectedPath
             End If
         End Using
     End Sub
 
     Private Sub buttonSetSaveWEBImageFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveWEBImageFile.Click
-        'Needs some implementation in the future
+        'Needs implementation in the future
     End Sub
 
     Private Sub buttonSetSaveLocalImageFile_Click(sender As Object, e As EventArgs) Handles buttonSetSaveLocalImageFile.Click
         Using folderBrowser As FolderBrowserDialog = New FolderBrowserDialog()
             If folderBrowser.ShowDialog = DialogResult.OK Then
-                _settingsAggregate.FileSettings.ImagePath = folderBrowser.SelectedPath
+                tbImageFileLocation.Text = folderBrowser.SelectedPath
             End If
         End Using
     End Sub
+
+    Private Sub tbSaveArtFileLocation_TextChanged(sender As Object, e As EventArgs) Handles tbSaveArtFileLocation.TextChanged
+        tbSaveArtFileLocation.Text = sender.text
+    End Sub
+
+    Private Sub tbSaveLoadArtFile_TextChanged(sender As Object, e As EventArgs) Handles tbSaveLoadArtFile.TextChanged
+        tbSaveLoadArtFile.Text = sender.text
+    End Sub
+
+    Private Sub tbSettingsFileLocation_TextChanged(sender As Object, e As EventArgs) Handles tbSettingsFileLocation.TextChanged
+        tbSettingsFileLocation.Text = sender.text
+    End Sub
+
+    Private Sub tbImageFileLocation_TextChanged(sender As Object, e As EventArgs) Handles tbImageFileLocation.TextChanged
+        tbImageFileLocation.Text = sender.text
+    End Sub
+#End Region
+
+#Region "Events for Text Settings"
+    'Private Sub nudLines_ValueChanged(sender As Object, e As EventArgs) Handles nudLines.ValueChanged
+
+    'End Sub
+
+    'Private Sub nudCharacters_ValueChanged(sender As Object, e As EventArgs) Handles nudCharacters.ValueChanged
+
+    'End Sub
+
+    'Private Sub tbFillCharacter_TextChanged(sender As Object, e As EventArgs) Handles tbFillCharacter.TextChanged
+
+    'End Sub
+
+    'Private Sub cbBackgroundTextColor_CheckedChanged(sender As Object, e As EventArgs) Handles cbBackgroundTextColor.CheckedChanged
+
+    'End Sub
+
+    'Private Sub cbBackgroundImage_CheckedChanged(sender As Object, e As EventArgs) Handles cbBackgroundImage.CheckedChanged
+
+    'End Sub
+
+    'Private Sub cbWebPresets_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbWebPresets.SelectedIndexChanged
+
+    'End Sub
+
+    'Private Sub buttonImageUp_Click(sender As Object, e As EventArgs) Handles buttonImageUp.Click
+
+    'End Sub
+
+    'Private Sub buttonImageDown_Click(sender As Object, e As EventArgs) Handles buttonImageDown.Click
+
+    'End Sub
+#End Region
 End Class

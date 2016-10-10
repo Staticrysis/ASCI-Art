@@ -27,8 +27,8 @@ Partial Class frmSettings
         Me.tpTextEditing = New System.Windows.Forms.TabPage()
         Me.gbWebPresets = New System.Windows.Forms.GroupBox()
         Me.cbWebPresets = New System.Windows.Forms.ComboBox()
-        Me.WebPresetsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TextEditingSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.WebPresetsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbBackImage = New System.Windows.Forms.GroupBox()
         Me.buttonImageUp = New System.Windows.Forms.Button()
         Me.buttonImageDown = New System.Windows.Forms.Button()
@@ -40,16 +40,16 @@ Partial Class frmSettings
         Me.cbBackgroundImage = New System.Windows.Forms.CheckBox()
         Me.cbBackgroundTextColor = New System.Windows.Forms.CheckBox()
         Me.gbFillCharacter = New System.Windows.Forms.GroupBox()
-        Me.cbFillCharacter = New System.Windows.Forms.ComboBox()
+        Me.tbFillCharacter = New System.Windows.Forms.TextBox()
         Me.gbCharacters = New System.Windows.Forms.GroupBox()
         Me.nudCharacters = New System.Windows.Forms.NumericUpDown()
         Me.gbLines = New System.Windows.Forms.GroupBox()
         Me.nudLines = New System.Windows.Forms.NumericUpDown()
         Me.tpColors = New System.Windows.Forms.TabPage()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.gbColors = New System.Windows.Forms.GroupBox()
         Me.gbGUITextColors = New System.Windows.Forms.GroupBox()
         Me.cbGUITextColors = New System.Windows.Forms.ComboBox()
-        Me.ColorBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ColorSettingsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.buttonGUITextColors = New System.Windows.Forms.Button()
         Me.gbGUIBackColors = New System.Windows.Forms.GroupBox()
         Me.cbGUIBackTextColors = New System.Windows.Forms.ComboBox()
@@ -79,7 +79,7 @@ Partial Class frmSettings
         Me.tbImageFileLocation = New System.Windows.Forms.TextBox()
         Me.buttonSetSaveWEBImageFile = New System.Windows.Forms.Button()
         Me.gbFileLocations = New System.Windows.Forms.GroupBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gbArtLoadFile = New System.Windows.Forms.GroupBox()
         Me.tbSaveLoadArtFile = New System.Windows.Forms.TextBox()
         Me.buttonSetSaveLoadFile = New System.Windows.Forms.Button()
         Me.gbArtFile = New System.Windows.Forms.GroupBox()
@@ -88,8 +88,8 @@ Partial Class frmSettings
         Me.tcSettings.SuspendLayout()
         Me.tpTextEditing.SuspendLayout()
         Me.gbWebPresets.SuspendLayout()
-        CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditingSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbBackImage.SuspendLayout()
         CType(Me.pbCurrentBackImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbTextDimensions.SuspendLayout()
@@ -100,9 +100,9 @@ Partial Class frmSettings
         Me.gbLines.SuspendLayout()
         CType(Me.nudLines, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tpColors.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
+        Me.gbColors.SuspendLayout()
         Me.gbGUITextColors.SuspendLayout()
-        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ColorSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbGUIBackColors.SuspendLayout()
         Me.gbGUIForeColors.SuspendLayout()
         Me.gbTextBox.SuspendLayout()
@@ -115,7 +115,7 @@ Partial Class frmSettings
         CType(Me.FileSettingsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbImageFile.SuspendLayout()
         Me.gbFileLocations.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.gbArtLoadFile.SuspendLayout()
         Me.gbArtFile.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -157,6 +157,8 @@ Partial Class frmSettings
         '
         'cbWebPresets
         '
+        Me.cbWebPresets.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.TextEditingSettingsBindingSource, "WebPreset", True))
+        Me.cbWebPresets.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TextEditingSettingsBindingSource, "WebPreset", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbWebPresets.DataSource = Me.WebPresetsBindingSource
         Me.cbWebPresets.FormattingEnabled = True
         Me.cbWebPresets.Location = New System.Drawing.Point(6, 14)
@@ -164,17 +166,20 @@ Partial Class frmSettings
         Me.cbWebPresets.Size = New System.Drawing.Size(150, 21)
         Me.cbWebPresets.TabIndex = 0
         '
+        'TextEditingSettingsBindingSource
+        '
+        Me.TextEditingSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.TextEditingSettings)
+        '
         'WebPresetsBindingSource
         '
         Me.WebPresetsBindingSource.DataMember = "WebPresets"
         Me.WebPresetsBindingSource.DataSource = Me.TextEditingSettingsBindingSource
         '
-        'TextEditingSettingsBindingSource
-        '
-        Me.TextEditingSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.TextEditingSettings)
-        '
         'gbBackImage
         '
+        Me.gbBackImage.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbBackImage.BackColor = System.Drawing.Color.DarkGray
         Me.gbBackImage.Controls.Add(Me.buttonImageUp)
         Me.gbBackImage.Controls.Add(Me.buttonImageDown)
@@ -191,6 +196,7 @@ Partial Class frmSettings
         '
         'buttonImageUp
         '
+        Me.buttonImageUp.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonImageUp.Image = Global.Ascii_Art_Composer.My.Resources.Resources.upbutton
         Me.buttonImageUp.Location = New System.Drawing.Point(277, 33)
         Me.buttonImageUp.Name = "buttonImageUp"
@@ -200,6 +206,7 @@ Partial Class frmSettings
         '
         'buttonImageDown
         '
+        Me.buttonImageDown.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonImageDown.Image = Global.Ascii_Art_Composer.My.Resources.Resources.downbutton
         Me.buttonImageDown.Location = New System.Drawing.Point(277, 125)
         Me.buttonImageDown.Name = "buttonImageDown"
@@ -227,7 +234,8 @@ Partial Class frmSettings
         '
         'pbCurrentBackImage
         '
-        Me.pbCurrentBackImage.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.pbCurrentBackImage.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbCurrentBackImage.BackColor = System.Drawing.Color.White
         Me.pbCurrentBackImage.Location = New System.Drawing.Point(6, 33)
@@ -239,6 +247,8 @@ Partial Class frmSettings
         '
         'gbTextDimensions
         '
+        Me.gbTextDimensions.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.gbTextDimensions.BackColor = System.Drawing.Color.DarkGray
         Me.gbTextDimensions.Controls.Add(Me.gbShowBackground)
         Me.gbTextDimensions.Controls.Add(Me.gbFillCharacter)
@@ -267,7 +277,7 @@ Partial Class frmSettings
         'cbBackgroundImage
         '
         Me.cbBackgroundImage.AutoSize = True
-        Me.cbBackgroundImage.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.TextEditingSettingsBindingSource, "ShowBackgroundImage", True))
+        Me.cbBackgroundImage.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TextEditingSettingsBindingSource, "ShowBackgroundImage", True))
         Me.cbBackgroundImage.Location = New System.Drawing.Point(6, 42)
         Me.cbBackgroundImage.Name = "cbBackgroundImage"
         Me.cbBackgroundImage.Size = New System.Drawing.Size(55, 17)
@@ -278,7 +288,7 @@ Partial Class frmSettings
         'cbBackgroundTextColor
         '
         Me.cbBackgroundTextColor.AutoSize = True
-        Me.cbBackgroundTextColor.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.TextEditingSettingsBindingSource, "ShowBackgroundTextColor", True))
+        Me.cbBackgroundTextColor.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.TextEditingSettingsBindingSource, "ShowBackgroundTextColor", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.cbBackgroundTextColor.Location = New System.Drawing.Point(6, 19)
         Me.cbBackgroundTextColor.Name = "cbBackgroundTextColor"
         Me.cbBackgroundTextColor.Size = New System.Drawing.Size(74, 17)
@@ -289,8 +299,7 @@ Partial Class frmSettings
         'gbFillCharacter
         '
         Me.gbFillCharacter.BackColor = System.Drawing.Color.Silver
-        Me.gbFillCharacter.Controls.Add(Me.cbFillCharacter)
-        Me.gbFillCharacter.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TextEditingSettingsBindingSource, "FillCharacter", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.gbFillCharacter.Controls.Add(Me.tbFillCharacter)
         Me.gbFillCharacter.Location = New System.Drawing.Point(6, 130)
         Me.gbFillCharacter.Name = "gbFillCharacter"
         Me.gbFillCharacter.Size = New System.Drawing.Size(162, 43)
@@ -298,14 +307,14 @@ Partial Class frmSettings
         Me.gbFillCharacter.TabStop = False
         Me.gbFillCharacter.Text = "Fill Character"
         '
-        'cbFillCharacter
+        'tbFillCharacter
         '
-        Me.cbFillCharacter.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TextEditingSettingsBindingSource, "FillCharacter", True))
-        Me.cbFillCharacter.FormattingEnabled = True
-        Me.cbFillCharacter.Location = New System.Drawing.Point(6, 16)
-        Me.cbFillCharacter.Name = "cbFillCharacter"
-        Me.cbFillCharacter.Size = New System.Drawing.Size(144, 21)
-        Me.cbFillCharacter.TabIndex = 2
+        Me.tbFillCharacter.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TextEditingSettingsBindingSource, "FillCharacter", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.tbFillCharacter.Location = New System.Drawing.Point(7, 19)
+        Me.tbFillCharacter.MaxLength = 1
+        Me.tbFillCharacter.Name = "tbFillCharacter"
+        Me.tbFillCharacter.Size = New System.Drawing.Size(149, 20)
+        Me.tbFillCharacter.TabIndex = 0
         '
         'gbCharacters
         '
@@ -323,7 +332,7 @@ Partial Class frmSettings
         Me.nudCharacters.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.nudCharacters.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TextEditingSettingsBindingSource, "CharacterNumber", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudCharacters.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TextEditingSettingsBindingSource, "NumberOfCharacters", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.nudCharacters.Location = New System.Drawing.Point(6, 19)
         Me.nudCharacters.Maximum = New Decimal(New Integer() {300, 0, 0, 0})
         Me.nudCharacters.Name = "nudCharacters"
@@ -346,7 +355,7 @@ Partial Class frmSettings
         Me.nudLines.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.nudLines.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TextEditingSettingsBindingSource, "LineNumber", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudLines.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TextEditingSettingsBindingSource, "NumberOfLines", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.nudLines.Location = New System.Drawing.Point(6, 19)
         Me.nudLines.Name = "nudLines"
         Me.nudLines.Size = New System.Drawing.Size(150, 20)
@@ -355,7 +364,7 @@ Partial Class frmSettings
         'tpColors
         '
         Me.tpColors.BackColor = System.Drawing.Color.DarkGray
-        Me.tpColors.Controls.Add(Me.GroupBox4)
+        Me.tpColors.Controls.Add(Me.gbColors)
         Me.tpColors.Controls.Add(Me.gbTextBox)
         Me.tpColors.Location = New System.Drawing.Point(4, 22)
         Me.tpColors.Name = "tpColors"
@@ -364,18 +373,19 @@ Partial Class frmSettings
         Me.tpColors.TabIndex = 0
         Me.tpColors.Text = "Colors"
         '
-        'GroupBox4
+        'gbColors
         '
-        Me.GroupBox4.BackColor = System.Drawing.Color.DarkGray
-        Me.GroupBox4.Controls.Add(Me.gbGUITextColors)
-        Me.GroupBox4.Controls.Add(Me.gbGUIBackColors)
-        Me.GroupBox4.Controls.Add(Me.gbGUIForeColors)
-        Me.GroupBox4.Location = New System.Drawing.Point(275, 3)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(263, 205)
-        Me.GroupBox4.TabIndex = 3
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "GUI Colors"
+        Me.gbColors.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbColors.BackColor = System.Drawing.Color.DarkGray
+        Me.gbColors.Controls.Add(Me.gbGUITextColors)
+        Me.gbColors.Controls.Add(Me.gbGUIBackColors)
+        Me.gbColors.Controls.Add(Me.gbGUIForeColors)
+        Me.gbColors.Location = New System.Drawing.Point(275, 3)
+        Me.gbColors.Name = "gbColors"
+        Me.gbColors.Size = New System.Drawing.Size(263, 205)
+        Me.gbColors.TabIndex = 3
+        Me.gbColors.TabStop = False
+        Me.gbColors.Text = "GUI Colors"
         '
         'gbGUITextColors
         '
@@ -391,19 +401,22 @@ Partial Class frmSettings
         '
         'cbGUITextColors
         '
-        Me.cbGUITextColors.DataSource = Me.ColorBindingSource
+        Me.cbGUITextColors.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ColorSettingsBindingSource, "GUITextColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbGUITextColors.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.ColorSettingsBindingSource, "GUITextColors", True))
+        Me.cbGUITextColors.DataSource = Me.ColorSettingsBindingSource
         Me.cbGUITextColors.FormattingEnabled = True
         Me.cbGUITextColors.Location = New System.Drawing.Point(7, 20)
         Me.cbGUITextColors.Name = "cbGUITextColors"
         Me.cbGUITextColors.Size = New System.Drawing.Size(178, 21)
         Me.cbGUITextColors.TabIndex = 2
         '
-        'ColorBindingSource
+        'ColorSettingsBindingSource
         '
-        Me.ColorBindingSource.DataSource = GetType(System.Drawing.Color)
+        Me.ColorSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.ColorSettings)
         '
         'buttonGUITextColors
         '
+        Me.buttonGUITextColors.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Me.ColorSettingsBindingSource, "GUITextColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.buttonGUITextColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonGUITextColors.Location = New System.Drawing.Point(191, 20)
         Me.buttonGUITextColors.Name = "buttonGUITextColors"
@@ -425,7 +438,9 @@ Partial Class frmSettings
         '
         'cbGUIBackTextColors
         '
-        Me.cbGUIBackTextColors.DataSource = Me.ColorBindingSource
+        Me.cbGUIBackTextColors.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ColorSettingsBindingSource, "GUIBackColors", True))
+        Me.cbGUIBackTextColors.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.ColorSettingsBindingSource, "GUIBackColors", True))
+        Me.cbGUIBackTextColors.DataSource = Me.ColorSettingsBindingSource
         Me.cbGUIBackTextColors.FormattingEnabled = True
         Me.cbGUIBackTextColors.Location = New System.Drawing.Point(7, 20)
         Me.cbGUIBackTextColors.Name = "cbGUIBackTextColors"
@@ -434,6 +449,7 @@ Partial Class frmSettings
         '
         'buttonGUIBackTextColors
         '
+        Me.buttonGUIBackTextColors.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Me.ColorSettingsBindingSource, "GUIBackColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.buttonGUIBackTextColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonGUIBackTextColors.Location = New System.Drawing.Point(191, 20)
         Me.buttonGUIBackTextColors.Name = "buttonGUIBackTextColors"
@@ -455,7 +471,9 @@ Partial Class frmSettings
         '
         'cbGUIForeTextColors
         '
-        Me.cbGUIForeTextColors.DataSource = Me.ColorBindingSource
+        Me.cbGUIForeTextColors.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ColorSettingsBindingSource, "GUIForeColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbGUIForeTextColors.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.ColorSettingsBindingSource, "GUIForeColors", True))
+        Me.cbGUIForeTextColors.DataSource = Me.ColorSettingsBindingSource
         Me.cbGUIForeTextColors.FormattingEnabled = True
         Me.cbGUIForeTextColors.Location = New System.Drawing.Point(7, 20)
         Me.cbGUIForeTextColors.Name = "cbGUIForeTextColors"
@@ -464,6 +482,7 @@ Partial Class frmSettings
         '
         'buttonGUIForeTextColors
         '
+        Me.buttonGUIForeTextColors.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Me.ColorSettingsBindingSource, "GUIForeColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.buttonGUIForeTextColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonGUIForeTextColors.Location = New System.Drawing.Point(191, 20)
         Me.buttonGUIForeTextColors.Name = "buttonGUIForeTextColors"
@@ -498,7 +517,9 @@ Partial Class frmSettings
         '
         'cbRTBTextHighlight
         '
-        Me.cbRTBTextHighlight.DataSource = Me.ColorBindingSource
+        Me.cbRTBTextHighlight.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ColorSettingsBindingSource, "RTBTextHighlightColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbRTBTextHighlight.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.ColorSettingsBindingSource, "RTBTextHighlightColors", True))
+        Me.cbRTBTextHighlight.DataSource = Me.ColorSettingsBindingSource
         Me.cbRTBTextHighlight.FormattingEnabled = True
         Me.cbRTBTextHighlight.Location = New System.Drawing.Point(7, 20)
         Me.cbRTBTextHighlight.Name = "cbRTBTextHighlight"
@@ -507,6 +528,7 @@ Partial Class frmSettings
         '
         'buttonRTBTextHighlight
         '
+        Me.buttonRTBTextHighlight.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Me.ColorSettingsBindingSource, "RTBTextHighlightColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.buttonRTBTextHighlight.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonRTBTextHighlight.Location = New System.Drawing.Point(191, 20)
         Me.buttonRTBTextHighlight.Name = "buttonRTBTextHighlight"
@@ -528,7 +550,9 @@ Partial Class frmSettings
         '
         'cbRTBTextBackColors
         '
-        Me.cbRTBTextBackColors.DataSource = Me.ColorBindingSource
+        Me.cbRTBTextBackColors.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ColorSettingsBindingSource, "RTBBackColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbRTBTextBackColors.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.ColorSettingsBindingSource, "RTBBackColors", True))
+        Me.cbRTBTextBackColors.DataSource = Me.ColorSettingsBindingSource
         Me.cbRTBTextBackColors.FormattingEnabled = True
         Me.cbRTBTextBackColors.Location = New System.Drawing.Point(7, 20)
         Me.cbRTBTextBackColors.Name = "cbRTBTextBackColors"
@@ -537,6 +561,7 @@ Partial Class frmSettings
         '
         'buttonRTBTextBackColors
         '
+        Me.buttonRTBTextBackColors.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Me.ColorSettingsBindingSource, "RTBBackColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.buttonRTBTextBackColors.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonRTBTextBackColors.Location = New System.Drawing.Point(191, 20)
         Me.buttonRTBTextBackColors.Name = "buttonRTBTextBackColors"
@@ -558,7 +583,9 @@ Partial Class frmSettings
         '
         'cbRTBTextForeColor
         '
-        Me.cbRTBTextForeColor.DataSource = Me.ColorBindingSource
+        Me.cbRTBTextForeColor.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ColorSettingsBindingSource, "RTBForeColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.cbRTBTextForeColor.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.ColorSettingsBindingSource, "RTBForeColors", True))
+        Me.cbRTBTextForeColor.DataSource = Me.ColorSettingsBindingSource
         Me.cbRTBTextForeColor.FormattingEnabled = True
         Me.cbRTBTextForeColor.Location = New System.Drawing.Point(7, 20)
         Me.cbRTBTextForeColor.Name = "cbRTBTextForeColor"
@@ -567,6 +594,7 @@ Partial Class frmSettings
         '
         'buttonRTBTextForeColor
         '
+        Me.buttonRTBTextForeColor.DataBindings.Add(New System.Windows.Forms.Binding("BackColor", Me.ColorSettingsBindingSource, "RTBForeColors", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.buttonRTBTextForeColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonRTBTextForeColor.Location = New System.Drawing.Point(191, 20)
         Me.buttonRTBTextForeColor.Name = "buttonRTBTextForeColor"
@@ -588,7 +616,7 @@ Partial Class frmSettings
         '
         'gbSettingsFileLocation
         '
-        Me.gbSettingsFileLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.gbSettingsFileLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbSettingsFileLocation.BackColor = System.Drawing.Color.DarkGray
         Me.gbSettingsFileLocation.Controls.Add(Me.gbSettingsFile)
@@ -602,6 +630,9 @@ Partial Class frmSettings
         '
         'gbSettingsFile
         '
+        Me.gbSettingsFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbSettingsFile.BackColor = System.Drawing.Color.Silver
         Me.gbSettingsFile.Controls.Add(Me.tbSettingsFileLocation)
         Me.gbSettingsFile.Controls.Add(Me.buttonSetSettingsFileLocation)
@@ -629,9 +660,8 @@ Partial Class frmSettings
         '
         'buttonSetSettingsFileLocation
         '
-        Me.buttonSetSettingsFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSettingsFileLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.buttonSetSettingsFileLocation.Location = New System.Drawing.Point(7, 19)
         Me.buttonSetSettingsFileLocation.Name = "buttonSetSettingsFileLocation"
         Me.buttonSetSettingsFileLocation.Size = New System.Drawing.Size(103, 21)
@@ -641,6 +671,9 @@ Partial Class frmSettings
         '
         'gbImageFile
         '
+        Me.gbImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbImageFile.BackColor = System.Drawing.Color.Silver
         Me.gbImageFile.Controls.Add(Me.Label3)
         Me.gbImageFile.Controls.Add(Me.buttonSetSaveLocalImageFile)
@@ -664,9 +697,8 @@ Partial Class frmSettings
         '
         'buttonSetSaveLocalImageFile
         '
-        Me.buttonSetSaveLocalImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveLocalImageFile.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.buttonSetSaveLocalImageFile.Location = New System.Drawing.Point(69, 18)
         Me.buttonSetSaveLocalImageFile.Name = "buttonSetSaveLocalImageFile"
         Me.buttonSetSaveLocalImageFile.Size = New System.Drawing.Size(41, 21)
@@ -687,9 +719,8 @@ Partial Class frmSettings
         '
         'buttonSetSaveWEBImageFile
         '
-        Me.buttonSetSaveWEBImageFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveWEBImageFile.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.buttonSetSaveWEBImageFile.Location = New System.Drawing.Point(7, 18)
         Me.buttonSetSaveWEBImageFile.Name = "buttonSetSaveWEBImageFile"
         Me.buttonSetSaveWEBImageFile.Size = New System.Drawing.Size(41, 21)
@@ -699,8 +730,10 @@ Partial Class frmSettings
         '
         'gbFileLocations
         '
+        Me.gbFileLocations.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbFileLocations.BackColor = System.Drawing.Color.DarkGray
-        Me.gbFileLocations.Controls.Add(Me.GroupBox1)
+        Me.gbFileLocations.Controls.Add(Me.gbArtLoadFile)
         Me.gbFileLocations.Controls.Add(Me.gbArtFile)
         Me.gbFileLocations.Location = New System.Drawing.Point(3, 3)
         Me.gbFileLocations.Name = "gbFileLocations"
@@ -709,24 +742,27 @@ Partial Class frmSettings
         Me.gbFileLocations.TabStop = False
         Me.gbFileLocations.Text = "Art File Locations"
         '
-        'GroupBox1
+        'gbArtLoadFile
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Silver
-        Me.GroupBox1.Controls.Add(Me.tbSaveLoadArtFile)
-        Me.GroupBox1.Controls.Add(Me.buttonSetSaveLoadFile)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 71)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(526, 46)
-        Me.GroupBox1.TabIndex = 5
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Art Load File"
+        Me.gbArtLoadFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gbArtLoadFile.BackColor = System.Drawing.Color.Silver
+        Me.gbArtLoadFile.Controls.Add(Me.tbSaveLoadArtFile)
+        Me.gbArtLoadFile.Controls.Add(Me.buttonSetSaveLoadFile)
+        Me.gbArtLoadFile.Location = New System.Drawing.Point(6, 71)
+        Me.gbArtLoadFile.Name = "gbArtLoadFile"
+        Me.gbArtLoadFile.Size = New System.Drawing.Size(526, 46)
+        Me.gbArtLoadFile.TabIndex = 5
+        Me.gbArtLoadFile.TabStop = False
+        Me.gbArtLoadFile.Text = "Art Load File"
         '
         'tbSaveLoadArtFile
         '
         Me.tbSaveLoadArtFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSaveLoadArtFile.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtLoadPath", True))
+        Me.tbSaveLoadArtFile.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtLoadPath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.tbSaveLoadArtFile.Location = New System.Drawing.Point(116, 19)
         Me.tbSaveLoadArtFile.Name = "tbSaveLoadArtFile"
         Me.tbSaveLoadArtFile.Size = New System.Drawing.Size(404, 20)
@@ -734,9 +770,8 @@ Partial Class frmSettings
         '
         'buttonSetSaveLoadFile
         '
-        Me.buttonSetSaveLoadFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveLoadFile.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.buttonSetSaveLoadFile.Location = New System.Drawing.Point(7, 19)
         Me.buttonSetSaveLoadFile.Name = "buttonSetSaveLoadFile"
         Me.buttonSetSaveLoadFile.Size = New System.Drawing.Size(103, 21)
@@ -746,6 +781,9 @@ Partial Class frmSettings
         '
         'gbArtFile
         '
+        Me.gbArtFile.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbArtFile.BackColor = System.Drawing.Color.Silver
         Me.gbArtFile.Controls.Add(Me.buttonSetSaveArtFileLocation)
         Me.gbArtFile.Controls.Add(Me.tbSaveArtFileLocation)
@@ -758,9 +796,8 @@ Partial Class frmSettings
         '
         'buttonSetSaveArtFileLocation
         '
-        Me.buttonSetSaveArtFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonSetSaveArtFileLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.buttonSetSaveArtFileLocation.Location = New System.Drawing.Point(6, 20)
         Me.buttonSetSaveArtFileLocation.Name = "buttonSetSaveArtFileLocation"
         Me.buttonSetSaveArtFileLocation.Size = New System.Drawing.Size(104, 20)
@@ -773,7 +810,7 @@ Partial Class frmSettings
         Me.tbSaveArtFileLocation.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbSaveArtFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtSavePath", True))
+        Me.tbSaveArtFileLocation.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FileSettingsBindingSource, "ArtSavePath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.tbSaveArtFileLocation.Location = New System.Drawing.Point(116, 20)
         Me.tbSaveArtFileLocation.Name = "tbSaveArtFileLocation"
         Me.tbSaveArtFileLocation.Size = New System.Drawing.Size(404, 20)
@@ -787,12 +824,13 @@ Partial Class frmSettings
         Me.ClientSize = New System.Drawing.Size(549, 299)
         Me.Controls.Add(Me.tcSettings)
         Me.Name = "frmSettings"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Settings"
         Me.tcSettings.ResumeLayout(False)
         Me.tpTextEditing.ResumeLayout(False)
         Me.gbWebPresets.ResumeLayout(False)
-        CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditingSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WebPresetsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbBackImage.ResumeLayout(False)
         Me.gbBackImage.PerformLayout()
         CType(Me.pbCurrentBackImage, System.ComponentModel.ISupportInitialize).EndInit()
@@ -800,14 +838,15 @@ Partial Class frmSettings
         Me.gbShowBackground.ResumeLayout(False)
         Me.gbShowBackground.PerformLayout()
         Me.gbFillCharacter.ResumeLayout(False)
+        Me.gbFillCharacter.PerformLayout()
         Me.gbCharacters.ResumeLayout(False)
         CType(Me.nudCharacters, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbLines.ResumeLayout(False)
         CType(Me.nudLines, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tpColors.ResumeLayout(False)
-        Me.GroupBox4.ResumeLayout(False)
+        Me.gbColors.ResumeLayout(False)
         Me.gbGUITextColors.ResumeLayout(False)
-        CType(Me.ColorBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ColorSettingsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbGUIBackColors.ResumeLayout(False)
         Me.gbGUIForeColors.ResumeLayout(False)
         Me.gbTextBox.ResumeLayout(False)
@@ -822,8 +861,8 @@ Partial Class frmSettings
         Me.gbImageFile.ResumeLayout(False)
         Me.gbImageFile.PerformLayout()
         Me.gbFileLocations.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.gbArtLoadFile.ResumeLayout(False)
+        Me.gbArtLoadFile.PerformLayout()
         Me.gbArtFile.ResumeLayout(False)
         Me.gbArtFile.PerformLayout()
         Me.ResumeLayout(False)
@@ -837,7 +876,6 @@ Partial Class frmSettings
     Friend WithEvents gbBackImage As GroupBox
     Friend WithEvents gbTextDimensions As GroupBox
     Friend WithEvents gbFillCharacter As GroupBox
-    Friend WithEvents cbFillCharacter As ComboBox
     Friend WithEvents gbCharacters As GroupBox
     Friend WithEvents nudCharacters As NumericUpDown
     Friend WithEvents gbLines As GroupBox
@@ -851,7 +889,7 @@ Partial Class frmSettings
     Friend WithEvents gbSettingsFile As GroupBox
     Friend WithEvents tbSettingsFileLocation As TextBox
     Friend WithEvents buttonSetSettingsFileLocation As Button
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents gbArtLoadFile As GroupBox
     Friend WithEvents tbSaveLoadArtFile As TextBox
     Friend WithEvents buttonSetSaveLoadFile As Button
     Friend WithEvents gbSettingsFileLocation As GroupBox
@@ -867,7 +905,7 @@ Partial Class frmSettings
     Friend WithEvents lbLoadingImages As Label
     Friend WithEvents buttonImageUp As Button
     Friend WithEvents buttonImageDown As Button
-    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents gbColors As GroupBox
     Friend WithEvents gbGUITextColors As GroupBox
     Friend WithEvents cbGUITextColors As ComboBox
     Friend WithEvents buttonGUITextColors As Button
@@ -888,7 +926,8 @@ Partial Class frmSettings
     Friend WithEvents cbRTBTextForeColor As ComboBox
     Friend WithEvents buttonRTBTextForeColor As Button
     Friend WithEvents FileSettingsBindingSource As BindingSource
+    Friend WithEvents ColorSettingsBindingSource As BindingSource
+    Friend WithEvents tbFillCharacter As TextBox
     Friend WithEvents TextEditingSettingsBindingSource As BindingSource
     Friend WithEvents WebPresetsBindingSource As BindingSource
-    Friend WithEvents ColorBindingSource As BindingSource
 End Class

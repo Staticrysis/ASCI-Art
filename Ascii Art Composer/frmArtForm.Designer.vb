@@ -29,8 +29,8 @@ Partial Class frmArt
         Me.tsmiOpen = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmiColors = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiText = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmiColors = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiFiles = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsSettings = New System.Windows.Forms.ToolStrip()
         Me.tsbReset = New System.Windows.Forms.ToolStripButton()
@@ -75,13 +75,13 @@ Partial Class frmArt
         'tsmiOpen
         '
         Me.tsmiOpen.Name = "tsmiOpen"
-        Me.tsmiOpen.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiOpen.Size = New System.Drawing.Size(103, 22)
         Me.tsmiOpen.Text = "Open"
         '
         'tsmiSave
         '
         Me.tsmiSave.Name = "tsmiSave"
-        Me.tsmiSave.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiSave.Size = New System.Drawing.Size(103, 22)
         Me.tsmiSave.Text = "Save"
         '
         'tsmiSettings
@@ -93,26 +93,26 @@ Partial Class frmArt
         Me.tsmiSettings.Size = New System.Drawing.Size(61, 20)
         Me.tsmiSettings.Text = "Settings"
         '
-        'tsmiColors
-        '
-        Me.tsmiColors.BackColor = System.Drawing.Color.White
-        Me.tsmiColors.ForeColor = System.Drawing.Color.Black
-        Me.tsmiColors.Name = "tsmiColors"
-        Me.tsmiColors.Size = New System.Drawing.Size(152, 22)
-        Me.tsmiColors.Text = "Colors"
-        '
         'tsmiText
         '
         Me.tsmiText.BackColor = System.Drawing.Color.White
         Me.tsmiText.ForeColor = System.Drawing.Color.Black
         Me.tsmiText.Name = "tsmiText"
-        Me.tsmiText.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiText.Size = New System.Drawing.Size(108, 22)
         Me.tsmiText.Text = "Text"
+        '
+        'tsmiColors
+        '
+        Me.tsmiColors.BackColor = System.Drawing.Color.White
+        Me.tsmiColors.ForeColor = System.Drawing.Color.Black
+        Me.tsmiColors.Name = "tsmiColors"
+        Me.tsmiColors.Size = New System.Drawing.Size(108, 22)
+        Me.tsmiColors.Text = "Colors"
         '
         'tsmiFiles
         '
         Me.tsmiFiles.Name = "tsmiFiles"
-        Me.tsmiFiles.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiFiles.Size = New System.Drawing.Size(108, 22)
         Me.tsmiFiles.Text = "Files"
         '
         'tsSettings
@@ -256,6 +256,7 @@ Partial Class frmArt
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(5, 3, 5, 3)
         Me.Name = "frmArt"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ascii Composer"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()

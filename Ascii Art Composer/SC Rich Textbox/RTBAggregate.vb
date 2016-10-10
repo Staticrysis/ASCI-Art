@@ -1,4 +1,5 @@
 ﻿'Note: This aggregate class contains all the helper classes related to the RichTextBox
+<Serializable>
 Public Class RTBAggregate
     Public Sub New(ByRef MainForm As Ascii_Art_Composer.frmArt, ByRef RTB As RichTextBox)
         _mainForm = MainForm

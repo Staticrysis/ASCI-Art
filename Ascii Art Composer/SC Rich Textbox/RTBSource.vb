@@ -1,4 +1,5 @@
-﻿Public Class RTBSource
+﻿<Serializable>
+Public Class RTBSource
     Sub New(ByRef mainForm As frmArt, ByRef rtb As RTBArtBox)
         Me.MAINFORM = mainForm
         Me.RTB = rtb
@@ -123,7 +124,7 @@
 #End Region
 
 #Region "Mouse Handlers"
-     Private Sub HandlesCurrentMouseLocation(sender As Object, e As MouseEventArgs)
+    Private Sub HandlesCurrentMouseLocation(sender As Object, e As MouseEventArgs)
         'todo: preformence could be improved if i make a seperate thread to handles all the 
         'incomming mouse pointer locations 
         MouseCurrentPoint = e.Location

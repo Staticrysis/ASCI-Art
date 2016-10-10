@@ -1,19 +1,19 @@
 ﻿'Imports Ascii_Art_Composer.RTBSettings
-
+<Serializable>
 Public Class frmArt
 #Region "Forms and Aggregates"
-    'Containing these aggregates in the main form class insures that it will prosist
+    'Containing these aggregates in the main form class insures that it will persist 
     Public _rtbAggregate As RTBAggregate 'this one is different
-    Public _SettingsAggregate As SettingsAggregate
+    Public _SettingsAggregate As New SettingsAggregate
 #End Region
 
     Sub New()
-        ' This call is required by the designer.
+        ' This call is required by the designer. 
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
         _rtbAggregate = New RTBAggregate(Me, Me.rtbArtBox)
-        _SettingsAggregate = New SettingsAggregate()
+        _SettingsAggregate = Serialization.Open(_SettingsAggregate, "Settings", Nothing)
     End Sub
 
     Private Sub SterilizePath(ByRef agg As Object)
@@ -26,11 +26,11 @@ Public Class frmArt
     End Sub
 
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles tsmiSave.Click
-        JsonIO.SerialSave(_SettingsAggregate, "RTB", _SettingsAggregate.FileSettings.SettingsPath)
+        Serialization.Save(_SettingsAggregate, "Settings", Nothing)
     End Sub
 
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles tsmiOpen.Click
-        JsonIO.SerialOpen(_SettingsAggregate, "RTB", _SettingsAggregate.FileSettings.SettingsPath)
+
     End Sub
 
     Private Sub ShowTextSettings() Handles tsmiText.Click

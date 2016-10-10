@@ -120,6 +120,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Runtime.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\System.Runtime.WindowsRuntime.dll</HintPath>
+    </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
@@ -141,6 +147,9 @@
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.Runtime.Serialization" />
+    <Import Include="System.Runtime.Serialization.Formatters" />
+    <Import Include="System.Runtime.Serialization.Formatters.Binary" />
     <Import Include="System.Web.UI.WebControls" />
     <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
@@ -183,12 +192,10 @@
     </Compile>
     <Compile Include="SC Rich Textbox\RTBDrawings.vb" />
     <Compile Include="SC Rich Textbox\RTBTextEditing.vb" />
-    <Compile Include="Settings\ColorSettings.vb" />
-    <Compile Include="Settings\FileSettings.vb" />
     <Compile Include="Settings\SettingsAggregate.vb" />
     <Compile Include="Settings\JsonIO.vb" />
     <Compile Include="Settings\SettingsSource.vb" />
-    <Compile Include="Settings\TextEditingSettings.vb" />
+    <Compile Include="Settings\XMLSerialization.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmArtForm.resx">

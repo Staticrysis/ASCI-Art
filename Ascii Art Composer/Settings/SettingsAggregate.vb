@@ -1,44 +1,63 @@
-﻿'Note: This aggregate is a wrapper for all the frmSettings data classes 
-
+﻿<Serializable>
 Public Class SettingsAggregate
-#Region "Class Variables"
-    Dim _fileSettings As FileSettings
-    Dim _textEditingSettings As TextEditingSettings
-    Dim _colorSettings As ColorSettings
-#End Region
-
 #Region "Class Properties"
-    Public Property FileSettings As FileSettings
-        Get
-            Return _fileSettings
-        End Get
-        Set(value As FileSettings)
-            _fileSettings = value
-        End Set
-    End Property
-
-    Public Property TextEditingSettings As TextEditingSettings
-        Get
-            Return _textEditingSettings
-        End Get
-        Set(value As TextEditingSettings)
-            _textEditingSettings = value
-        End Set
-    End Property
-
-    Public Property ColorSettings As ColorSettings
-        Get
-            Return _colorSettings
-        End Get
-        Set(value As ColorSettings)
-            _colorSettings = value
-        End Set
-    End Property
+    Public Property FileSettings As New FileSettings
+    Public Property TextEditingSettings As New TextEditingSettings
+    Public Property ColorSettings As New ColorSettings
 #End Region
+End Class
 
+<Serializable>
+Public Class FileSettings
     Public Sub New()
-        _fileSettings = New FileSettings()
-        _textEditingSettings = New TextEditingSettings()
-        _colorSettings = New ColorSettings()
     End Sub
+
+#Region "File Settings: Variables and Properties"
+    Public Property ArtSavePath As String
+    Public Property ArtLoadPath As String
+    Public Property SettingsPath As String
+    Public Property ImagePath As String
+#End Region
+End Class
+
+<Serializable>
+Public Class TextEditingSettings
+    Public Sub New()
+    End Sub
+
+    Enum WebsitePresets
+        None
+        Facebook
+        Youtube
+    End Enum
+
+    Public Property WebPresets As String() = [Enum].GetNames(GetType(WebsitePresets)).ToArray
+    Public Property WebPreset As String
+    Public Property NumberOfLines As Integer
+    Public Property NumberOfCharacters As Integer
+    Public Property CursorCharacter As String = " "
+    Public Property FillCharacter As String = " "
+    Public Property ShowBackgroundTextColor As Boolean
+    Public Property ShowBackgroundImage As Boolean
+
+    Public Property ShowHiddenTextColor As Color 'made some changes that may have broke it, work on it later
+    Public Property ShowHiddenText As Boolean
+
+#Region "Settings Methods"
+#End Region
+End Class
+
+<Serializable>
+Public Class ColorSettings
+    Public Sub New()
+    End Sub
+
+#Region "Color Settings: Variables and Properties"
+    Public Property RTBForeColors As Color
+    Public Property RTBBackColors As New Color
+    Public Property RTBTextHighlightColors As New Color
+    Public Property GUIForeColors As Color
+    Public Property GUIBackColors As New Color
+    Public Property GUITextColors As New Color
+#End Region
 End Class
