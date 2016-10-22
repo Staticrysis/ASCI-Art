@@ -43,7 +43,6 @@
             rtbRectangle.Width = MouseCurrentPoint.X - rtbRectangle.X
             rtbRectangle.Height = MouseCurrentPoint.Y - rtbRectangle.Y
             rtbGraphics.DrawRectangle(rtbPen, rtbRectangle)
-
         End If
     End Sub
 #End Region

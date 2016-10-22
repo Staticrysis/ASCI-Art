@@ -1,34 +1,23 @@
 ﻿'Imports Ascii_Art_Composer.RTBSettings
 <Serializable>
 Public Class frmArt
-#Region "Forms and Aggregates"
-    'Containing these aggregates in the main form class insures that it will persist 
-    Public _rtbAggregate As RTBAggregate 'this one is different
-    Public _SettingsAggregate As New SettingsAggregate
-
-    Private FrmSettings As New frmSettings(_SettingsAggregate)
-#End Region
+    Private Settings As New SettingsAggregate
+    'Private RTB_TextSettings As New RTBTextEditing(Settings, rtbArtBox)
+    'Private RTB_DrawingSettings As New RTBDrawings(Me, rtbArtBox)
+    Private FrmSettings As New frmSettings(Settings)
 
     Sub New()
         ' This call is required by the designer. 
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        _rtbAggregate = New RTBAggregate(Me, Me.rtbArtBox)
-        _SettingsAggregate = Serialization.Open(_SettingsAggregate, "Settings", Nothing)
+        Settings = Serialization.Open(Settings, "Settings", Nothing)
+        MouseEventBuilder.BindEvents(rtbArtBox)
     End Sub
 
-    Private Sub SterilizePath(ByRef agg As Object)
-        Select Case agg
-            Case GetType(SettingsAggregate)
-
-            Case GetType(RTBAggregate)
-
-        End Select
-    End Sub
-
+#Region "Settings"
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles tsmiSave.Click
-        Serialization.Save(_SettingsAggregate, "Settings", Nothing)
+        Serialization.Save(SettingsAggregate, "Settings", Nothing)
     End Sub
 
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles tsmiOpen.Click
@@ -36,17 +25,76 @@ Public Class frmArt
     End Sub
 
     Private Sub ShowTextSettings() Handles tsmiText.Click
-        FrmSettings.tcSettings.SelectTab(0)
-        FrmSettings.ShowDialog()
+        FrmSettings.tcSettings.SelectTab(0) : FrmSettings.ShowDialog()
     End Sub
 
     Private Sub ShowColorSettings() Handles tsmiColors.Click
-        FrmSettings.tcSettings.SelectTab(1)
-        FrmSettings.ShowDialog()
+        FrmSettings.tcSettings.SelectTab(1) : FrmSettings.ShowDialog()
     End Sub
 
     Private Sub ShowFileSettings() Handles tsmiFiles.Click
-        FrmSettings.tcSettings.SelectTab(2)
-        FrmSettings.ShowDialog()
+        FrmSettings.tcSettings.SelectTab(2) : FrmSettings.ShowDialog()
     End Sub
+#End Region
+
+#Region "RTB Text"
+    Public Sub DrawSymbols()
+
+    End Sub
+
+    Public Sub WipeSymbols()
+
+    End Sub
+
+    Public Sub Crop()
+
+    End Sub
+
+    Public Sub Zoom()
+        RaiseEvent RichCanvas.zoom()
+    End Sub
+#End Region
+
+#Region "Drawing Settings"
+    Dim rtbGraphics As Graphics
+    Dim rtbRectangle As Rectangle
+    Dim rtbPen As Pen
+
+    Public Sub DrawBoxLines(sender As Object, e As MouseEventArgs) Handles rtbArtBox.MouseMove
+        If e.Button = MouseButtons.Middle Then
+            rtbArtBox.Refresh()
+            rtbRectangle.Location = MiddleClickPoint 'New Rectangle(MiddleClickPoint.X, MiddleClickPoint.Y, MouseCurrentPoint.X, MouseCurrentPoint.Y)
+            rtbRectangle.Width = MouseCurrentPoint.X - rtbRectangle.X
+            rtbRectangle.Height = MouseCurrentPoint.Y - rtbRectangle.Y
+            rtbGraphics.DrawRectangle(rtbPen, rtbRectangle)
+        End If
+    End Sub
+
+    Public Function GetFurthestCharX() As Int16
+        Dim furthestChar As Int16 = 0
+        Dim position As Point
+
+        For Each line In rtbArtBox.Lines
+            If line.Length > furthestChar Then
+                furthestChar = line.Length
+                position = rtbArtBox.GetPositionFromCharIndex(line.Length)
+            End If
+        Next
+
+        Return position.X
+    End Function
+
+    Public Function GetFurthestLineY() As Int16
+        Dim length As Int16 = rtbArtBox.Lines.Length
+        Dim point As Point = rtbArtBox.GetPositionFromCharIndex(rtbArtBox.Text.Length)
+        Return point.Y
+    End Function
+
+    Private Sub frmArt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+#End Region
+
+#Region "ColorSettings"
+#End Region
 End Class

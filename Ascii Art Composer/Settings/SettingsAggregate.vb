@@ -1,4 +1,6 @@
-﻿<Serializable>
+﻿Imports System.ComponentModel
+
+<Serializable>
 Public Class SettingsAggregate
 #Region "Class Properties"
     Public Property FileSettings As New FileSettings
@@ -7,13 +9,25 @@ Public Class SettingsAggregate
 #End Region
 End Class
 
+Public Class SettingSource
+    Implements INotifyPropertyChanged
+    Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
+
+    Protected Sub OnPropertyChanged(ByVal name As String)
+        RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(name))
+    End Sub
+End Class
+
 <Serializable>
 Public Class FileSettings
+    Inherits SettingSource
     Public Sub New()
     End Sub
 
 #Region "File Settings: Variables and Properties"
-    Public Property ArtSavePath As String
+    ' Public Property ArtSavePath As String : Get : Return "" : End Get : Set : OnPropertyChanged("ArtSavePath") : End Set
+
+
     Public Property ArtLoadPath As String
     Public Property SettingsPath As String
     Public Property ImagePath As String

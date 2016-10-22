@@ -116,6 +116,7 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -164,9 +165,8 @@
       <DependentUpon>frmArtForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SC Rich Textbox\RTBSource.vb" />
-    <Compile Include="SC Rich Textbox\RTBAggregate.vb" />
-    <Compile Include="SC Rich Textbox\RTBArtBox.vb">
+    <Compile Include="SC Rich Textbox\MouseEventBuilder.vb" />
+    <Compile Include="SC Rich Textbox\RichCanvas.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Menus\Settings.Designer.vb">
@@ -246,11 +246,7 @@
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonValidatingReader.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriter.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriterException.datasource" />
-    <None Include="My Project\DataSources\RTBAggregate.datasource" />
     <None Include="My Project\DataSources\RTBDrawings.datasource" />
-    <None Include="My Project\DataSources\RTBSource.datasource" />
-    <None Include="My Project\DataSources\RTBTextEditing.datasource" />
-    <None Include="My Project\DataSources\SettingsSource.datasource" />
     <None Include="My Project\DataSources\System.Drawing.Color.datasource" />
     <None Include="My Project\DataSources\TextEditingSettings.datasource" />
     <None Include="My Project\Settings.settings">

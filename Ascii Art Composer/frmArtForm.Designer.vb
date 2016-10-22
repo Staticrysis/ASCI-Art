@@ -46,7 +46,6 @@ Partial Class frmArt
         Me.tbZoom = New System.Windows.Forms.TrackBar()
         Me.TForShowBorders = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.rtbArtBox = New Ascii_Art_Composer.RTBArtBox()
         Me.MenuStrip1.SuspendLayout()
         Me.tsSettings.SuspendLayout()
         CType(Me.tbZoom, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,7 +58,7 @@ Partial Class frmArt
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.MenuStrip1.Size = New System.Drawing.Size(779, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(905, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -122,7 +121,7 @@ Partial Class frmArt
         Me.tsSettings.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbReset, Me.ToolStripSeparator1, Me.tslSymbol, Me.tstbSymbol, Me.tslLines, Me.tstbLines, Me.tslChars, Me.tstbCharacters, Me.ToolStripSeparator2, Me.tsbShowHiddenSpace})
         Me.tsSettings.Location = New System.Drawing.Point(0, 614)
         Me.tsSettings.Name = "tsSettings"
-        Me.tsSettings.Size = New System.Drawing.Size(779, 25)
+        Me.tsSettings.Size = New System.Drawing.Size(905, 25)
         Me.tsSettings.TabIndex = 2
         Me.tsSettings.Text = "  "
         '
@@ -208,7 +207,7 @@ Partial Class frmArt
         '
         Me.tbZoom.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbZoom.LargeChange = 1
-        Me.tbZoom.Location = New System.Drawing.Point(669, 614)
+        Me.tbZoom.Location = New System.Drawing.Point(795, 614)
         Me.tbZoom.Name = "tbZoom"
         Me.tbZoom.Size = New System.Drawing.Size(110, 45)
         Me.tbZoom.TabIndex = 3
@@ -223,32 +222,13 @@ Partial Class frmArt
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'rtbArtBox
-        '
-        Me.rtbArtBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.rtbArtBox.BackColor = System.Drawing.Color.Black
-        Me.rtbArtBox.Cursor = System.Windows.Forms.Cursors.Cross
-        Me.rtbArtBox.EnableAutoDragDrop = True
-        Me.rtbArtBox.Font = New System.Drawing.Font("Tahoma", 5.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rtbArtBox.ForeColor = System.Drawing.Color.Yellow
-        Me.rtbArtBox.Location = New System.Drawing.Point(0, 24)
-        Me.rtbArtBox.Name = "rtbArtBox"
-        Me.rtbArtBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
-        Me.rtbArtBox.Size = New System.Drawing.Size(779, 584)
-        Me.rtbArtBox.TabIndex = 4
-        Me.rtbArtBox.Text = ""
-        Me.rtbArtBox.WordWrap = False
-        '
         'frmArt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(779, 639)
-        Me.Controls.Add(Me.rtbArtBox)
+        Me.ClientSize = New System.Drawing.Size(905, 639)
         Me.Controls.Add(Me.tbZoom)
         Me.Controls.Add(Me.tsSettings)
         Me.Controls.Add(Me.MenuStrip1)
@@ -284,7 +264,7 @@ Partial Class frmArt
     Friend WithEvents tbZoom As TrackBar
     Friend WithEvents tsmiFiles As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents rtbArtBox As RTBArtBox
+    Friend WithEvents rtbArtBox As RichCanvas
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents tstbSymbol As ToolStripTextBox
     Friend WithEvents tsbShowHiddenSpace As ToolStripButton

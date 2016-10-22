@@ -1,17 +1,6 @@
 ﻿Imports System.Threading
 
-Public Class RTBTextEditing
-    Inherits RTBSource
-
-#Region "Variables"
-    Dim _pointIntegerSelectedCharacter As Integer
-    Private _handlesAlterCharacters As Boolean = True
-    Private _handlesRightMouseButtonDown As Boolean = True
-    Private _handlesLeftMouseButtonDown As Boolean = True
-    Private _handlesMouseMove As Boolean = True
-    Private _threadPool As Threading.ThreadPool
-#End Region
-
+Module RTBTextHandler
 #Region "Has Handles?"
     Public WriteOnly Property HandlesResetAndFill As Boolean
         Set(value As Boolean)
@@ -88,16 +77,14 @@ Public Class RTBTextEditing
     End Property
 #End Region
 
-    Sub New(ByRef mainForm As frmArt, ByRef RTB As RichTextBox)
-        MyBase.New(mainForm, RTB)
-        AddHandler Me.MAINFORM.tstbCharacters.TextChanged, AddressOf Characters_TextChanged
-        AddHandler Me.MAINFORM.tstbLines.TextChanged, AddressOf Lines_TextChanged
-        AddHandler Me.MAINFORM.tsbReset.Click, AddressOf ResetAndFill
-        'AddHandler Me.MAINFORM.tsbShowHiddenSpace.Click, AddressOf ChangeBackColor
+    Dim rtbGraphics As Graphics
+    Dim rtbRectangle As Rectangle
+    Dim rtbPen As Pen
 
-        AddHandler Me.RTB.MouseMove, AddressOf RTBARTBox_MouseMove
-        AddHandler Me.RTB.MouseWheel, AddressOf Zoom
-    End Sub
+
+    Function Build(ByRef settings As SettingsAggregate, RTB As RichTextBox)
+
+    End Function
 
     Private Sub Characters_TextChanged(sender As Object, e As EventArgs)
         Dim result As Int16
@@ -143,7 +130,7 @@ Public Class RTBTextEditing
     End Function
 
 #Region "Behavior Methods"
-    Private Sub Zoom(sender As Object, e As MouseEventArgs)
+    Sub Zoom(sender As Object, e As MouseEventArgs)
         'Right now, ZoomFactor is hard-codded to be modified by 0.2
         'This could be a property in the future that allows the user to change but idk if i want that
         If e.Delta >= 0 Then
@@ -158,7 +145,7 @@ Public Class RTBTextEditing
     End Sub
 
     'Handles inserting characters on a Mousemove event
-    Private Sub RTBARTBox_MouseMove(sender As Object, e As MouseEventArgs)
+    Public Sub Draw(sender As Object, e As MouseEventArgs)
         If e.Button = MouseButtons.Right Then
             _pointIntegerSelectedCharacter = RTB.GetCharIndexFromPosition(MouseCurrentPoint)
             If RightClickPoint <> e.Location _
@@ -205,4 +192,4 @@ Public Class RTBTextEditing
         End If
     End Sub
 #End Region
-End Class
+End Module
