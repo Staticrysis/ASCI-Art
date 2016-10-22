@@ -17,7 +17,7 @@ Public Class frmArt
 
 #Region "Settings"
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles tsmiSave.Click
-        Serialization.Save(SettingsAggregate, "Settings", Nothing)
+        Serialization.Save(Settings, "Settings", Nothing)
     End Sub
 
     Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles tsmiOpen.Click
@@ -38,21 +38,6 @@ Public Class frmArt
 #End Region
 
 #Region "RTB Text"
-    Public Sub DrawSymbols()
-
-    End Sub
-
-    Public Sub WipeSymbols()
-
-    End Sub
-
-    Public Sub Crop()
-
-    End Sub
-
-    Public Sub Zoom()
-        RaiseEvent RichCanvas.zoom()
-    End Sub
 #End Region
 
 #Region "Drawing Settings"

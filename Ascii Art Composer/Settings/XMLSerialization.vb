@@ -8,7 +8,7 @@ Imports System.IO.WindowsRuntimeStreamExtensions
 Module Serialization
     Const DEFAULTPATH As String = "C:\Users\Staticrysis\Desktop\Ascii Art Settings\"
 
-    Async Sub Save(ByVal aggregate As Object, ByVal name As String, ByVal path As String)
+    Sub Save(ByVal aggregate As Object, ByVal name As String, ByVal path As String)
         Try
             Dim serializer As New SoapFormatter()
             serializer.TypeFormat = FormatterTypeStyle.TypesAlways
@@ -35,5 +35,7 @@ Module Serialization
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+#Disable Warning BC42105 ' Function doesn't return a value on all code paths
     End Function
+#Enable Warning BC42105 ' Function doesn't return a value on all code paths
 End Module

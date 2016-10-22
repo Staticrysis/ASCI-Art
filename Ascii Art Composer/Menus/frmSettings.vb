@@ -3,7 +3,7 @@ Imports Newtonsoft.Json
 
 <Serializable>
 Public Class frmSettings
-    Public _settingsAggregate As SettingsAggregate
+    Public _settings As New SettingsAggregate
     Public _colorDialog As New ColorDialog
 
     Public Sub New(ByRef settingsAggregate As SettingsAggregate)
@@ -11,7 +11,7 @@ Public Class frmSettings
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        _settingsAggregate = settingsAggregate 'By-ref so local settings uses the mainForm's settings
+        _settings = settingsAggregate 'By-ref so local settings uses the mainForm's settings
         LoadSettings()
         BindUI()
         LoadUI()
@@ -19,12 +19,12 @@ Public Class frmSettings
 
 #Region "IO"
     Public Sub SaveSettings()
-        Serialization.Save(Me._settingsAggregate, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
+        Serialization.Save(Me._settings, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
     End Sub
 
     Public Function LoadSettings() As Boolean
         Try
-            Me._settingsAggregate = Serialization.Open(Me._settingsAggregate, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
+            Me._settings = Serialization.Open(Me._settings, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
             Return True
         Catch ex As Exception
             MsgBox("File could not be found.")
@@ -33,9 +33,9 @@ Public Class frmSettings
     End Function
 
     Private Sub SaveOnClose() Handles Me.Closing
-        _settingsAggregate.TextEditingSettings = DirectCast(TextEditingSettingsBindingSource.Item(0), TextEditingSettings)
-        _settingsAggregate.FileSettings = DirectCast(FileSettingsBindingSource.Item(0), FileSettings)
-        _settingsAggregate.ColorSettings = DirectCast(ColorSettingsBindingSource.Item(0), ColorSettings)
+        _settings.Canvas = DirectCast(TextEditingSettingsBindingSource.Item(0), CanvasText)
+        _settings.Files = DirectCast(FileSettingsBindingSource.Item(0), Files)
+        _settings.Colors = DirectCast(ColorSettingsBindingSource.Item(0), Colors)
         SaveSettings()
     End Sub
 
@@ -46,18 +46,18 @@ Public Class frmSettings
 
 #Region "Bind & Load"
     Private Sub BindUI()
-        Me.ColorSettingsBindingSource.DataSource = _settingsAggregate.ColorSettings
-        Me.FileSettingsBindingSource.DataSource = _settingsAggregate.FileSettings
-        Me.TextEditingSettingsBindingSource.DataSource = _settingsAggregate.TextEditingSettings
+        Me.ColorSettingsBindingSource.DataSource = _settings.Colors
+        Me.FileSettingsBindingSource.DataSource = _settings.Files
+        Me.TextEditingSettingsBindingSource.DataSource = _settings.Canvas
     End Sub
 
     Private Sub LoadUI()
-        buttonRTBTextForeColor.BackColor = _settingsAggregate.ColorSettings.RTBForeColors
-        buttonRTBTextBackColors.BackColor = _settingsAggregate.ColorSettings.RTBBackColors
-        buttonRTBTextHighlight.BackColor = _settingsAggregate.ColorSettings.RTBTextHighlightColors
-        buttonGUIForeTextColors.BackColor = _settingsAggregate.ColorSettings.GUIForeColors
-        buttonGUIBackTextColors.BackColor = _settingsAggregate.ColorSettings.GUIBackColors
-        buttonGUITextColors.BackColor = _settingsAggregate.ColorSettings.GUITextColors
+        buttonRTBTextForeColor.BackColor = _settings.Colors.RTBForeColors
+        buttonRTBTextBackColors.BackColor = _settings.Colors.RTBBackColors
+        buttonRTBTextHighlight.BackColor = _settings.Colors.RTBTextHighlightColors
+        buttonGUIForeTextColors.BackColor = _settings.Colors.GUIForeColors
+        buttonGUIBackTextColors.BackColor = _settings.Colors.GUIBackColors
+        buttonGUITextColors.BackColor = _settings.Colors.GUITextColors
     End Sub
 #End Region
 

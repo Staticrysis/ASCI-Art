@@ -46,6 +46,7 @@ Partial Class frmArt
         Me.tbZoom = New System.Windows.Forms.TrackBar()
         Me.TForShowBorders = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.tsSettings.SuspendLayout()
         CType(Me.tbZoom, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -222,6 +223,11 @@ Partial Class frmArt
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
+        '
         'frmArt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 13.0!)
@@ -270,4 +276,5 @@ Partial Class frmArt
     Friend WithEvents tsbShowHiddenSpace As ToolStripButton
     Friend WithEvents TForShowBorders As Timer
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
 End Class

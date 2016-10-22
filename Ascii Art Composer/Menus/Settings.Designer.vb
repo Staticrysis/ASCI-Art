@@ -168,7 +168,7 @@ Partial Class frmSettings
         '
         'TextEditingSettingsBindingSource
         '
-        Me.TextEditingSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.TextEditingSettings)
+        Me.TextEditingSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.CanvasText)
         '
         'WebPresetsBindingSource
         '
@@ -412,7 +412,7 @@ Partial Class frmSettings
         '
         'ColorSettingsBindingSource
         '
-        Me.ColorSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.ColorSettings)
+        Me.ColorSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.Colors)
         '
         'buttonGUITextColors
         '
@@ -656,7 +656,7 @@ Partial Class frmSettings
         '
         'FileSettingsBindingSource
         '
-        Me.FileSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.FileSettings)
+        Me.FileSettingsBindingSource.DataSource = GetType(Ascii_Art_Composer.Files)
         '
         'buttonSetSettingsFileLocation
         '

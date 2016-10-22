@@ -3,12 +3,13 @@
 <Serializable>
 Public Class SettingsAggregate
 #Region "Class Properties"
-    Public Property FileSettings As New FileSettings
-    Public Property TextEditingSettings As New TextEditingSettings
-    Public Property ColorSettings As New ColorSettings
+    Public Property Files As New Files
+    Public Property Canvas As New CanvasText
+    Public Property Colors As New Colors
 #End Region
 End Class
 
+<Serializable>
 Public Class SettingSource
     Implements INotifyPropertyChanged
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
@@ -19,15 +20,12 @@ Public Class SettingSource
 End Class
 
 <Serializable>
-Public Class FileSettings
+Public Class Files
     Inherits SettingSource
     Public Sub New()
     End Sub
 
 #Region "File Settings: Variables and Properties"
-    ' Public Property ArtSavePath As String : Get : Return "" : End Get : Set : OnPropertyChanged("ArtSavePath") : End Set
-
-
     Public Property ArtLoadPath As String
     Public Property SettingsPath As String
     Public Property ImagePath As String
@@ -35,7 +33,7 @@ Public Class FileSettings
 End Class
 
 <Serializable>
-Public Class TextEditingSettings
+Public Class CanvasText
     Public Sub New()
     End Sub
 
@@ -53,16 +51,12 @@ Public Class TextEditingSettings
     Public Property FillCharacter As String = " "
     Public Property ShowBackgroundTextColor As Boolean
     Public Property ShowBackgroundImage As Boolean
-
     Public Property ShowHiddenTextColor As Color 'made some changes that may have broke it, work on it later
     Public Property ShowHiddenText As Boolean
-
-#Region "Settings Methods"
-#End Region
 End Class
 
 <Serializable>
-Public Class ColorSettings
+Public Class Colors
     Public Sub New()
     End Sub
 

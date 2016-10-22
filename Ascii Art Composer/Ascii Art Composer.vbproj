@@ -190,8 +190,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SC Rich Textbox\RTBDrawings.vb" />
-    <Compile Include="SC Rich Textbox\RTBTextEditing.vb" />
     <Compile Include="Settings\SettingsAggregate.vb" />
     <Compile Include="Settings\JsonIO.vb" />
     <Compile Include="Settings\SettingsSource.vb" />
@@ -219,8 +217,6 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\DataSources\ColorSettings.datasource" />
-    <None Include="My Project\DataSources\FileSettings.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.IJsonLineInfo.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonArrayAttribute.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonConstructorAttribute.datasource" />
@@ -246,9 +242,7 @@
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonValidatingReader.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriter.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriterException.datasource" />
-    <None Include="My Project\DataSources\RTBDrawings.datasource" />
     <None Include="My Project\DataSources\System.Drawing.Color.datasource" />
-    <None Include="My Project\DataSources\TextEditingSettings.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

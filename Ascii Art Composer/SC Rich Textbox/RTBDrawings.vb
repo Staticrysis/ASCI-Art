@@ -1,5 +1,4 @@
 ﻿Public Class RTBDrawings
-    Inherits RTBSource
 
     Dim rtbGraphics As Graphics
     Dim rtbRectangle As Rectangle
@@ -16,7 +15,7 @@
         End Set
     End Property
 
-    Sub New(ByRef mainForm As frmArt, ByRef RTB As RichTextBox)
+    Sub New(ByRef mainForm As frmArt, ByRef RTB As RichCanvas)
         MyBase.New(mainForm, RTB)
         rtbGraphics = RTB.CreateGraphics
         rtbPen = New Pen(Color.Green)
@@ -25,7 +24,7 @@
         'AddHandler Me.MAINFORM.tsbShowHiddenSpace.Click, AddressOf ShowBox
         'AddHandler Me.MAINFORM.tsbShowHiddenSpace.Click, AddressOf DrawBorderBox
         'AddHandler Me.RTB.MouseUp, AddressOf DrawBoxLines
-        AddHandler Me.RTB.MouseMove, AddressOf DrawBoxLines
+        AddHandler RTB.MouseMove, AddressOf DrawBoxLines
     End Sub
 
     'TODO: IDK, I just want to make it so the user can see the edges of the txt editor
