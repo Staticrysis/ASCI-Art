@@ -158,11 +158,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmArtForm.vb">
+    <Compile Include="frmComposer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmArtForm.Designer.vb">
-      <DependentUpon>frmArtForm.vb</DependentUpon>
+    <Compile Include="frmComposer.Designer.vb">
+      <DependentUpon>frmComposer.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SC Rich Textbox\MouseEventBuilder.vb" />
@@ -196,8 +196,8 @@
     <Compile Include="Settings\XMLSerialization.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmArtForm.resx">
-      <DependentUpon>frmArtForm.vb</DependentUpon>
+    <EmbeddedResource Include="frmComposer.resx">
+      <DependentUpon>frmComposer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menus\frmSettings.resx">
       <DependentUpon>frmSettings.vb</DependentUpon>

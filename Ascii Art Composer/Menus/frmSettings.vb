@@ -3,7 +3,7 @@ Imports Newtonsoft.Json
 
 <Serializable>
 Public Class frmSettings
-    Public _settings As New SettingsAggregate
+    Public _settings As SettingsAggregate
     Public _colorDialog As New ColorDialog
 
     Public Sub New(ByRef settingsAggregate As SettingsAggregate)
@@ -19,15 +19,15 @@ Public Class frmSettings
 
 #Region "IO"
     Public Sub SaveSettings()
-        Serialization.Save(Me._settings, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
+        Serialization.Save(Me._settings, "Settings", Nothing)
     End Sub
 
     Public Function LoadSettings() As Boolean
         Try
-            Me._settings = Serialization.Open(Me._settings, "Settings", Nothing) ', _settingsAggregate.FileSettings.SettingsPath)
+            _settings = Serialization.Open(Me._settings, "Settings", Nothing)
             Return True
         Catch ex As Exception
-            MsgBox("File could not be found.")
+            'MsgBox("File could not be found.")
             Return False
         End Try
     End Function
@@ -46,9 +46,9 @@ Public Class frmSettings
 
 #Region "Bind & Load"
     Private Sub BindUI()
-        Me.ColorSettingsBindingSource.DataSource = _settings.Colors
-        Me.FileSettingsBindingSource.DataSource = _settings.Files
-        Me.TextEditingSettingsBindingSource.DataSource = _settings.Canvas
+        ColorSettingsBindingSource.DataSource = _settings.Colors
+        FileSettingsBindingSource.DataSource = _settings.Files
+        TextEditingSettingsBindingSource.DataSource = _settings.Canvas
     End Sub
 
     Private Sub LoadUI()

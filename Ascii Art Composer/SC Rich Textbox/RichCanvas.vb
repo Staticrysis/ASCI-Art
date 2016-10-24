@@ -1,5 +1,6 @@
 ﻿Public Class RichCanvas
     Inherits RichTextBox
+
     Private WM_SETFOCUS As Integer = &H7
     Private Settings As SettingsAggregate
 

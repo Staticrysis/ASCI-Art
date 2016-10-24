@@ -22,21 +22,16 @@ End Class
 <Serializable>
 Public Class Files
     Inherits SettingSource
-    Public Sub New()
-    End Sub
-
 #Region "File Settings: Variables and Properties"
-    Public Property ArtLoadPath As String
-    Public Property SettingsPath As String
-    Public Property ImagePath As String
+    Public Property ArtLoadPath As String = ""
+    Public Property ArtSavePath As String = ""
+    Public Property SettingsPath As String = ""
+    Public Property ImagePath As String = ""
 #End Region
 End Class
 
 <Serializable>
 Public Class CanvasText
-    Public Sub New()
-    End Sub
-
     Enum WebsitePresets
         None
         Facebook
@@ -45,8 +40,8 @@ Public Class CanvasText
 
     Public Property WebPresets As String() = [Enum].GetNames(GetType(WebsitePresets)).ToArray
     Public Property WebPreset As String
-    Public Property NumberOfLines As Integer
-    Public Property NumberOfCharacters As Integer
+    Public Property NumberOfLines As Integer = 60
+    Public Property NumberOfCharacters As Integer = 300
     Public Property CursorCharacter As String = " "
     Public Property FillCharacter As String = " "
     Public Property ShowBackgroundTextColor As Boolean
@@ -57,14 +52,12 @@ End Class
 
 <Serializable>
 Public Class Colors
-    Public Sub New()
-    End Sub
-
+    Inherits SettingSource
 #Region "Color Settings: Variables and Properties"
-    Public Property RTBForeColors As Color
+    Public Property RTBForeColors As New Color
     Public Property RTBBackColors As New Color
     Public Property RTBTextHighlightColors As New Color
-    Public Property GUIForeColors As Color
+    Public Property GUIForeColors As New Color
     Public Property GUIBackColors As New Color
     Public Property GUITextColors As New Color
 #End Region

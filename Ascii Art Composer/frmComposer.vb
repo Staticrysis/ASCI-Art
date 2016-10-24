@@ -4,15 +4,15 @@ Public Class frmArt
     Private Settings As New SettingsAggregate
     'Private RTB_TextSettings As New RTBTextEditing(Settings, rtbArtBox)
     'Private RTB_DrawingSettings As New RTBDrawings(Me, rtbArtBox)
-    Private FrmSettings As New frmSettings(Settings)
+    Private WithEvents FrmSettings As New frmSettings(Settings)
 
     Sub New()
         ' This call is required by the designer. 
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        Settings = Serialization.Open(Settings, "Settings", Nothing)
-        MouseEventBuilder.BindEvents(rtbArtBox)
+        ' Settings = Serialization.Open(Settings, "Settings", Nothing)
+        ' MouseEventBuilder.BindEvents(rtbArtBox)
     End Sub
 
 #Region "Settings"
@@ -35,6 +35,10 @@ Public Class frmArt
     Private Sub ShowFileSettings() Handles tsmiFiles.Click
         FrmSettings.tcSettings.SelectTab(2) : FrmSettings.ShowDialog()
     End Sub
+
+    'Private Sub ClosingFrmSettings() Handles FrmSettings.Closing
+    '    Settings = Serialization.Open(Settings, Settings.ToString, Serialization.DEFAULTPATH)
+    'End Sub
 #End Region
 
 #Region "RTB Text"
@@ -74,10 +78,6 @@ Public Class frmArt
         Dim point As Point = rtbArtBox.GetPositionFromCharIndex(rtbArtBox.Text.Length)
         Return point.Y
     End Function
-
-    Private Sub frmArt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 #End Region
 
 #Region "ColorSettings"

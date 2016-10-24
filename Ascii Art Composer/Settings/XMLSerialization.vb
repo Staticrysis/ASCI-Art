@@ -6,14 +6,15 @@ Imports System.IO.WindowsRuntimeStreamExtensions
 
 
 Module Serialization
-    Const DEFAULTPATH As String = "C:\Users\Staticrysis\Desktop\Ascii Art Settings\"
+    Public Const DEFAULTPATH As String = "C:\Users\Staticrysis\Desktop\Ascii Art Settings\"
+
 
     Sub Save(ByVal aggregate As Object, ByVal name As String, ByVal path As String)
         Try
             Dim serializer As New SoapFormatter()
             serializer.TypeFormat = FormatterTypeStyle.TypesAlways
             Using fileStream As New FileStream(If(path Is Nothing, DEFAULTPATH, path) & name & ".dat", FileMode.Create, FileAccess.Write)
-                serializer.Serialize(fileStream, aggregate)
+                serializer.Serialize(fileStream, aggregate.GetType)
             End Using
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -22,16 +23,12 @@ Module Serialization
 
     Function Open(ByRef aggregate As Object, ByVal name As String, ByVal path As String) As Object
         Try
-            If File.Exists(If(path Is Nothing, DEFAULTPATH, path) & name & ".dat") Then
-                Dim serializer As New SoapFormatter()
-                Dim FileStream As New FileStream(If(path Is Nothing, DEFAULTPATH, path) & name & ".dat", FileMode.Open) With {.Position = 0}
-                Dim obj = serializer.Deserialize(FileStream)
-                FileStream.Close()
-                Return obj
-            Else
-                Save(aggregate, name, path)
-                Open(aggregate, name, path)
-            End If
+            If Not File.Exists(If(path Is Nothing, DEFAULTPATH, path) & name & ".dat") Then Save(aggregate, name, path)
+            Dim serializer As New SoapFormatter()
+            Using FileStream As New FileStream(If(path Is Nothing, DEFAULTPATH, path) & name & ".dat", FileMode.Open) With {.Position = 0}
+                Return serializer.Deserialize(FileStream)
+            End Using
+
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
