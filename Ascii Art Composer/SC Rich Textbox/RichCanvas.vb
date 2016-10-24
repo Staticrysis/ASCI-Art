@@ -191,7 +191,7 @@
         End If
     End Sub
 
-    'Todo: not sure but I think I sould bring the mouse will editing back
+    'Todo: not sure but I think I should bring the mouse wheel editing back
     Public Sub AlterCharacters(sender As Object, e As MouseEventArgs)
         _pointIntegerSelectedCharacter = GetCharIndexFromPosition(MouseCurrentPoint)
 

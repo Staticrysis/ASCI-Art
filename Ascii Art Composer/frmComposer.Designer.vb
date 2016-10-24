@@ -43,13 +43,11 @@ Partial Class frmArt
         Me.tstbCharacters = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbShowHiddenSpace = New System.Windows.Forms.ToolStripButton()
-        Me.tbZoom = New System.Windows.Forms.TrackBar()
         Me.TForShowBorders = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.tsSettings.SuspendLayout()
-        CType(Me.tbZoom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -98,7 +96,8 @@ Partial Class frmArt
         Me.tsmiText.BackColor = System.Drawing.Color.White
         Me.tsmiText.ForeColor = System.Drawing.Color.Black
         Me.tsmiText.Name = "tsmiText"
-        Me.tsmiText.Size = New System.Drawing.Size(108, 22)
+        Me.tsmiText.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
+        Me.tsmiText.Size = New System.Drawing.Size(152, 22)
         Me.tsmiText.Text = "Text"
         '
         'tsmiColors
@@ -106,23 +105,25 @@ Partial Class frmArt
         Me.tsmiColors.BackColor = System.Drawing.Color.White
         Me.tsmiColors.ForeColor = System.Drawing.Color.Black
         Me.tsmiColors.Name = "tsmiColors"
-        Me.tsmiColors.Size = New System.Drawing.Size(108, 22)
+        Me.tsmiColors.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.tsmiColors.Size = New System.Drawing.Size(152, 22)
         Me.tsmiColors.Text = "Colors"
         '
         'tsmiFiles
         '
         Me.tsmiFiles.Name = "tsmiFiles"
-        Me.tsmiFiles.Size = New System.Drawing.Size(108, 22)
+        Me.tsmiFiles.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
+        Me.tsmiFiles.Size = New System.Drawing.Size(152, 22)
         Me.tsmiFiles.Text = "Files"
         '
         'tsSettings
         '
         Me.tsSettings.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.tsSettings.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.tsSettings.Dock = System.Windows.Forms.DockStyle.Left
         Me.tsSettings.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbReset, Me.ToolStripSeparator1, Me.tslSymbol, Me.tstbSymbol, Me.tslLines, Me.tstbLines, Me.tslChars, Me.tstbCharacters, Me.ToolStripSeparator2, Me.tsbShowHiddenSpace})
-        Me.tsSettings.Location = New System.Drawing.Point(0, 614)
+        Me.tsSettings.Location = New System.Drawing.Point(0, 24)
         Me.tsSettings.Name = "tsSettings"
-        Me.tsSettings.Size = New System.Drawing.Size(905, 25)
+        Me.tsSettings.Size = New System.Drawing.Size(117, 615)
         Me.tsSettings.TabIndex = 2
         Me.tsSettings.Text = "  "
         '
@@ -134,7 +135,7 @@ Partial Class frmArt
         Me.tsbReset.Image = CType(resources.GetObject("tsbReset.Image"), System.Drawing.Image)
         Me.tsbReset.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbReset.Name = "tsbReset"
-        Me.tsbReset.Size = New System.Drawing.Size(39, 22)
+        Me.tsbReset.Size = New System.Drawing.Size(114, 19)
         Me.tsbReset.Text = "Reset"
         Me.tsbReset.ToolTipText = "Resets the ascii image to the onload setting" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -204,16 +205,6 @@ Partial Class frmArt
         Me.tsbShowHiddenSpace.Size = New System.Drawing.Size(116, 22)
         Me.tsbShowHiddenSpace.Text = "Show Hidden Space"
         '
-        'tbZoom
-        '
-        Me.tbZoom.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbZoom.LargeChange = 1
-        Me.tbZoom.Location = New System.Drawing.Point(795, 614)
-        Me.tbZoom.Name = "tbZoom"
-        Me.tbZoom.Size = New System.Drawing.Size(110, 45)
-        Me.tbZoom.TabIndex = 3
-        Me.tbZoom.Visible = False
-        '
         'TForShowBorders
         '
         Me.TForShowBorders.Interval = 500
@@ -235,7 +226,6 @@ Partial Class frmArt
         Me.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(905, 639)
-        Me.Controls.Add(Me.tbZoom)
         Me.Controls.Add(Me.tsSettings)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("39251", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -248,7 +238,6 @@ Partial Class frmArt
         Me.MenuStrip1.PerformLayout()
         Me.tsSettings.ResumeLayout(False)
         Me.tsSettings.PerformLayout()
-        CType(Me.tbZoom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -267,7 +256,6 @@ Partial Class frmArt
     Friend WithEvents tstbLines As ToolStripTextBox
     Friend WithEvents tslChars As ToolStripLabel
     Friend WithEvents tstbCharacters As ToolStripTextBox
-    Friend WithEvents tbZoom As TrackBar
     Friend WithEvents tsmiFiles As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents rtbArtBox As RichCanvas
