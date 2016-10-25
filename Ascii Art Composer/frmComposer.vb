@@ -31,6 +31,10 @@ Public Class frmArt
     Private Sub ShowFileSettings() Handles tsmiFiles.Click
         FrmSettings.tcSettings.SelectTab(2) : FrmSettings.ShowDialog()
     End Sub
+
+    Private Sub frmArt_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 #End Region
 
 #Region "RTB Text"

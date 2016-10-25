@@ -1,4 +1,9 @@
-﻿Public Class RichCanvas
+﻿Imports System.Runtime.InteropServices
+Imports System.Windows.Input.Keyboard
+'Imports System.Windows.Input.Mouse ' PointToClient(MousePosition)
+
+
+Public Class RichCanvas
     Inherits RichTextBox
 
     Private WM_SETFOCUS As Integer = &H7
@@ -11,6 +16,9 @@
             MyBase.WndProc(m)
         End If
     End Sub
+
+    Public Sub New()
+    End Sub 'Custom controls require an empty sub for editing
 
     Public Sub New(ByRef settings As SettingsAggregate)
         Me.Settings = settings
@@ -33,11 +41,9 @@
     End Sub
 #End Region
 #Region "Mouse Event Properties"
-    Public Property LeftIsDown As Boolean = False
-    Public Property RightIsDown As Boolean = False
-    Public Property MiddleIsDown As Boolean = False
-
-    Public Property MouseCurrentPoint As Point
+    'Public Property LeftIsDown As Boolean = False ': System.Windows.Input.Mouse.leftButton.Pressed
+    'Public Property RightIsDown As Boolean = False
+    'Public Property MiddleIsDown As Boolean = False
 
     Public Property MiddleFirstClickPoint As Point
     Public Property MiddleClickPoint As Point
@@ -57,12 +63,13 @@
     Public Event Zoom()
 #End Region
 #Region "Mouse Handlers"
-    Private Sub MouseMoveEvents(sender As Object, e As MouseEventArgs)
-        MouseCurrentPoint = e.Location
+    Private Sub MouseMoveEvents(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
         If LeftIsDown Then RaiseEvent Draw()
         If RightIsDown Then RaiseEvent Wipe()
         If MiddleIsDown Then RaiseEvent Crop()
     End Sub
+
+
 
     Private Sub MouseClicks(sender As Object, e As MouseEventArgs)
         Select Case (e.Button)
@@ -146,13 +153,16 @@
 
     Sub ZoomOnCanvas(sender As Object, e As MouseEventArgs) Handles Me.MouseWheel
         'Right now, ZoomFactor is hard-codded to be modified by 0.2
-        If e.Delta >= 0 Then
-            If ZoomFactor + 0.2 <= 64 Then
-                ZoomFactor += 0.2F
-            End If
-        ElseIf e.Delta <= 0 Then
-            If ZoomFactor - 0.2 > 1 Then
-                ZoomFactor -= 0.2F
+        If IsKeyDown(System.Windows.Input.Key.LeftCtrl) Or
+           IsKeyDown(System.Windows.Input.Key.RightCtrl) Then
+            If e.Delta >= 0 Then
+                If ZoomFactor + 0.2 <= 64 Then
+                    ZoomFactor += 0.2F
+                End If
+            ElseIf e.Delta <= 0 Then
+                If ZoomFactor - 0.2 > 1 Then
+                    ZoomFactor -= 0.2F
+                End If
             End If
         End If
     End Sub

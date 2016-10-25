@@ -46,6 +46,7 @@ Partial Class frmArt
         Me.TForShowBorders = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.rtbCanvas = New Ascii_Art_Composer.RichCanvas()
         Me.MenuStrip1.SuspendLayout()
         Me.tsSettings.SuspendLayout()
         Me.SuspendLayout()
@@ -97,7 +98,7 @@ Partial Class frmArt
         Me.tsmiText.ForeColor = System.Drawing.Color.Black
         Me.tsmiText.Name = "tsmiText"
         Me.tsmiText.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
-        Me.tsmiText.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiText.Size = New System.Drawing.Size(150, 22)
         Me.tsmiText.Text = "Text"
         '
         'tsmiColors
@@ -106,14 +107,14 @@ Partial Class frmArt
         Me.tsmiColors.ForeColor = System.Drawing.Color.Black
         Me.tsmiColors.Name = "tsmiColors"
         Me.tsmiColors.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.tsmiColors.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiColors.Size = New System.Drawing.Size(150, 22)
         Me.tsmiColors.Text = "Colors"
         '
         'tsmiFiles
         '
         Me.tsmiFiles.Name = "tsmiFiles"
         Me.tsmiFiles.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.tsmiFiles.Size = New System.Drawing.Size(152, 22)
+        Me.tsmiFiles.Size = New System.Drawing.Size(150, 22)
         Me.tsmiFiles.Text = "Files"
         '
         'tsSettings
@@ -144,55 +145,55 @@ Partial Class frmArt
         Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Padding = New System.Windows.Forms.Padding(0, 0, 5, 0)
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(114, 6)
         '
         'tslSymbol
         '
         Me.tslSymbol.ForeColor = System.Drawing.Color.Lime
         Me.tslSymbol.LinkVisited = True
         Me.tslSymbol.Name = "tslSymbol"
-        Me.tslSymbol.Size = New System.Drawing.Size(90, 22)
+        Me.tslSymbol.Size = New System.Drawing.Size(114, 15)
         Me.tslSymbol.Text = "Current Symbol"
         '
         'tstbSymbol
         '
         Me.tstbSymbol.MaxLength = 10
         Me.tstbSymbol.Name = "tstbSymbol"
-        Me.tstbSymbol.Size = New System.Drawing.Size(94, 25)
+        Me.tstbSymbol.Size = New System.Drawing.Size(112, 23)
         Me.tstbSymbol.Text = "z"
         '
         'tslLines
         '
         Me.tslLines.ForeColor = System.Drawing.Color.Lime
         Me.tslLines.Name = "tslLines"
-        Me.tslLines.Size = New System.Drawing.Size(34, 22)
+        Me.tslLines.Size = New System.Drawing.Size(114, 15)
         Me.tslLines.Text = "Lines"
         '
         'tstbLines
         '
         Me.tstbLines.MaxLength = 3
         Me.tstbLines.Name = "tstbLines"
-        Me.tstbLines.Size = New System.Drawing.Size(94, 25)
+        Me.tstbLines.Size = New System.Drawing.Size(112, 23)
         Me.tstbLines.Text = "60"
         '
         'tslChars
         '
         Me.tslChars.ForeColor = System.Drawing.Color.Lime
         Me.tslChars.Name = "tslChars"
-        Me.tslChars.Size = New System.Drawing.Size(63, 22)
+        Me.tslChars.Size = New System.Drawing.Size(114, 15)
         Me.tslChars.Text = "Characters"
         '
         'tstbCharacters
         '
         Me.tstbCharacters.MaxLength = 3
         Me.tstbCharacters.Name = "tstbCharacters"
-        Me.tstbCharacters.Size = New System.Drawing.Size(94, 25)
+        Me.tstbCharacters.Size = New System.Drawing.Size(112, 23)
         Me.tstbCharacters.Text = "300"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(114, 6)
         '
         'tsbShowHiddenSpace
         '
@@ -202,7 +203,7 @@ Partial Class frmArt
         Me.tsbShowHiddenSpace.Image = CType(resources.GetObject("tsbShowHiddenSpace.Image"), System.Drawing.Image)
         Me.tsbShowHiddenSpace.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsbShowHiddenSpace.Name = "tsbShowHiddenSpace"
-        Me.tsbShowHiddenSpace.Size = New System.Drawing.Size(116, 22)
+        Me.tsbShowHiddenSpace.Size = New System.Drawing.Size(114, 19)
         Me.tsbShowHiddenSpace.Text = "Show Hidden Space"
         '
         'TForShowBorders
@@ -219,6 +220,30 @@ Partial Class frmArt
         Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
         Me.ContextMenuStrip2.Size = New System.Drawing.Size(61, 4)
         '
+        'rtbCanvas
+        '
+        Me.rtbCanvas.BackColor = System.Drawing.Color.Black
+        Me.rtbCanvas.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.rtbCanvas.Cursor = System.Windows.Forms.Cursors.Cross
+        Me.rtbCanvas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rtbCanvas.ForeColor = System.Drawing.Color.LimeGreen
+        Me.rtbCanvas.LeftClickPoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.LeftFirstClickPoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.LeftReleasePoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.Location = New System.Drawing.Point(117, 24)
+        Me.rtbCanvas.MiddleClickPoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.MiddleFirstClickPoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.MiddleReleasePoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.Name = "rtbCanvas"
+        Me.rtbCanvas.RightClickPoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.RightFirstClickPoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.RightReleasePoint = New System.Drawing.Point(0, 0)
+        Me.rtbCanvas.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.rtbCanvas.Size = New System.Drawing.Size(788, 615)
+        Me.rtbCanvas.TabIndex = 3
+        Me.rtbCanvas.Text = ""
+        Me.rtbCanvas.WordWrap = False
+        '
         'frmArt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 13.0!)
@@ -226,6 +251,7 @@ Partial Class frmArt
         Me.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(905, 639)
+        Me.Controls.Add(Me.rtbCanvas)
         Me.Controls.Add(Me.tsSettings)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Font = New System.Drawing.Font("39251", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -265,4 +291,5 @@ Partial Class frmArt
     Friend WithEvents TForShowBorders As Timer
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
+    Friend WithEvents rtbCanvas As RichCanvas
 End Class
