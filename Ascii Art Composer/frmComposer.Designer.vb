@@ -238,7 +238,7 @@ Partial Class frmArt
         Me.rtbCanvas.RightClickPoint = New System.Drawing.Point(0, 0)
         Me.rtbCanvas.RightFirstClickPoint = New System.Drawing.Point(0, 0)
         Me.rtbCanvas.RightReleasePoint = New System.Drawing.Point(0, 0)
-        Me.rtbCanvas.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.rtbCanvas.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None
         Me.rtbCanvas.Size = New System.Drawing.Size(788, 615)
         Me.rtbCanvas.TabIndex = 3
         Me.rtbCanvas.Text = ""
