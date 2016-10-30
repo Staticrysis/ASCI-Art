@@ -1,23 +1,23 @@
 ﻿'Imports Ascii_Art_Composer.RTBSettings
 <Serializable>
 Public Class frmArt
-    Private Settings As New SettingsAggregate
+    Private Settings As SettingsAggregate = Open(New SettingsAggregate, Nothing)
     Private WithEvents FrmSettings As New frmSettings(Settings)
 
     Sub New()
         ' This call is required by the designer. 
         InitializeComponent()
+        rtbCanvas.Build(Settings)
+        rtbCanvas.RefillCanvas()
     End Sub
-
-
 
 #Region "Settings"
-    Private Sub Save_Click(sender As Object, e As EventArgs) Handles tsmiSave.Click
-        Serialization.Save(Settings, "Settings", Nothing)
+    Private Sub SaveSettings()
+        Serialization.Save(Settings, Nothing)
     End Sub
 
-    Private Sub OpenFile_Click(sender As Object, e As EventArgs) Handles tsmiOpen.Click
-
+    Private Sub OpenSettings()
+        Settings = Serialization.Open(Settings, Nothing)
     End Sub
 
     Private Sub ShowTextSettings() Handles tsmiText.Click

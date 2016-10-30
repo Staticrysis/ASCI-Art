@@ -12,35 +12,21 @@ Public Class frmSettings
 
         ' Add any initialization after the InitializeComponent() call.
         _settings = settingsAggregate 'By-ref so local settings uses the mainForm's settings
-        LoadSettings()
         BindUI()
         LoadUI()
     End Sub
 
 #Region "IO"
     Public Sub SaveSettings()
-        Serialization.Save(Me._settings, "Settings", Nothing)
+        Serialization.Save(_settings, Nothing)
     End Sub
 
-    Public Function LoadSettings() As Boolean
-        Try
-            _settings = Serialization.Open(Me._settings, "Settings", Nothing)
-            Return True
-        Catch ex As Exception
-            'MsgBox("File could not be found.")
-            Return False
-        End Try
-    End Function
 
     Private Sub SaveOnClose() Handles Me.Closing
         _settings.Canvas = DirectCast(TextEditingSettingsBindingSource.Item(0), CanvasText)
         _settings.Files = DirectCast(FileSettingsBindingSource.Item(0), Files)
         _settings.Colors = DirectCast(ColorSettingsBindingSource.Item(0), Colors)
         SaveSettings()
-    End Sub
-
-    Private Sub LoadOnOpen() Handles Me.Load
-        LoadSettings()
     End Sub
 #End Region
 
