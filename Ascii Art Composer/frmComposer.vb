@@ -9,9 +9,15 @@ Public Class frmArt
         InitializeComponent()
         rtbCanvas.Build(Settings)
         rtbCanvas.RefillCanvas()
+
+        BindUI()
     End Sub
 
 #Region "Settings"
+    Private Sub BindUI()
+        AddHandler Me.tsbReset.Click, AddressOf Me.rtbCanvas.RefillCanvas
+    End Sub
+
     Private Sub SaveSettings()
         Serialization.Save(Settings, Nothing)
     End Sub

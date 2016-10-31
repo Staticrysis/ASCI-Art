@@ -44,6 +44,7 @@ Public Class CanvasText
     Public Property NumberOfCharacters As Integer = 300
     Public Property CursorCharacter As String = " "
     Public Property FillCharacter As String = " "
+    Public Property DrawSymbol As String = ""
     Public Property ShowBackgroundTextColor As Boolean
     Public Property ShowBackgroundImage As Boolean
     Public Property ShowHiddenTextColor As Color 'made some changes that may have broke it, work on it later

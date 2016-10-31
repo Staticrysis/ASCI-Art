@@ -1,9 +1,4 @@
-﻿Imports System.Text
-Imports System.Xml.Serialization
-Imports System.IO
-Imports System.Runtime.Serialization.Formatters.Soap
-Imports System.IO.WindowsRuntimeStreamExtensions
-
+﻿Imports System.IO
 
 Module Serialization
     Public Const DEFAULTPATH As String = "C:\Users\Staticrysis\Desktop\Ascii Art Settings\"

@@ -225,7 +225,9 @@ Partial Class frmArt
         Me.rtbCanvas.BackColor = System.Drawing.Color.Black
         Me.rtbCanvas.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.rtbCanvas.Cursor = System.Windows.Forms.Cursors.Cross
+        Me.rtbCanvas.DetectUrls = False
         Me.rtbCanvas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rtbCanvas.Font = New System.Drawing.Font("Franklin Gothic Demi", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtbCanvas.ForeColor = System.Drawing.Color.LimeGreen
         Me.rtbCanvas.LeftClickPoint = New System.Drawing.Point(0, 0)
         Me.rtbCanvas.LeftFirstClickPoint = New System.Drawing.Point(0, 0)
@@ -235,6 +237,7 @@ Partial Class frmArt
         Me.rtbCanvas.MiddleFirstClickPoint = New System.Drawing.Point(0, 0)
         Me.rtbCanvas.MiddleReleasePoint = New System.Drawing.Point(0, 0)
         Me.rtbCanvas.Name = "rtbCanvas"
+        Me.rtbCanvas.ReadOnly = True
         Me.rtbCanvas.RightClickPoint = New System.Drawing.Point(0, 0)
         Me.rtbCanvas.RightFirstClickPoint = New System.Drawing.Point(0, 0)
         Me.rtbCanvas.RightReleasePoint = New System.Drawing.Point(0, 0)

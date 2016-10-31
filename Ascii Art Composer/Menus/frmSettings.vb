@@ -1,8 +1,4 @@
-﻿Imports System.IO
-Imports Newtonsoft.Json
-
-<Serializable>
-Public Class frmSettings
+﻿Public Class frmSettings
     Public _settings As SettingsAggregate
     Public _colorDialog As New ColorDialog
 
@@ -11,7 +7,7 @@ Public Class frmSettings
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        _settings = settingsAggregate 'By-ref so local settings uses the mainForm's settings
+        _settings = settingsAggregate
         BindUI()
         LoadUI()
     End Sub

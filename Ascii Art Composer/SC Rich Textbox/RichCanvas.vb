@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System.Text
 Imports System.Windows.Input.Keyboard
 'Imports System.Windows.Input.Mouse ' PointToClient(MousePosition)
 'Imports System.Windows.Input.MouseButtonState
@@ -44,6 +45,8 @@ Public Class RichCanvas
     'Public Property LeftIsDown As Boolean = False ': System.Windows.Input.Mouse.leftButton.Pressed
     'Public Property RightIsDown As Boolean = False
     'Public Property MiddleIsDown As Boolean = False
+
+    Public Property CurrentKeyDown As Char = Nothing
 
     Public Property MiddleFirstClickPoint As Point
     Public Property MiddleClickPoint As Point
@@ -153,55 +156,56 @@ Public Class RichCanvas
         End If
     End Sub
 
-    Dim _pointIntegerSelectedCharacter As Integer
-    'Handles inserting characters on a Mousemove event
-    Public Sub DrawToCanvas(obj As Object, e As MouseEventArgs) Handles Me.MouseMove
-        _pointIntegerSelectedCharacter = GetCharIndexFromPosition(e.Location)
-        If e.Button = MouseButtons.Left Then
-            If _pointIntegerSelectedCharacter + Settings.Canvas.CursorCharacter.Length < Text.Length _
-                    AndAlso (_pointIntegerSelectedCharacter + Settings.Canvas.CursorCharacter.Length <= Text.Length) _
-                    AndAlso (Text.IndexOf(Chr(10), _pointIntegerSelectedCharacter, Settings.Canvas.CursorCharacter.Length) = -1) Then
-                'ThreadPool.QueueUserWorkItem(New WaitCallback(
-                '                             Sub()
-                'Invoke(Sub()
-                Text.Remove(_pointIntegerSelectedCharacter, Settings.Canvas.CursorCharacter.Length)
-                Text = Text.Insert(_pointIntegerSelectedCharacter, Settings.Canvas.CursorCharacter)
-                '        End Sub)
+    Dim charPoint As Integer
 
-                'todo: needs some sortof way to avoid char(10)
-                'End Sub))
-            End If
-        End If
-
-    End Sub
-
-    Public Sub WipeFromCanvas(obj As Object, e As MouseEventArgs) Handles Me.MouseMove
-        _pointIntegerSelectedCharacter = GetCharIndexFromPosition(MouseCurrentPoint)
-        If LeftClickPoint <> MouseCurrentPoint _
-            AndAlso Not Text.IndexOf(ChrW(10)) = _pointIntegerSelectedCharacter Then
-            'ThreadPool.QueueUserWorkItem(New WaitCallback(
-            'Sub()
-            ' Invoke(Sub()
-            Text = Text.Remove(_pointIntegerSelectedCharacter, 1)
-            Text = Text.Insert(_pointIntegerSelectedCharacter, " ")
-            '      End Sub)
-            'End Sub))
+    Public Sub DrawToCanvas(obj As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseClick
+        charPoint = GetCharIndexFromPosition(e.Location)
+        If e.Button = MouseButtons.Left _
+            AndAlso CurrentKeyDown <> Nothing _
+            AndAlso Text.ToCharArray()(charPoint) <> Chr(10) Then
+            Dim sb As New StringBuilder(Text)
+            sb(charPoint) = CurrentKeyDown
+            Text = sb.ToString
         End If
     End Sub
 
-    'Todo: not sure but I think I should bring the mouse wheel editing back
-    Public Sub AlterCharacters(sender As Object, e As MouseEventArgs)
-        _pointIntegerSelectedCharacter = GetCharIndexFromPosition(MouseCurrentPoint)
+    Public Sub WipeFromCanvas(obj As Object, e As MouseEventArgs) Handles Me.MouseMove, Me.MouseClick
+        charPoint = GetCharIndexFromPosition(e.Location)
+        If e.Button = MouseButtons.Right AndAlso Text.ToCharArray()(charPoint) <> Chr(10) Then
+            Text = Text.Remove(charPoint, 1)
+            Text = Text.Insert(charPoint, " ")
 
-        If _pointIntegerSelectedCharacter + Settings.Canvas.CursorCharacter.Length < Text.Length _
-            AndAlso (_pointIntegerSelectedCharacter + Settings.Canvas.CursorCharacter.Length <= Text.Length) _
-            AndAlso (Text.IndexOf(Chr(10), _pointIntegerSelectedCharacter, Settings.Canvas.CursorCharacter.Length) = -1) Then
+        End If
+    End Sub
+
+    Public Sub AlterCharacters(sender As Object, e As MouseEventArgs) Handles Me.MouseWheel
+        charPoint = GetCharIndexFromPosition(e.Location)
+
+        If charPoint + Settings.Canvas.CursorCharacter.Length < Text.Length _
+            AndAlso (charPoint + Settings.Canvas.CursorCharacter.Length <= Text.Length) _
+            AndAlso (Text.IndexOf(Chr(10), charPoint, Settings.Canvas.CursorCharacter.Length) = -1) Then
             If e.Delta > 0 Then
-                Text = Text.Insert(_pointIntegerSelectedCharacter, " ")
+                Text = Text.Insert(charPoint, " ")
             ElseIf e.Delta < 0 Then
-                Text = Text.Remove(_pointIntegerSelectedCharacter, 1)
+                Text = Text.Remove(charPoint, 1)
             End If
         End If
+    End Sub
+
+    Public Sub KeyDownEvent(obj As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case (e.KeyCode)
+            Case Keys.Enter
+            Case Keys.ControlKey
+            Case Keys.CapsLock
+            Case Keys.Tab
+            Case Keys.ShiftKey
+            Case Else : CurrentKeyDown = Chr(e.KeyValue)
+        End Select
+        e.SuppressKeyPress = True
+    End Sub
+
+    Public Sub KeyUpEvent(obj As Object, e As KeyEventArgs) Handles Me.KeyUp
+        CurrentKeyDown = Nothing
     End Sub
 #End Region
 End Class
