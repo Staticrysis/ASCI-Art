@@ -243,6 +243,7 @@
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonValidatingReader.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriter.datasource" />
     <None Include="My Project\DataSources\Newtonsoft.Json.JsonWriterException.datasource" />
+    <None Include="My Project\DataSources\SettingsAggregate.datasource" />
     <None Include="My Project\DataSources\System.Drawing.Color.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
