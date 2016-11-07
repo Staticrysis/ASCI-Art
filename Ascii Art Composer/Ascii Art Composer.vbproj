@@ -118,6 +118,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -166,6 +167,7 @@
       <DependentUpon>frmComposer.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modules\Validator.vb" />
     <Compile Include="SC Rich Textbox\MouseEventBuilder.vb" />
     <Compile Include="SC Rich Textbox\RichCanvas.vb">
       <SubType>Component</SubType>

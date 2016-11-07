@@ -1,4 +1,7 @@
 ﻿Imports System.ComponentModel
+Imports System.Attribute
+Imports System.ComponentModel.DataAnnotations
+
 
 <Serializable>
 Public Class SettingsAggregate
@@ -23,10 +26,10 @@ End Class
 Public Class Files
     Inherits SettingSource
 #Region "File Settings: Variables and Properties"
-    Public Property ArtLoadPath As String = ""
-    Public Property ArtSavePath As String = ""
-    Public Property SettingsPath As String = ""
-    Public Property ImagePath As String = ""
+    <Required> Public Property ArtLoadPath As String = ""
+    <Required> Public Property ArtSavePath As String = ""
+    <Required> Public Property SettingsPath As String = ""
+    <Required> Public Property ImagePath As String = ""
 #End Region
 End Class
 
@@ -37,14 +40,13 @@ Public Class CanvasText
         Facebook
         Youtube
     End Enum
-
     Public Property WebPresets As String() = [Enum].GetNames(GetType(WebsitePresets)).ToArray
     Public Property WebPreset As String
-    Public Property NumberOfLines As Integer = 60
-    Public Property NumberOfCharacters As Integer = 300
-    Public Property CursorCharacter As String = " "
-    Public Property FillCharacter As String = " "
-    Public Property DrawSymbol As String = ""
+    <Required> <Range(1, 60)> Public Property NumberOfLines = 60
+    <Required> <Range(1, 300)> Public Property NumberOfCharacters = 300
+    <Required(AllowEmptyStrings:=True)> <StringLength(1)> Public Property CursorCharacter As String = " "
+    <Required(AllowEmptyStrings:=True)> <StringLength(1)> Public Property FillCharacter As String = " "
+    <Required(AllowEmptyStrings:=True)> <StringLength(1)> Public Property DrawSymbol As String = " "
     Public Property ShowBackgroundTextColor As Boolean
     Public Property ShowBackgroundImage As Boolean
     Public Property ShowHiddenTextColor As Color 'made some changes that may have broke it, work on it later
@@ -54,12 +56,13 @@ End Class
 <Serializable>
 Public Class Colors
     Inherits SettingSource
+    Implements INotifyPropertyChanged
 #Region "Color Settings: Variables and Properties"
-    Public Property RTBForeColors As New Color
-    Public Property RTBBackColors As New Color
-    Public Property RTBTextHighlightColors As New Color
-    Public Property GUIForeColors As New Color
-    Public Property GUIBackColors As New Color
-    Public Property GUITextColors As New Color
+    <Required> Public Property RTBForeColors As Color = Color.LimeGreen
+    <Required> Public Property RTBBackColors As Color = Color.Black
+    <Required> Public Property RTBTextHighlightColors As Color = Color.SkyBlue
+    <Required> Public Property GUIForeColors As Color = Color.LimeGreen
+    <Required> Public Property GUIBackColors As Color = Color.Black
+    <Required> Public Property GUITextColors As Color = Color.LimeGreen
 #End Region
 End Class

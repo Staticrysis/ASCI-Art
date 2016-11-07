@@ -4,6 +4,7 @@ Public Class frmArt
     Private Settings As SettingsAggregate = Open(New SettingsAggregate, Nothing)
     Private WithEvents FrmSettings As New frmSettings(Settings)
 
+
     Sub New()
         ' This call is required by the designer. 
         InitializeComponent()
@@ -16,10 +17,19 @@ Public Class frmArt
 #Region "Settings"
     Private Sub BindUI()
         AddHandler Me.btnReset.Click, AddressOf Me.rtbCanvas.RefillCanvas
+
+        'AddHandler Me.NumberOfCharactersTextBox.Validating, AddressOf ControlValidator.ValidateProperty
     End Sub
 
-    Private Sub SaveSettings() Handles Me.Closing
-        Serialization.Save(Settings, Nothing)
+    Private Sub SaveSettings(sender As Object, e As FormClosingEventArgs) Handles Me.Closing
+        If Not ValidateAllObjectProperties(Settings) Then
+            Select Case (MsgBox("Unable to save your settings. Do you still want to continue?", MsgBoxStyle.YesNo, "Validation Error Found"))
+                Case MsgBoxResult.Yes : Exit Sub
+                Case MsgBoxResult.No : e.Cancel = True
+            End Select
+        Else
+            Serialization.Save(Settings, Nothing)
+        End If
     End Sub
 
     Private Sub OpenSettings()
@@ -36,6 +46,17 @@ Public Class frmArt
 
     Private Sub ShowFileSettings() Handles tsmiFiles.Click
         FrmSettings.tcSettings.SelectTab(2) : FrmSettings.ShowDialog()
+    End Sub
+
+    Private Sub DrawSymbolTextBox_TextChanged(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles DrawSymbolTextBox.Validating
+        'ValidateProperty(Settings.Canvas, "DrawSymbol", ErrorProvider1, sender)
+        e.Cancel = Not ControlPropertyValid(sender, ErrorProvider1, sender)
+    End Sub
+
+    Private Sub NumberOfLinesTextBox_TextChanged(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles NumberOfLinesTextBox.Validating
+        'ValidateProperty(Settings.Canvas, "NumberOfLines", ErrorProvider1, sender)
+
+        e.Cancel = Not ControlPropertyValid(sender, ErrorProvider1, sender)
     End Sub
 #End Region
 
