@@ -117,36 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="DrawSymbolLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="NumberOfLinesLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="ShowBackgroundTextColorLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="NumberOfCharactersLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="ArtLoadPathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="ArtSavePathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="ImagePathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="SettingsPathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="SettingsAggregateBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
-  </metadata>
   <metadata name="ErrorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>363, 23</value>
   </metadata>
@@ -156,4 +126,84 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>73</value>
   </metadata>
+  <metadata name="ValidationResultBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>497, 19</value>
+  </metadata>
+  <metadata name="DrawSymbolLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="ShowBackgroundTextColorLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SettingsAggregateBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
+  <metadata name="NumberOfLinesLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="NumberOfCharactersLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="SettingsPathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="ImagePathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="ArtSavePathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="ArtLoadPathLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ErrorProvider1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        /wA=
+</value>
+  </data>
 </root>

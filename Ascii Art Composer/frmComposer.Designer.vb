@@ -23,15 +23,19 @@ Partial Class frmArt
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DrawSymbolLabel As System.Windows.Forms.Label
-        Dim NumberOfLinesLabel As System.Windows.Forms.Label
-        Dim ShowBackgroundTextColorLabel As System.Windows.Forms.Label
-        Dim NumberOfCharactersLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmArt))
         Dim ArtLoadPathLabel As System.Windows.Forms.Label
         Dim ArtSavePathLabel As System.Windows.Forms.Label
         Dim ImagePathLabel As System.Windows.Forms.Label
         Dim SettingsPathLabel As System.Windows.Forms.Label
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Dim NumberOfCharactersLabel As System.Windows.Forms.Label
+        Dim NumberOfLinesLabel As System.Windows.Forms.Label
+        Dim ShowBackgroundTextColorLabel As System.Windows.Forms.Label
+        Dim DrawSymbolLabel As System.Windows.Forms.Label
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.gbTextDesigner = New System.Windows.Forms.GroupBox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ValidationResultBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.tsmiMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiOpen = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiSave = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,128 +44,87 @@ Partial Class frmArt
         Me.tsmiColors = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiFiles = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnReset = New System.Windows.Forms.Button()
-        Me.gbTextDesigner = New System.Windows.Forms.GroupBox()
-        Me.gbSettings = New System.Windows.Forms.GroupBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.tabControl = New System.Windows.Forms.TabControl()
-        Me.tpTextSettings = New System.Windows.Forms.TabPage()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ShowBackgroundTextColorCheckBox = New System.Windows.Forms.CheckBox()
-        Me.NumberOfCharactersTextBox = New System.Windows.Forms.TextBox()
-        Me.DrawSymbolTextBox = New System.Windows.Forms.TextBox()
-        Me.NumberOfLinesTextBox = New System.Windows.Forms.TextBox()
-        Me.tpColorSettings = New System.Windows.Forms.TabPage()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.SettingsPathTextBox = New System.Windows.Forms.TextBox()
-        Me.ArtSavePathTextBox = New System.Windows.Forms.TextBox()
-        Me.ArtLoadPathTextBox = New System.Windows.Forms.TextBox()
         Me.ImagePathTextBox = New System.Windows.Forms.TextBox()
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ArtLoadPathTextBox = New System.Windows.Forms.TextBox()
+        Me.ArtSavePathTextBox = New System.Windows.Forms.TextBox()
+        Me.SettingsPathTextBox = New System.Windows.Forms.TextBox()
+        Me.tpColorSettings = New System.Windows.Forms.TabPage()
+        Me.tpTextSettings = New System.Windows.Forms.TabPage()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.NumberOfLinesTextBox = New System.Windows.Forms.TextBox()
+        Me.DrawSymbolTextBox = New System.Windows.Forms.TextBox()
+        Me.NumberOfCharactersTextBox = New System.Windows.Forms.TextBox()
+        Me.gbSettings = New System.Windows.Forms.GroupBox()
+        Me.ErrorMessageDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.gvErrorList = New System.Windows.Forms.DataGridView()
+        Me.ErrorMessageDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SettingsAggregateBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.rtbCanvas = New Ascii_Art_Composer.RichCanvas()
-        DrawSymbolLabel = New System.Windows.Forms.Label()
-        NumberOfLinesLabel = New System.Windows.Forms.Label()
-        ShowBackgroundTextColorLabel = New System.Windows.Forms.Label()
-        NumberOfCharactersLabel = New System.Windows.Forms.Label()
         ArtLoadPathLabel = New System.Windows.Forms.Label()
         ArtSavePathLabel = New System.Windows.Forms.Label()
         ImagePathLabel = New System.Windows.Forms.Label()
         SettingsPathLabel = New System.Windows.Forms.Label()
-        Me.MenuStrip1.SuspendLayout()
+        NumberOfCharactersLabel = New System.Windows.Forms.Label()
+        NumberOfLinesLabel = New System.Windows.Forms.Label()
+        ShowBackgroundTextColorLabel = New System.Windows.Forms.Label()
+        DrawSymbolLabel = New System.Windows.Forms.Label()
         Me.gbTextDesigner.SuspendLayout()
-        Me.gbSettings.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ValidationResultBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.tabControl.SuspendLayout()
-        Me.tpTextSettings.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tpTextSettings.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.gbSettings.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.gvErrorList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SettingsAggregateBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DrawSymbolLabel
+        'btnReset
         '
-        DrawSymbolLabel.AutoSize = True
-        DrawSymbolLabel.Location = New System.Drawing.Point(3, 0)
-        DrawSymbolLabel.Name = "DrawSymbolLabel"
-        DrawSymbolLabel.Size = New System.Drawing.Size(102, 15)
-        DrawSymbolLabel.TabIndex = 0
-        DrawSymbolLabel.Text = "Draw Symbol:"
+        Me.btnReset.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btnReset.BackColor = System.Drawing.Color.Transparent
+        Me.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnReset.Font = New System.Drawing.Font("SketchFlow Print", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.ForeColor = System.Drawing.Color.Lime
+        Me.btnReset.Location = New System.Drawing.Point(6, 21)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(105, 26)
+        Me.btnReset.TabIndex = 0
+        Me.btnReset.Text = "Reset Text"
+        Me.btnReset.UseVisualStyleBackColor = False
         '
-        'NumberOfLinesLabel
+        'gbTextDesigner
         '
-        NumberOfLinesLabel.AutoSize = True
-        NumberOfLinesLabel.Location = New System.Drawing.Point(3, 27)
-        NumberOfLinesLabel.Name = "NumberOfLinesLabel"
-        NumberOfLinesLabel.Size = New System.Drawing.Size(123, 15)
-        NumberOfLinesLabel.TabIndex = 2
-        NumberOfLinesLabel.Text = "Number Of Lines:"
+        Me.gbTextDesigner.BackColor = System.Drawing.Color.Transparent
+        Me.gbTextDesigner.Controls.Add(Me.btnReset)
+        Me.gbTextDesigner.Dock = System.Windows.Forms.DockStyle.Left
+        Me.gbTextDesigner.Font = New System.Drawing.Font("SketchFlow Print", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTextDesigner.ForeColor = System.Drawing.Color.Lime
+        Me.gbTextDesigner.Location = New System.Drawing.Point(0, 24)
+        Me.gbTextDesigner.Name = "gbTextDesigner"
+        Me.gbTextDesigner.Size = New System.Drawing.Size(117, 615)
+        Me.gbTextDesigner.TabIndex = 4
+        Me.gbTextDesigner.TabStop = False
+        Me.gbTextDesigner.Text = "Designer"
         '
-        'ShowBackgroundTextColorLabel
+        'ErrorProvider1
         '
-        ShowBackgroundTextColorLabel.AutoSize = True
-        ShowBackgroundTextColorLabel.Location = New System.Drawing.Point(3, 81)
-        ShowBackgroundTextColorLabel.Name = "ShowBackgroundTextColorLabel"
-        ShowBackgroundTextColorLabel.Size = New System.Drawing.Size(135, 30)
-        ShowBackgroundTextColorLabel.TabIndex = 4
-        ShowBackgroundTextColorLabel.Text = "Show Background Text Color:"
+        Me.ErrorProvider1.ContainerControl = Me
+        Me.ErrorProvider1.Icon = CType(resources.GetObject("ErrorProvider1.Icon"), System.Drawing.Icon)
+        Me.ErrorProvider1.RightToLeft = True
         '
-        'NumberOfCharactersLabel
+        'ValidationResultBindingSource
         '
-        NumberOfCharactersLabel.AutoSize = True
-        NumberOfCharactersLabel.Location = New System.Drawing.Point(3, 54)
-        NumberOfCharactersLabel.Name = "NumberOfCharactersLabel"
-        NumberOfCharactersLabel.Size = New System.Drawing.Size(92, 15)
-        NumberOfCharactersLabel.TabIndex = 6
-        NumberOfCharactersLabel.Text = "Char Lemmit"
-        '
-        'ArtLoadPathLabel
-        '
-        ArtLoadPathLabel.AutoSize = True
-        ArtLoadPathLabel.Location = New System.Drawing.Point(3, 0)
-        ArtLoadPathLabel.Name = "ArtLoadPathLabel"
-        ArtLoadPathLabel.Size = New System.Drawing.Size(109, 15)
-        ArtLoadPathLabel.TabIndex = 0
-        ArtLoadPathLabel.Text = "Art Load Path:"
-        '
-        'ArtSavePathLabel
-        '
-        ArtSavePathLabel.AutoSize = True
-        ArtSavePathLabel.Location = New System.Drawing.Point(3, 27)
-        ArtSavePathLabel.Name = "ArtSavePathLabel"
-        ArtSavePathLabel.Size = New System.Drawing.Size(108, 15)
-        ArtSavePathLabel.TabIndex = 2
-        ArtSavePathLabel.Text = "Art Save Path:"
-        '
-        'ImagePathLabel
-        '
-        ImagePathLabel.AutoSize = True
-        ImagePathLabel.Location = New System.Drawing.Point(3, 54)
-        ImagePathLabel.Name = "ImagePathLabel"
-        ImagePathLabel.Size = New System.Drawing.Size(86, 15)
-        ImagePathLabel.TabIndex = 4
-        ImagePathLabel.Text = "Image Path:"
-        '
-        'SettingsPathLabel
-        '
-        SettingsPathLabel.AutoSize = True
-        SettingsPathLabel.Location = New System.Drawing.Point(3, 81)
-        SettingsPathLabel.Name = "SettingsPathLabel"
-        SettingsPathLabel.Size = New System.Drawing.Size(101, 15)
-        SettingsPathLabel.TabIndex = 6
-        SettingsPathLabel.Text = "Settings Path:"
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.Black
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiMenu, Me.tsmiSettings, Me.HelpToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.MenuStrip1.Size = New System.Drawing.Size(932, 24)
-        Me.MenuStrip1.TabIndex = 1
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.ValidationResultBindingSource.DataSource = GetType(System.ComponentModel.DataAnnotations.ValidationResult)
         '
         'tsmiMenu
         '
@@ -225,140 +188,27 @@ Partial Class frmArt
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
-        'btnReset
+        'MenuStrip1
         '
-        Me.btnReset.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.btnReset.BackColor = System.Drawing.Color.Transparent
-        Me.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnReset.Font = New System.Drawing.Font("SketchFlow Print", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.ForeColor = System.Drawing.Color.Lime
-        Me.btnReset.Location = New System.Drawing.Point(6, 21)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(105, 26)
-        Me.btnReset.TabIndex = 0
-        Me.btnReset.Text = "Reset Text"
-        Me.btnReset.UseVisualStyleBackColor = False
-        '
-        'gbTextDesigner
-        '
-        Me.gbTextDesigner.BackColor = System.Drawing.Color.Transparent
-        Me.gbTextDesigner.Controls.Add(Me.btnReset)
-        Me.gbTextDesigner.Dock = System.Windows.Forms.DockStyle.Left
-        Me.gbTextDesigner.Font = New System.Drawing.Font("SketchFlow Print", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTextDesigner.ForeColor = System.Drawing.Color.Lime
-        Me.gbTextDesigner.Location = New System.Drawing.Point(0, 24)
-        Me.gbTextDesigner.Name = "gbTextDesigner"
-        Me.gbTextDesigner.Size = New System.Drawing.Size(117, 615)
-        Me.gbTextDesigner.TabIndex = 4
-        Me.gbTextDesigner.TabStop = False
-        Me.gbTextDesigner.Text = "Designer"
-        '
-        'gbSettings
-        '
-        Me.gbSettings.BackColor = System.Drawing.Color.Transparent
-        Me.gbSettings.Controls.Add(Me.tabControl)
-        Me.gbSettings.Dock = System.Windows.Forms.DockStyle.Right
-        Me.gbSettings.Font = New System.Drawing.Font("SketchFlow Print", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbSettings.ForeColor = System.Drawing.Color.Lime
-        Me.gbSettings.Location = New System.Drawing.Point(661, 24)
-        Me.gbSettings.Name = "gbSettings"
-        Me.gbSettings.Size = New System.Drawing.Size(271, 615)
-        Me.gbSettings.TabIndex = 5
-        Me.gbSettings.TabStop = False
-        Me.gbSettings.Text = "Settings"
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Black
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiMenu, Me.tsmiSettings, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.MenuStrip1.Size = New System.Drawing.Size(932, 24)
+        Me.MenuStrip1.TabIndex = 1
+        Me.MenuStrip1.Text = "MenuStrip1"
         '
         'tabControl
         '
         Me.tabControl.Controls.Add(Me.tpTextSettings)
         Me.tabControl.Controls.Add(Me.tpColorSettings)
         Me.tabControl.Controls.Add(Me.TabPage1)
-        Me.tabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabControl.Location = New System.Drawing.Point(3, 17)
         Me.tabControl.Name = "tabControl"
         Me.tabControl.SelectedIndex = 0
-        Me.tabControl.Size = New System.Drawing.Size(265, 595)
+        Me.tabControl.Size = New System.Drawing.Size(265, 402)
         Me.tabControl.TabIndex = 0
-        '
-        'tpTextSettings
-        '
-        Me.tpTextSettings.AutoScroll = True
-        Me.tpTextSettings.BackColor = System.Drawing.Color.Black
-        Me.tpTextSettings.Controls.Add(Me.TableLayoutPanel1)
-        Me.tpTextSettings.Location = New System.Drawing.Point(4, 24)
-        Me.tpTextSettings.Name = "tpTextSettings"
-        Me.tpTextSettings.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpTextSettings.Size = New System.Drawing.Size(257, 567)
-        Me.tpTextSettings.TabIndex = 0
-        Me.tpTextSettings.Text = "Text"
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.AutoSize = True
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.Controls.Add(DrawSymbolLabel, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ShowBackgroundTextColorCheckBox, 1, 3)
-        Me.TableLayoutPanel1.Controls.Add(ShowBackgroundTextColorLabel, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.NumberOfCharactersTextBox, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.DrawSymbolTextBox, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(NumberOfLinesLabel, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.NumberOfLinesTextBox, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(NumberOfCharactersLabel, 0, 2)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 5
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(251, 561)
-        Me.TableLayoutPanel1.TabIndex = 8
-        '
-        'ShowBackgroundTextColorCheckBox
-        '
-        Me.ShowBackgroundTextColorCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.SettingsAggregateBindingSource, "Canvas.ShowBackgroundTextColor", True))
-        Me.ShowBackgroundTextColorCheckBox.Location = New System.Drawing.Point(165, 84)
-        Me.ShowBackgroundTextColorCheckBox.Name = "ShowBackgroundTextColorCheckBox"
-        Me.ShowBackgroundTextColorCheckBox.Size = New System.Drawing.Size(10, 24)
-        Me.ShowBackgroundTextColorCheckBox.TabIndex = 5
-        Me.ShowBackgroundTextColorCheckBox.UseVisualStyleBackColor = True
-        '
-        'NumberOfCharactersTextBox
-        '
-        Me.NumberOfCharactersTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Canvas.NumberOfCharacters", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.NumberOfCharactersTextBox.Location = New System.Drawing.Point(165, 57)
-        Me.NumberOfCharactersTextBox.Name = "NumberOfCharactersTextBox"
-        Me.NumberOfCharactersTextBox.Size = New System.Drawing.Size(83, 21)
-        Me.NumberOfCharactersTextBox.TabIndex = 7
-        '
-        'DrawSymbolTextBox
-        '
-        Me.DrawSymbolTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Canvas.DrawSymbol", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DrawSymbolTextBox.Location = New System.Drawing.Point(165, 3)
-        Me.DrawSymbolTextBox.Name = "DrawSymbolTextBox"
-        Me.DrawSymbolTextBox.Size = New System.Drawing.Size(63, 21)
-        Me.DrawSymbolTextBox.TabIndex = 1
-        '
-        'NumberOfLinesTextBox
-        '
-        Me.NumberOfLinesTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Canvas.NumberOfLines", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.NumberOfLinesTextBox.Location = New System.Drawing.Point(165, 30)
-        Me.NumberOfLinesTextBox.Name = "NumberOfLinesTextBox"
-        Me.NumberOfLinesTextBox.Size = New System.Drawing.Size(83, 21)
-        Me.NumberOfLinesTextBox.TabIndex = 3
-        '
-        'tpColorSettings
-        '
-        Me.tpColorSettings.BackColor = System.Drawing.Color.Black
-        Me.tpColorSettings.Location = New System.Drawing.Point(4, 24)
-        Me.tpColorSettings.Name = "tpColorSettings"
-        Me.tpColorSettings.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpColorSettings.Size = New System.Drawing.Size(257, 567)
-        Me.tpColorSettings.TabIndex = 1
-        Me.tpColorSettings.Text = "Colors"
         '
         'TabPage1
         '
@@ -367,7 +217,7 @@ Partial Class frmArt
         Me.TabPage1.Location = New System.Drawing.Point(4, 24)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(257, 567)
+        Me.TabPage1.Size = New System.Drawing.Size(257, 374)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Files"
         '
@@ -392,38 +242,8 @@ Partial Class frmArt
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(251, 563)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(251, 368)
         Me.TableLayoutPanel2.TabIndex = 0
-        '
-        'SettingsPathTextBox
-        '
-        Me.SettingsPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SettingsPathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Files.SettingsPath", True))
-        Me.SettingsPathTextBox.Location = New System.Drawing.Point(128, 84)
-        Me.SettingsPathTextBox.Name = "SettingsPathTextBox"
-        Me.SettingsPathTextBox.Size = New System.Drawing.Size(120, 21)
-        Me.SettingsPathTextBox.TabIndex = 7
-        '
-        'ArtSavePathTextBox
-        '
-        Me.ArtSavePathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ArtSavePathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Files.ArtSavePath", True))
-        Me.ArtSavePathTextBox.Location = New System.Drawing.Point(128, 30)
-        Me.ArtSavePathTextBox.Name = "ArtSavePathTextBox"
-        Me.ArtSavePathTextBox.Size = New System.Drawing.Size(120, 21)
-        Me.ArtSavePathTextBox.TabIndex = 3
-        '
-        'ArtLoadPathTextBox
-        '
-        Me.ArtLoadPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ArtLoadPathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Files.ArtLoadPath", True))
-        Me.ArtLoadPathTextBox.Location = New System.Drawing.Point(128, 3)
-        Me.ArtLoadPathTextBox.Name = "ArtLoadPathTextBox"
-        Me.ArtLoadPathTextBox.Size = New System.Drawing.Size(120, 21)
-        Me.ArtLoadPathTextBox.TabIndex = 1
         '
         'ImagePathTextBox
         '
@@ -435,10 +255,237 @@ Partial Class frmArt
         Me.ImagePathTextBox.Size = New System.Drawing.Size(120, 21)
         Me.ImagePathTextBox.TabIndex = 5
         '
-        'ErrorProvider1
+        'ArtLoadPathTextBox
         '
-        Me.ErrorProvider1.ContainerControl = Me
-        Me.ErrorProvider1.RightToLeft = True
+        Me.ArtLoadPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ArtLoadPathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Files.ArtLoadPath", True))
+        Me.ArtLoadPathTextBox.Location = New System.Drawing.Point(128, 3)
+        Me.ArtLoadPathTextBox.Name = "ArtLoadPathTextBox"
+        Me.ArtLoadPathTextBox.Size = New System.Drawing.Size(120, 21)
+        Me.ArtLoadPathTextBox.TabIndex = 1
+        '
+        'ArtLoadPathLabel
+        '
+        ArtLoadPathLabel.AutoSize = True
+        ArtLoadPathLabel.Location = New System.Drawing.Point(3, 0)
+        ArtLoadPathLabel.Name = "ArtLoadPathLabel"
+        ArtLoadPathLabel.Size = New System.Drawing.Size(109, 15)
+        ArtLoadPathLabel.TabIndex = 0
+        ArtLoadPathLabel.Text = "Art Load Path:"
+        '
+        'ArtSavePathTextBox
+        '
+        Me.ArtSavePathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ArtSavePathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Files.ArtSavePath", True))
+        Me.ArtSavePathTextBox.Location = New System.Drawing.Point(128, 30)
+        Me.ArtSavePathTextBox.Name = "ArtSavePathTextBox"
+        Me.ArtSavePathTextBox.Size = New System.Drawing.Size(120, 21)
+        Me.ArtSavePathTextBox.TabIndex = 3
+        '
+        'ArtSavePathLabel
+        '
+        ArtSavePathLabel.AutoSize = True
+        ArtSavePathLabel.Location = New System.Drawing.Point(3, 27)
+        ArtSavePathLabel.Name = "ArtSavePathLabel"
+        ArtSavePathLabel.Size = New System.Drawing.Size(108, 15)
+        ArtSavePathLabel.TabIndex = 2
+        ArtSavePathLabel.Text = "Art Save Path:"
+        '
+        'ImagePathLabel
+        '
+        ImagePathLabel.AutoSize = True
+        ImagePathLabel.Location = New System.Drawing.Point(3, 54)
+        ImagePathLabel.Name = "ImagePathLabel"
+        ImagePathLabel.Size = New System.Drawing.Size(86, 15)
+        ImagePathLabel.TabIndex = 4
+        ImagePathLabel.Text = "Image Path:"
+        '
+        'SettingsPathTextBox
+        '
+        Me.SettingsPathTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SettingsPathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Files.SettingsPath", True))
+        Me.SettingsPathTextBox.Location = New System.Drawing.Point(128, 84)
+        Me.SettingsPathTextBox.Name = "SettingsPathTextBox"
+        Me.SettingsPathTextBox.Size = New System.Drawing.Size(120, 21)
+        Me.SettingsPathTextBox.TabIndex = 7
+        '
+        'SettingsPathLabel
+        '
+        SettingsPathLabel.AutoSize = True
+        SettingsPathLabel.Location = New System.Drawing.Point(3, 81)
+        SettingsPathLabel.Name = "SettingsPathLabel"
+        SettingsPathLabel.Size = New System.Drawing.Size(101, 15)
+        SettingsPathLabel.TabIndex = 6
+        SettingsPathLabel.Text = "Settings Path:"
+        '
+        'tpColorSettings
+        '
+        Me.tpColorSettings.BackColor = System.Drawing.Color.Black
+        Me.tpColorSettings.Location = New System.Drawing.Point(4, 24)
+        Me.tpColorSettings.Name = "tpColorSettings"
+        Me.tpColorSettings.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpColorSettings.Size = New System.Drawing.Size(257, 374)
+        Me.tpColorSettings.TabIndex = 1
+        Me.tpColorSettings.Text = "Colors"
+        '
+        'tpTextSettings
+        '
+        Me.tpTextSettings.AutoScroll = True
+        Me.tpTextSettings.BackColor = System.Drawing.Color.Black
+        Me.tpTextSettings.Controls.Add(Me.TableLayoutPanel1)
+        Me.tpTextSettings.Location = New System.Drawing.Point(4, 24)
+        Me.tpTextSettings.Name = "tpTextSettings"
+        Me.tpTextSettings.Padding = New System.Windows.Forms.Padding(3)
+        Me.tpTextSettings.Size = New System.Drawing.Size(257, 374)
+        Me.tpTextSettings.TabIndex = 0
+        Me.tpTextSettings.Text = "Text"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.AutoSize = True
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.Controls.Add(DrawSymbolLabel, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(ShowBackgroundTextColorLabel, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.NumberOfCharactersTextBox, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.DrawSymbolTextBox, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(NumberOfLinesLabel, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(NumberOfCharactersLabel, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.NumberOfLinesTextBox, 1, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 5
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(251, 368)
+        Me.TableLayoutPanel1.TabIndex = 8
+        '
+        'NumberOfCharactersLabel
+        '
+        NumberOfCharactersLabel.AutoSize = True
+        NumberOfCharactersLabel.Location = New System.Drawing.Point(3, 54)
+        NumberOfCharactersLabel.Name = "NumberOfCharactersLabel"
+        NumberOfCharactersLabel.Size = New System.Drawing.Size(92, 15)
+        NumberOfCharactersLabel.TabIndex = 6
+        NumberOfCharactersLabel.Text = "Char Lemmit"
+        '
+        'NumberOfLinesTextBox
+        '
+        Me.NumberOfLinesTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Canvas.NumberOfLines", True))
+        Me.NumberOfLinesTextBox.Location = New System.Drawing.Point(165, 30)
+        Me.NumberOfLinesTextBox.Name = "NumberOfLinesTextBox"
+        Me.NumberOfLinesTextBox.Size = New System.Drawing.Size(83, 21)
+        Me.NumberOfLinesTextBox.TabIndex = 3
+        '
+        'NumberOfLinesLabel
+        '
+        NumberOfLinesLabel.AutoSize = True
+        NumberOfLinesLabel.Location = New System.Drawing.Point(3, 27)
+        NumberOfLinesLabel.Name = "NumberOfLinesLabel"
+        NumberOfLinesLabel.Size = New System.Drawing.Size(123, 15)
+        NumberOfLinesLabel.TabIndex = 2
+        NumberOfLinesLabel.Text = "Number Of Lines:"
+        '
+        'DrawSymbolTextBox
+        '
+        Me.DrawSymbolTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Canvas.DrawSymbol", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DrawSymbolTextBox.Location = New System.Drawing.Point(165, 3)
+        Me.DrawSymbolTextBox.Name = "DrawSymbolTextBox"
+        Me.DrawSymbolTextBox.Size = New System.Drawing.Size(63, 21)
+        Me.DrawSymbolTextBox.TabIndex = 1
+        '
+        'NumberOfCharactersTextBox
+        '
+        Me.NumberOfCharactersTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SettingsAggregateBindingSource, "Canvas.NumberOfCharacters", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.NumberOfCharactersTextBox.Location = New System.Drawing.Point(165, 57)
+        Me.NumberOfCharactersTextBox.Name = "NumberOfCharactersTextBox"
+        Me.NumberOfCharactersTextBox.Size = New System.Drawing.Size(83, 21)
+        Me.NumberOfCharactersTextBox.TabIndex = 7
+        '
+        'ShowBackgroundTextColorLabel
+        '
+        ShowBackgroundTextColorLabel.AutoSize = True
+        ShowBackgroundTextColorLabel.Location = New System.Drawing.Point(3, 81)
+        ShowBackgroundTextColorLabel.Name = "ShowBackgroundTextColorLabel"
+        ShowBackgroundTextColorLabel.Size = New System.Drawing.Size(135, 30)
+        ShowBackgroundTextColorLabel.TabIndex = 4
+        ShowBackgroundTextColorLabel.Text = "Show Background Text Color:"
+        '
+        'DrawSymbolLabel
+        '
+        DrawSymbolLabel.AutoSize = True
+        DrawSymbolLabel.Location = New System.Drawing.Point(3, 0)
+        DrawSymbolLabel.Name = "DrawSymbolLabel"
+        DrawSymbolLabel.Size = New System.Drawing.Size(102, 15)
+        DrawSymbolLabel.TabIndex = 0
+        DrawSymbolLabel.Text = "Draw Symbol:"
+        '
+        'gbSettings
+        '
+        Me.gbSettings.BackColor = System.Drawing.Color.Transparent
+        Me.gbSettings.Controls.Add(Me.GroupBox1)
+        Me.gbSettings.Controls.Add(Me.tabControl)
+        Me.gbSettings.Dock = System.Windows.Forms.DockStyle.Right
+        Me.gbSettings.Font = New System.Drawing.Font("SketchFlow Print", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbSettings.ForeColor = System.Drawing.Color.Lime
+        Me.gbSettings.Location = New System.Drawing.Point(661, 24)
+        Me.gbSettings.Name = "gbSettings"
+        Me.gbSettings.Size = New System.Drawing.Size(271, 615)
+        Me.gbSettings.TabIndex = 5
+        Me.gbSettings.TabStop = False
+        Me.gbSettings.Text = "Settings"
+        '
+        'ErrorMessageDataGridViewTextBoxColumn
+        '
+        Me.ErrorMessageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ErrorMessageDataGridViewTextBoxColumn.DataPropertyName = "ErrorMessage"
+        Me.ErrorMessageDataGridViewTextBoxColumn.HeaderText = "ErrorMessage"
+        Me.ErrorMessageDataGridViewTextBoxColumn.Name = "ErrorMessageDataGridViewTextBoxColumn"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Black
+        Me.GroupBox1.Controls.Add(Me.gvErrorList)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.LimeGreen
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 421)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(265, 188)
+        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Error List"
+        '
+        'gvErrorList
+        '
+        Me.gvErrorList.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gvErrorList.AutoGenerateColumns = False
+        Me.gvErrorList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.gvErrorList.BackgroundColor = System.Drawing.Color.Gray
+        Me.gvErrorList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.gvErrorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.gvErrorList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ErrorMessageDataGridViewTextBoxColumn1})
+        Me.gvErrorList.DataSource = Me.ValidationResultBindingSource
+        Me.gvErrorList.GridColor = System.Drawing.Color.Red
+        Me.gvErrorList.Location = New System.Drawing.Point(7, 21)
+        Me.gvErrorList.Name = "gvErrorList"
+        Me.gvErrorList.Size = New System.Drawing.Size(251, 161)
+        Me.gvErrorList.TabIndex = 0
+        '
+        'ErrorMessageDataGridViewTextBoxColumn1
+        '
+        Me.ErrorMessageDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ErrorMessageDataGridViewTextBoxColumn1.DataPropertyName = "ErrorMessage"
+        Me.ErrorMessageDataGridViewTextBoxColumn1.HeaderText = "ErrorMessage"
+        Me.ErrorMessageDataGridViewTextBoxColumn1.Name = "ErrorMessageDataGridViewTextBoxColumn1"
         '
         'SettingsAggregateBindingSource
         '
@@ -492,52 +539,59 @@ Partial Class frmArt
         Me.Name = "frmArt"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ascii Composer"
+        Me.gbTextDesigner.ResumeLayout(False)
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ValidationResultBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.gbTextDesigner.ResumeLayout(False)
-        Me.gbSettings.ResumeLayout(False)
         Me.tabControl.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.tpTextSettings.ResumeLayout(False)
         Me.tpTextSettings.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.TabPage1.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbSettings.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        CType(Me.gvErrorList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SettingsAggregateBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents tsmiMenu As ToolStripMenuItem
-    Friend WithEvents tsmiOpen As ToolStripMenuItem
-    Friend WithEvents tsmiSave As ToolStripMenuItem
-    Friend WithEvents tsmiSettings As ToolStripMenuItem
-    Friend WithEvents tsmiColors As ToolStripMenuItem
-    Friend WithEvents tsmiText As ToolStripMenuItem
-    Friend WithEvents tsmiFiles As ToolStripMenuItem
     Friend WithEvents rtbArtBox As RichCanvas
     Friend WithEvents rtbCanvas As RichCanvas
     Friend WithEvents btnReset As Button
     Friend WithEvents gbTextDesigner As GroupBox
+    Friend WithEvents SettingsAggregateBindingSource As BindingSource
+    Friend WithEvents ErrorProvider1 As ErrorProvider
+    Public WithEvents ValidationResultBindingSource As BindingSource
     Friend WithEvents gbSettings As GroupBox
     Friend WithEvents tabControl As TabControl
     Friend WithEvents tpTextSettings As TabPage
-    Friend WithEvents tpColorSettings As TabPage
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents NumberOfCharactersTextBox As TextBox
-    Friend WithEvents SettingsAggregateBindingSource As BindingSource
-    Friend WithEvents ShowBackgroundTextColorCheckBox As CheckBox
-    Friend WithEvents NumberOfLinesTextBox As TextBox
     Friend WithEvents DrawSymbolTextBox As TextBox
+    Friend WithEvents NumberOfLinesTextBox As TextBox
+    Friend WithEvents tpColorSettings As TabPage
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents SettingsPathTextBox As TextBox
     Friend WithEvents ArtSavePathTextBox As TextBox
     Friend WithEvents ArtLoadPathTextBox As TextBox
     Friend WithEvents ImagePathTextBox As TextBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents tsmiMenu As ToolStripMenuItem
+    Friend WithEvents tsmiOpen As ToolStripMenuItem
+    Friend WithEvents tsmiSave As ToolStripMenuItem
+    Friend WithEvents tsmiSettings As ToolStripMenuItem
+    Friend WithEvents tsmiText As ToolStripMenuItem
+    Friend WithEvents tsmiColors As ToolStripMenuItem
+    Friend WithEvents tsmiFiles As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents gvErrorList As DataGridView
+    Friend WithEvents ErrorMessageDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents ErrorMessageDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

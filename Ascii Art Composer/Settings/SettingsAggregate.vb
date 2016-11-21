@@ -47,10 +47,10 @@ Public Class CanvasText
     <Required(AllowEmptyStrings:=True)> <StringLength(1)> Public Property CursorCharacter As String = " "
     <Required(AllowEmptyStrings:=True)> <StringLength(1)> Public Property FillCharacter As String = " "
     <Required(AllowEmptyStrings:=True)> <StringLength(1)> Public Property DrawSymbol As String = " "
-    Public Property ShowBackgroundTextColor As Boolean
-    Public Property ShowBackgroundImage As Boolean
+    Public Property ShowBackgroundTextColor As Boolean = False
+    Public Property ShowBackgroundImage As Boolean = False
     Public Property ShowHiddenTextColor As Color 'made some changes that may have broke it, work on it later
-    Public Property ShowHiddenText As Boolean
+    Public Property ShowHiddenText As Boolean = False
 End Class
 
 <Serializable>

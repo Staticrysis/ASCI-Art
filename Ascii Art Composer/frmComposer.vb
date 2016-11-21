@@ -11,11 +11,13 @@ Public Class frmArt
         rtbCanvas.Build(Settings)
         rtbCanvas.RefillCanvas()
         SettingsAggregateBindingSource.DataSource = Settings
-        BindUI()
     End Sub
 
 #Region "Settings"
-    Private Sub BindUI()
+    Private Sub BindUI() Handles Me.Load
+        BindValidatingToValidator(Me)
+        ValidationResultBindingSource.DataSource = ControlValidator.ValidationResults
+        gvErrorList.DataSource = ControlValidator.ValidationResults
         AddHandler Me.btnReset.Click, AddressOf Me.rtbCanvas.RefillCanvas
 
         'AddHandler Me.NumberOfCharactersTextBox.Validating, AddressOf ControlValidator.ValidateProperty
@@ -48,16 +50,25 @@ Public Class frmArt
         FrmSettings.tcSettings.SelectTab(2) : FrmSettings.ShowDialog()
     End Sub
 
-    Private Sub DrawSymbolTextBox_TextChanged(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles DrawSymbolTextBox.Validating
-        'ValidateProperty(Settings.Canvas, "DrawSymbol", ErrorProvider1, sender)
-        e.Cancel = Not ControlPropertyValid(sender, ErrorProvider1, sender)
+    Private Sub ShowTextSettings(sender As Object, e As EventArgs) Handles tsmiText.Click
+
     End Sub
 
-    Private Sub NumberOfLinesTextBox_TextChanged(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles NumberOfLinesTextBox.Validating
-        'ValidateProperty(Settings.Canvas, "NumberOfLines", ErrorProvider1, sender)
+    Private Sub ShowColorSettings(sender As Object, e As EventArgs) Handles tsmiColors.Click
 
-        e.Cancel = Not ControlPropertyValid(sender, ErrorProvider1, sender)
     End Sub
+
+    Private Sub ShowFileSettings(sender As Object, e As EventArgs) Handles tsmiFiles.Click
+
+    End Sub
+
+    'Private Sub DrawSymbolTextBox_TextChanged(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles DrawSymbolTextBox.Validating
+    '    e.Cancel = Not ControlPropertyValid(sender, ErrorProvider1, sender)
+    'End Sub
+
+    'Private Sub NumberOfLinesTextBox_TextChanged(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles NumberOfLinesTextBox.Validating
+    '    e.Cancel = Not ControlPropertyValid(sender, ErrorProvider1, sender)
+    'End Sub
 #End Region
 
 #Region "RTB Text"
