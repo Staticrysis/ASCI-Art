@@ -2,11 +2,24 @@
 
 Module ControlValidator
     Dim _ep As New ErrorProvider() With {.RightToLeft = True}
-    Public ValidationResults As New List(Of ValidationResult)
+
+    'Private _validationResults As New List(Of ValidationResult)
+    Public Property ValidationResults As List(Of ValidationResult)
+    '    Get
+    '        Return _validationResults
+    '    End Get
+    '    Set(value As List(Of ValidationResult))
+    '        _validationResults = value
+    '        value.Reverse()
+    '        ValidationSource.DataSource = value
+    '        ValidationSource.ResetBindings()
+    '    End Set
+    'End Property
+    Public ValidationSource As New BindingSource With {.DataSource = ValidationResults}
     Private ControlList As New List(Of Control)
 
     'Controls should only be passed to this once
-    Sub BindValidatingToValidator(ByRef obj As Control)
+    Sub AddControlsToValidator(ByRef obj As Control)
         GetAllContols(obj, New List(Of Control))
         If ControlList.Count > 0 Then
             For Each control As Control In ControlList : AddHandler control.Validating, AddressOf ControlPropertyValid : Next
@@ -52,7 +65,8 @@ Module ControlValidator
         Next
 
         ValidationResults = ValidationResults.Concat(propertyResults).ToList
-
+        ValidationSource.DataSource = ValidationResults
+        'ValidationSource.ResetBindings(True) ' = ValidationResults
         If customEP IsNot Nothing AndAlso hasBrokenRule Then : customEP.SetError(obj, message) : Return Not hasBrokenRule
         ElseIf hasBrokenRule Then : _ep.SetError(obj, message) : Return Not hasBrokenRule
         Else : _ep.SetError(obj, "") : Return Not hasBrokenRule
@@ -67,7 +81,8 @@ Module ControlValidator
                 Validator.TryValidateProperty(binding.Control.Text, context, ValidationResults)
             Next
         Next
-
+        ValidationResults = ValidationResults
+        ValidationSource.DataSource = ValidationResults
         Return ValidationResults
     End Function
 

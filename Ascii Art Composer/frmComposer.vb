@@ -15,12 +15,17 @@ Public Class frmArt
 
 #Region "Settings"
     Private Sub BindUI() Handles Me.Load
-        BindValidatingToValidator(Me)
-        ValidationResultBindingSource.DataSource = ControlValidator.ValidationResults
-        gvErrorList.DataSource = ControlValidator.ValidationResults
-        AddHandler Me.btnReset.Click, AddressOf Me.rtbCanvas.RefillCanvas
+        Try
+            AddControlsToValidator(Me)
+            gvErrorList.DataSource = ControlValidator.ValidationSource
+            'gvErrorList.DataSource = ControlValidator.ValidationResults
+            AddHandler Me.btnReset.Click, AddressOf Me.rtbCanvas.RefillCanvas
 
-        'AddHandler Me.NumberOfCharactersTextBox.Validating, AddressOf ControlValidator.ValidateProperty
+            'AddHandler Me.NumberOfCharactersTextBox.Validating, AddressOf ControlValidator.ValidateProperty
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub SaveSettings(sender As Object, e As FormClosingEventArgs) Handles Me.Closing
@@ -61,6 +66,13 @@ Public Class frmArt
     Private Sub ShowFileSettings(sender As Object, e As EventArgs) Handles tsmiFiles.Click
 
     End Sub
+
+
+    Private Sub ValidationResultBindingSource_BindingComplete(sender As Object, e As BindingCompleteEventArgs) Handles ValidationResultBindingSource.BindingComplete
+        If ValidationResultBindingSource.List.Count > 0 Then gbErrorList.Visible = True Else gbErrorList.Visible = False
+
+    End Sub
+
 
     'Private Sub DrawSymbolTextBox_TextChanged(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles DrawSymbolTextBox.Validating
     '    e.Cancel = Not ControlPropertyValid(sender, ErrorProvider1, sender)
